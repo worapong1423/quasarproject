@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import pathify from 'vuex-pathify'
 
 // import example from './module-example'
-
+import list from './list'
 Vue.use(Vuex)
 
 /*
@@ -16,11 +16,12 @@ export default function (/* { ssrContext } */) {
     plugins: [pathify.plugin],
     modules: {
       // example
+      list
     },
 
     // enable strict mode (adds overhead!)
     // for dev mode only
-    strict: process.env.DEV
+    strict: false
   })
 
   return Store

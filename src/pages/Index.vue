@@ -1,17 +1,20 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-  <h1>Hello</h1>
+     <forms/>
+     <lists/>
   </div>
 </template>
 
   <script>
   import { get,sync,call } from "vuex-pathify";
+  import forms from '../components/page/index/form';
+  import lists from '../components/page/index/list';
 export default {
   name: 'Root',
   /*-------------------------Load Component---------------------------------------*/
   components: {
-
+      forms,lists
   },
   /*-------------------------Set Component---------------------------------------*/
 props:{
