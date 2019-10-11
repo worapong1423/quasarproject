@@ -10,6 +10,7 @@
     </form>
 <br>
  <q-btn v-if="form.id"   style="width:100%;" color="brown" icon="close" label="reform" @click="form = {}" />
+ <q-btn    style="width:100%;" color="red" icon="close" label="logout" @click="logoutform()" />
     
 
 </div>
@@ -22,7 +23,7 @@ import {
     call
 } from "vuex-pathify";
 import axios from 'axios';
-const ccc = 'hello';
+
 
 
 export default {
@@ -53,11 +54,15 @@ export default {
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed: {
-        ...sync('list/*')
+        ...sync('list/*'),
+        ...sync('login/*')
+
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
         ...call('list/*'),
+        ...call('login/*'),
+
         async submitFrom() {
           let check = await this.create(this.form);
           if(check){
@@ -83,6 +88,12 @@ export default {
            
         
         },
+        async logoutform() {
+           await this.userLogout();
+           await this.$router.replace('/')
+        },
+           
+        
 
         /******* Methods default run ******/
         load: async function () {

@@ -1,15 +1,19 @@
 <!----------Make By YourName---------------->
- <template>
-<div style="padding:5%;>
-    <form class="row justify-center gutter-md">
-        <q-input v-model="form.user" required square outlined label="ชื่อผุ้ใช้" /><br>
-        <q-input v-model="form.pass" required square outlined label="รหัสผ่าน" /><br>
-    </form><br>
+<template>
+<div style="padding:5%;">
+    <form @submit.prevent="loginform()">
+        <q-input v-model="user.email" required square outlined label="ชื่อ" /><br>
+        <q-input v-model="user.password" required square outlined label="สกุล" /><br>
+        <q-btn  type="submit" style="width:100%;" color="orange" icon="edit" label="Edit" />
+    </form>
+<br>
+    
+
 </div>
 </template>
 
-    <script>
-    import { get,sync,call } from "vuex-pathify"; 
+<script>
+import { get,sync,call } from "vuex-pathify";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
@@ -23,7 +27,7 @@ props:{
     /*-------------------------DataVarible---------------------------------------*/
     data() {
     return {
-
+        
         };
     }, 
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -37,11 +41,24 @@ props:{
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed:{
-
+        ...sync('login/*')
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
+    ...call('login/*'),
     /******* Methods default run ******/
+     async loginform() {
+          let check = await this.login();
+          if(check){
+              this.$router.replace('/index')
+              
+          }else{
+                alert('login error');
+          }
+           
+        
+        },
+
     load:async function(){
 }
 },

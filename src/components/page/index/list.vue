@@ -46,11 +46,13 @@ export default {
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed: {
-        ...sync('list/*')
+        ...sync('list/*'),
+        ...sync('login/*')
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
         ...call('list/*'),
+        ...call('login/*'),
         /******* Methods default run ******/
         load: async function () {
             await this.read();

@@ -2,19 +2,18 @@
  <template>
 <div>
     <formlogin/>
-    <loginbutton/>
+    
 </div>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
     import formlogin from "../../components/page/Login/LoginFrom";
-    import loginbutton from "../../components/page/Login/LoginButton";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        formlogin,loginbutton
+        formlogin
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
