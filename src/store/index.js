@@ -5,6 +5,7 @@ import pathify from 'vuex-pathify'
 // import example from './module-example'
 import list from './list'
 import login from './login'
+import hotel from './hotel'
 Vue.use(Vuex)
 
 /*
@@ -17,7 +18,7 @@ export default function (/* { ssrContext } */) {
     plugins: [pathify.plugin],
     modules: {
       // example
-      list,login
+      list,login,hotel
     },
 
     // enable strict mode (adds overhead!)
