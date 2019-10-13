@@ -1,6 +1,7 @@
 
 const routes = [
   {
+    path: '/',
     path: '/index',
     component: () => import('layouts/MyLayout.vue'),
     children: [
@@ -8,10 +9,15 @@ const routes = [
     ]
   },
   {
+    path: '/hotelmain',
+    name:'hotelmain',
+    component: () => import('pages/hotel/hotelmainscreen.vue')
+  },
+  {
     path: '/',
     name:'login',
     component: () => import('pages/Login/LoginScreen.vue')
-  }
+  },
 ]
 
 // Always leave this as last one

@@ -1,6 +1,7 @@
 <!----------Make By YourName---------------->
  <template>
-<div id="q-app">
+<div q-app>
+
       <router-view />
 
   </div>
