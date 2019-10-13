@@ -11,6 +11,11 @@ const routes = [
     path: '/index',
     name:'index',
     component: () => import('pages/index.vue')
+  },
+  {
+    path: '/hotelmain',
+    name:'hotelmain',
+    component: () => import('pages/hotel/hotelmainscreen.vue')
   }
 ]
 
