@@ -2,19 +2,12 @@
 <template>
   <div class="q-pa-md">
     <q-layout>
-      <q-header reveal elevated>
-        <q-toolbar>
-          <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
-          
-
-          <q-toolbar-title>โรงเเรม</q-toolbar-title>
-        </q-toolbar>
-      </q-header>
+    
 
       <q-page-container>
         <q-list bordered separator>
             <q-item clickable v-ripple>
-                <q-item-section>โรงเเรม อินเตอร์เนชั่นแนลเฮาล์</q-item-section>
+                <q-item-section @click="openpage()">โรงเเรม อินเตอร์เนชั่นแนลเฮาส์</q-item-section>
             </q-item>
 
             <q-item clickable v-ripple>
@@ -69,6 +62,12 @@ props:{
     /*-------------------------Methods------------------------------------------*/
 methods:{
     /******* Methods default run ******/
+    async openpage() {
+          this.$router.push('/hotel/test')
+          
+        
+        },
+
     load:async function(){
 }
 },
