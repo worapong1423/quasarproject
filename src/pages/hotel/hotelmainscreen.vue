@@ -1,23 +1,19 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-    
     <listhotel/>
-    <btadd/>
 </div>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
     import listhotel from "../../components/page/hotel/listhotel"
-    import btadd from "../../components/share/btadd"
     
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
         listhotel,
-        btadd,
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{

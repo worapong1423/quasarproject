@@ -23,6 +23,10 @@
             </q-item>
         </q-list>
 
+        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-btn @click="addhotel()" fab icon="add" color="primary"  />
+        </q-page-sticky>
+
       </q-page-container>
     </q-layout>
   </div>
@@ -63,10 +67,15 @@ props:{
 methods:{
         ...call('hotel/*'),
     /******* Methods default run ******/
+    
     async openpage() {
           this.$router.push('/hotel/test')
 
 
+        },
+    async addhotel() {
+          this.$router.push('/hotel/addhotel')
+          
         },
 
     load:async function(){
