@@ -9,7 +9,7 @@ const axios = Axios.create({
     headers: {
         "Authorization": "Bearer " + api_token,
         'Content-Type': "application/json",
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
     }
 })
 
