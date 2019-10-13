@@ -1,18 +1,20 @@
 
 const routes = [
   {
-    path: '/',
-    path: '/index',
+    path: '/hotel',
+    name:'hotel',
     component: () => import('layouts/MyLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/index.vue') }
+      { path: '',
+       component: () => import('pages/hotel/hotelmainscreen.vue') 
+      },
+      { path: 'test',
+       component: () => import('pages/hotel/test.vue'), 
+      },
+
     ]
   },
-  {
-    path: '/hotelmain',
-    name:'hotelmain',
-    component: () => import('pages/hotel/hotelmainscreen.vue')
-  },
+
   {
     path: '/',
     name:'login',

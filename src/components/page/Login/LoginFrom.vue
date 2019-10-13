@@ -50,7 +50,7 @@ methods:{
      async loginform() {
           let check = await this.login();
           if(check){
-              this.$router.replace('/hotelmain')
+              this.$router.replace('/hotel')
               
           }else{
                 alert('login error');

@@ -1,25 +1,9 @@
 <!----------Make By YourName---------------->
-<template>
-  <div class="q-pa-md">
-    <q-layout>
-      <q-header reveal elevated>
-        <q-toolbar>
-          <q-btn flat round dense icon="menu" class="q-mr-sm"@click="leftDrawerOpen = !leftDrawerOpen" />
-          <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-2"
-    >
-
-          <q-toolbar-title>{{namehr}}</q-toolbar-title>
-        </q-toolbar>
-      </q-header>
-
-    </q-layout>
-  </div>
+ <template>
+<div>
+    <h1>Hello nbjhdasgfjkweahgb</h1>
+    </div>
 </template>
-
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
@@ -31,10 +15,7 @@ export default {
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
-    namehr : {
-        type : String,
-        default : 'ชื่อหน้า'
-    }
+
 },
     /*-------------------------DataVarible---------------------------------------*/
     data() {
