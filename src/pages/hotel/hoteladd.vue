@@ -1,19 +1,12 @@
 <!----------Make By YourName---------------->
-<template>
-<div style="padding:5%;">
-    <form @submit.prevent="loginform()">
-        <q-input v-model="user.email" required square outlined label="อีเมลล์" /><br>
-        <q-input v-model="user.password" required square outlined label="รหัสผ่าน" /><br>
-        <q-btn  type="submit" style="width:100%;" color="primary" label="เข้าสู่ระบบ" />
-    </form>
-<br>
-    
-
-</div>
+ <template>
+<div>
+    <q-input outlined v-model="text" label="Outlined" />
+    </div>
 </template>
 
-<script>
-import { get,sync,call } from "vuex-pathify";
+    <script>
+    import { get,sync,call } from "vuex-pathify"; 
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
@@ -27,7 +20,7 @@ props:{
     /*-------------------------DataVarible---------------------------------------*/
     data() {
     return {
-        
+
         };
     }, 
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -41,24 +34,11 @@ props:{
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed:{
-        ...sync('login/*')
+
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
-    ...call('login/*'),
     /******* Methods default run ******/
-     async loginform() {
-          let check = await this.login();
-          if(check){
-              this.$router.replace('/hotel')
-              
-          }else{
-                alert('login error');
-          }
-           
-        
-        },
-
     load:async function(){
 }
 },

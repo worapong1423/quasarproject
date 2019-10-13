@@ -29,44 +29,45 @@
       <q-list padding>
             <q-item clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="inbox" />
+                <q-icon name="store" />
               </q-item-section>
 
               <q-item-section>
-                Inbox
+                ข้อมูลร้าน
               </q-item-section>
             </q-item>
 
             <q-item active clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="star" />
+                <q-icon name="people" />
               </q-item-section>
 
               <q-item-section>
-                Star
+                พนักงาน
               </q-item-section>
             </q-item>
 
             <q-item clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="send" />
+                <q-icon name="apartment" />
               </q-item-section>
 
               <q-item-section>
-                Send
+                โรงแรม
               </q-item-section>
             </q-item>
 
             <q-item clickable v-ripple>
               <q-item-section avatar>
-                <q-icon name="drafts" />
+                <q-icon name="description" />
               </q-item-section>
 
               <q-item-section>
-                Drafts
+                ใบเสร็จ
               </q-item-section>
             </q-item>
           </q-list>
+          <q-btn    style="width:100%;" color="red" icon="close" label="logout" @click="logoutform()" />
           </q-scroll-area>
            <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
           <div class="absolute-bottom bg-transparent">
@@ -85,14 +86,48 @@
   </q-layout>
 </template>
 
-<script>
+
+    <script>
+    import { get,sync,call } from "vuex-pathify"; 
 export default {
   name: 'MyLayout',
+    /*-------------------------Load Component---------------------------------------*/
+    components: {
 
-  data () {
+    },
+  /*-------------------------Set Component---------------------------------------*/
+props:{
+
+},
+    /*-------------------------DataVarible---------------------------------------*/
+    data() {
     return {
-      leftDrawerOpen: false
-    }
-  }
+        leftDrawerOpen: false
+        };
+    }, 
+    /*-------------------------Run Methods when Start this Page------------------------------------------*/
+     async mounted() {
+    /**** Call loading methods*/
+            this.load(); 
+    },
+    /*-------------------------Run Methods when Start Routed------------------------------------------*/
+     async beforeRouteEnter(to, from, next) { 
+        next()
+    },
+    /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
+    computed:{
+      ...sync('login/*')
+},
+    /*-------------------------Methods------------------------------------------*/
+methods:{
+  ...call('login/*'),
+    /******* Methods default run ******/
+    async logoutform() {
+           await this.userLogout();
+           await this.$router.replace('/')
+        },
+    load:async function(){
 }
+},
+    }
 </script>
