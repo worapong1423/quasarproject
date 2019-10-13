@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
   <div class="q-pa-md">
-    <q-layout view="lHh lpr lFf" container style="height: 400px" class="shadow-2 rounded-borders">
+    <q-layout>
       <q-header reveal elevated>
         <q-toolbar>
           <q-btn flat round dense icon="menu" class="q-mr-sm" />
@@ -27,9 +27,9 @@ export default {
   /*-------------------------Set Component---------------------------------------*/
 props:{
     namehr : {
-        type: String,
-        default :' ชื่อหน้า '
-    },
+        type : String,
+        default : 'ชื่อหน้า'
+    }
 },
     /*-------------------------DataVarible---------------------------------------*/
     data() {
