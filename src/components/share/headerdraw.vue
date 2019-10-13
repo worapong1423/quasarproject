@@ -4,8 +4,13 @@
     <q-layout>
       <q-header reveal elevated>
         <q-toolbar>
-          <q-btn flat round dense icon="menu" class="q-mr-sm" />
-          
+          <q-btn flat round dense icon="menu" class="q-mr-sm"@click="leftDrawerOpen = !leftDrawerOpen" />
+          <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+      content-class="bg-grey-2"
+    >
 
           <q-toolbar-title>{{namehr}}</q-toolbar-title>
         </q-toolbar>
