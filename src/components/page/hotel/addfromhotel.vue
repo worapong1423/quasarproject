@@ -1,22 +1,31 @@
 <!----------Make By YourName---------------->
- <template>
-<div>
-    <addfrom/>
+<template>
+    <div style="padding:5%;">
+        <q-input outlined v-model="text" label="โรงเเรม" /><br>
+        <q-input outlined v-model="text" label="ที่อยู่" /><br>
+        <q-input outlined v-model="text" label="อำเภอ" /><br>
+        <q-input outlined v-model="text" label="จังหวัด" /><br>
+        <q-input outlined v-model="text" label="รหัสไปรษณีย" /><br>
+        <q-input outlined v-model="text" label="เบอร์ติดต่อ" /><br>
+        <q-input outlined v-model="text" label="อีเมล" /><br>
+        <q-input outlined v-model="text" label="เลขประจำตัวผู้เสียภาษ" /><br>
+
+        <q-btn style="width:100%;" color="primary" label="บันทึก" />
+
     </div>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
-    import addfrom from "../../components/page/hotel/addfromhotel"
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        addfrom,
 
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
+
 },
     /*-------------------------DataVarible---------------------------------------*/
     data() {

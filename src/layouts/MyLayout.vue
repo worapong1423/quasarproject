@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          {{hrname}}
         </q-toolbar-title>
 
         
@@ -97,7 +97,10 @@ export default {
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
-
+  hrname : {
+    type : String,
+    default : '',
+  }
 },
     /*-------------------------DataVarible---------------------------------------*/
     data() {
