@@ -1,17 +1,33 @@
 <!----------Make By YourName---------------->
-<template>
-<div style="padding:5%;">
+
+<template  >
+
+<div class="Fullscreen" >
+<div style="padding:5%;"  >
     <form @submit.prevent="loginform()">
         <q-input v-model="user.email" required square outlined label="อีเมลล์" /><br>
-        <q-input v-model="user.password" filled type="password" required square outlined label="รหัสผ่าน" /><br>
+        <q-input v-model="user.password"  type="password" required square outlined label="รหัสผ่าน" /><br>
         <q-btn  type="submit" style="width:100%;" color="primary" label="เข้าสู่ระบบ" />
     </form>
 <br>
 
 
 </div>
+</div>
 </template>
-
+<style type="text/css">
+  .Fullscreen
+  {
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Optional - just for DIV)*/
+    border: solid 1px #000000;
+    background-color:#00e6e6;
+  }
+</style>
 <script>
 import { get,sync,call } from "vuex-pathify";
 export default {
