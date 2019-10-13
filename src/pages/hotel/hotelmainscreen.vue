@@ -9,7 +9,7 @@
     <script>
     import { get,sync,call } from "vuex-pathify"; 
     import listhotel from "../../components/page/hotel/listhotel"
-    import btadd from "../../components/page/share/btadd"
+    import btadd from "../../components/share/btadd"
     import headerdraw from "../../components/page/share/headerdraw"
 export default {
     name: 'Root',
