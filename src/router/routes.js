@@ -1,23 +1,22 @@
 
 const routes = [
   {
-    path: '/layouts',
-    name:'layouts',
+    path: '/hotel',
+    name:'hotel',
     component: () => import('layouts/MyLayout.vue'),
     children: [
-      { path: '/hotel',
-        name:'hotel',
+      { path: '',
        component: () => import('pages/hotel/hotelmainscreen.vue'),
-       children: [
-          {path: '/addhotel',
-          name: 'addhotel',
-          component: () => import('pages/hotel/hoteladd.vue')
-          }
-       ],
       },
       { path: 'test',
+        name: 'test',
        component: () => import('pages/hotel/test.vue'), 
       },
+      {
+        path: 'addhotel',
+        name: 'addhotel',
+        component: () => import('pages/hotel/hoteladd.vue')
+      }
 
     ]
   },

@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-    <q-input outlined v-model="text" label="Outlined" />
+    <h1>Hello</h1>
     </div>
 </template>
 
