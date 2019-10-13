@@ -3,11 +3,11 @@
 <div style="padding:5%;">
     <form @submit.prevent="loginform()">
         <q-input v-model="user.email" required square outlined label="อีเมลล์" /><br>
-        <q-input v-model="user.password" required square outlined label="รหัสผ่าน" /><br>
+        <q-input v-model="user.password" filled type="password" required square outlined label="รหัสผ่าน" /><br>
         <q-btn  type="submit" style="width:100%;" color="primary" label="เข้าสู่ระบบ" />
     </form>
 <br>
-    
+
 
 </div>
 </template>
@@ -27,16 +27,16 @@ props:{
     /*-------------------------DataVarible---------------------------------------*/
     data() {
     return {
-        
+
         };
-    }, 
+    },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load(); 
+            this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) { 
+     async beforeRouteEnter(to, from, next) {
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
@@ -51,12 +51,12 @@ methods:{
           let check = await this.login();
           if(check){
               this.$router.replace('/hotel')
-              
+
           }else{
                 alert('login error');
           }
-           
-        
+
+
         },
 
     load:async function(){
