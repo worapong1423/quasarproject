@@ -43,6 +43,7 @@ props:{
 methods:{
   /******* Methods default run ******/
   load:async function(){
+    this.$store.dispatch('login/axiosSetToken',null);
 }
 },
   }
