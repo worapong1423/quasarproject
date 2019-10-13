@@ -17,7 +17,7 @@ const mutations = make.mutations(state)
 
 const actions = {
 
-   
+
 
 async login(context,params){
    let loginform = await axios.post('/api/auth/login', state.user)
@@ -25,7 +25,7 @@ async login(context,params){
         //alert('loginsuccess')
         localStorage.setItem('api_token',r.data.access_token);
         return true
-    }).catch((e) => { 
+    }).catch((e) => {
         //alert('loginfailed')
         return false
      });
@@ -35,12 +35,12 @@ async userLogout(context,params){
      let logoutform = await axios.get('/api/auth/logout')
      .then((r) => {
          alert('logout success')
-         
-     }).catch((e) => { 
-         
+
+     }).catch((e) => {
+
          alert('logout error')
       });
-      
+
       await localStorage.removeItem('api_token')
       await localStorage.clear()
  },
