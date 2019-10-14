@@ -1,34 +1,44 @@
 <!----------Make By YourName---------------->
 <template>
-  <div class="q-pa-md">
-    <q-layout>
+  <q-layout view="lHh Lpr lFf">
+    <q-header elevated>
+      <q-toolbar>
+        <q-toolbar-title>
+          {{hrname}}
+        </q-toolbar-title>
+      </q-toolbar>
+
+    <div class="q-gutter-y-md" style="max-width: 600px">
+        <q-tabs
+         v-model="tab"
+         inline-label
+         switch-indicator
+         indicator-color="primary"
+         class="bg-primary text-white shadow-2"
+         slot="navigation"
+        >
+        <q-tab routes="/hotel/layouttab/tablist" exact replace>รายการ</q-tab>
+        <q-tab routes="" exact replace>เรท</q-tab>
+        <q-tab routes="" exact replace>ข้อมูล</q-tab>
+        </q-tabs>
 
 
-      <q-page-container>
-        <div v-for="hotel,index in hotel" :key="index">
-        <q-list bordered separator>
-            <q-item clickable v-ripple >
-              <q-item-section @click="openpage()">{{(index+1)}}.  {{hotel.Hotel_name}}</q-item-section>
-            </q-item>
-        </q-list>
-        </div>
+    </div>
+    </q-header>
+    <q-page-container>
+      <router-view />
+    </q-page-container>
 
-        <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn @click="addhotel()" fab icon="add" color="primary"  />
-        </q-page-sticky>
-
-      </q-page-container>
-    </q-layout>
-  </div>
+  </q-layout>
 </template>
 
     <script>
-    import { get,sync,call } from "vuex-pathify";
-
+    import { get,sync,call } from "vuex-pathify"; 
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
+        
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
@@ -39,37 +49,24 @@ props:{
     return {
 
         };
-    },
+    }, 
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load();
+            this.load(); 
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) {
+     async beforeRouteEnter(to, from, next) { 
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed:{
-        ...sync('hotel/*')
+
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
-        ...call('hotel/*'),
     /******* Methods default run ******/
-
-    async openpage() {
-          this.$router.push('/hotel/layouttab')
-
-
-        },
-    async addhotel() {
-          this.$router.push('/hotel/addhotel')
-
-        },
-
     load:async function(){
-      await this.getData();
 }
 },
     }

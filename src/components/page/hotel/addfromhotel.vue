@@ -10,7 +10,7 @@
         <q-input outlined v-model="text" label="อีเมล" /><br>
         <q-input outlined v-model="text" label="เลขประจำตัวผู้เสียภาษ" /><br>
 
-        <q-btn style="width:100%;" color="primary" label="บันทึก" />
+        <q-btn style="width:100%;" color="primary" label="บันทึก" @click="hotel()" />
 
     </div>
 </template>
@@ -49,6 +49,11 @@ props:{
     /*-------------------------Methods------------------------------------------*/
 methods:{
     /******* Methods default run ******/
+    async hotel() {
+          this.$router.push('/hotel')
+
+
+        },
     load:async function(){
 }
 },
