@@ -1,8 +1,9 @@
-import axios from '../axios'
+import axios from '../axios';
 
 import { make } from 'vuex-pathify'
 const state = {
   hotel:[],
+  hotelform:{},
 
 }
 const getters = {
@@ -23,17 +24,16 @@ let load = await axios.get('/api/hotel')
 });
     return load;
   },
-async storeData(context, params) {
-  let load = await axios.post('/api/hotel', params)
-  .then((r) => {
-    alert('Save Data Success');
-    return true;
-  }).catch((e) => {
-    alert('Error Save');
-    return false;
-  });
-    return load;
-},
+
+  create : async function(context,params){
+    let x = await axios.post(`/api/hotel`, params)
+    .then((r) => {
+       return true;
+    }).catch((e) => {
+       return false;
+     });
+     return x;
+   },
 
 async updateData(context, params) {
   let load = await axios.put(`/api/hotel/${params.id}`, params)
@@ -47,23 +47,23 @@ async updateData(context, params) {
     return load
 },
 
-async destroyData(context, params) {
-
+async destroyData(context,id ){
   let confirms = confirm('Do you want to delete this data ?');
   if(confirms){
-    let load = await axios.delete(`/api/test/${id}`)
-    .then(async (r) => {
-      alert('Delete Data Success');
-      await actions.read();
-    }).catch((e) => {
-      alert('Error Delete');
-    });
-    }
+      let x = await axios.delete(`/api/hotel/${id}`)
+  .then(async (r) => {
+      alert('Delete Success');
+      await actions.getData();
+  }).catch((e) => {
+      alert('Delete Error');
+   });
+  }
 
-  },
+
+},
+
+
 }
-
-
 
 
 export default {

@@ -12,7 +12,7 @@
                <q-item-section top side>
           <div class="text-grey-8 q-gutter-xs">
             <q-btn size="12px" flat dense round icon="more_vert" />
-            <q-btn  size="12px" flat dense round icon="delete" @click="destroyData(hotel.Hotel_id)" />
+            <q-btn  size="12px" flat dense round icon="delete" @click="destroyData(hotel.id)" />
 
           </div>
         </q-item-section>

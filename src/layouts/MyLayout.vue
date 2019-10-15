@@ -15,7 +15,7 @@
           {{hrname}}
         </q-toolbar-title>
 
-        
+
       </q-toolbar>
     </q-header>
 
@@ -88,7 +88,7 @@
 
 
     <script>
-    import { get,sync,call } from "vuex-pathify"; 
+    import { get,sync,call } from "vuex-pathify";
 export default {
   name: 'MyLayout',
     /*-------------------------Load Component---------------------------------------*/
@@ -107,14 +107,14 @@ props:{
     return {
         leftDrawerOpen: false
         };
-    }, 
+    },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load(); 
+            this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) { 
+     async beforeRouteEnter(to, from, next) {
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
