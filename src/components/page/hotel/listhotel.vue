@@ -66,7 +66,7 @@ methods:{
     /******* Methods default run ******/
 
     async openpage() {
-          this.$router.push('/hotel/layouttab')
+          this.$router.push('/hotel/layouttab/tablist')
 
 
         },

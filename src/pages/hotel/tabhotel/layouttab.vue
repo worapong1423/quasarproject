@@ -1,13 +1,6 @@
 <!----------Make By YourName---------------->
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-toolbar-title>
-          {{hrname}}
-        </q-toolbar-title>
-      </q-toolbar>
-
     <div class="q-gutter-y-md" style="max-width: 600px">
         <q-tabs
          v-model="tab"
@@ -17,14 +10,14 @@
          class="bg-primary text-white shadow-2"
          slot="navigation"
         >
-        <q-tab $router="/hotel/layouttab/tablist" replace>รายการ</q-tab>
-        <q-tab $router="/hotel/layouttab/tablist" replace>เรท</q-tab>
-        <q-tab $router="/hotel/layouttab/tablist" replace>ข้อมูล</q-tab>
+        <q-tab router="/hotel/layouttab/tablist" replace>รายการ</q-tab>
+        <q-tab router="/hotel/layouttab/tablist" replace>เรท</q-tab>
+        <q-tab router="/hotel/layouttab/tablist" replace>ข้อมูล</q-tab>
         </q-tabs>
 
 
     </div>
-    </q-header>
+
     <q-page-container>
       <router-view />
     </q-page-container>
