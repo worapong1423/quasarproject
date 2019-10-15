@@ -17,9 +17,9 @@
          class="bg-primary text-white shadow-2"
          slot="navigation"
         >
-        <q-tab routes="/hotel/layouttab/tablist" exact replace>รายการ</q-tab>
-        <q-tab routes="" exact replace>เรท</q-tab>
-        <q-tab routes="" exact replace>ข้อมูล</q-tab>
+        <q-tab $router="/hotel/layouttab/tablist" replace>รายการ</q-tab>
+        <q-tab $router="/hotel/layouttab/tablist" replace>เรท</q-tab>
+        <q-tab $router="/hotel/layouttab/tablist" replace>ข้อมูล</q-tab>
         </q-tabs>
 
 

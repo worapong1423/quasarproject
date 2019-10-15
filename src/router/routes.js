@@ -1,5 +1,5 @@
 
-let routes = [
+const routes = [
   {
     path: '/hotel',
     name:'hotel',
