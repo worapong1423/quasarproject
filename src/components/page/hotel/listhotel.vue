@@ -9,6 +9,13 @@
         <q-list bordered separator>
             <q-item clickable v-ripple >
               <q-item-section @click="openpage()">{{(index+1)}}.  {{hotel.Hotel_name}}</q-item-section>
+               <q-item-section top side>
+          <div class="text-grey-8 q-gutter-xs">
+            <q-btn size="12px" flat dense round icon="more_vert" />
+            <q-btn  size="12px" flat dense round icon="delete" @click="destroyData(hotel.id)" />
+
+          </div>
+        </q-item-section>
             </q-item>
         </q-list>
         </div>
@@ -43,7 +50,7 @@ props:{
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load();
+           await this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
      async beforeRouteEnter(to, from, next) {

@@ -6,9 +6,9 @@
 </template>
 
     <script>
-    import { get,sync,call } from "vuex-pathify"; 
+    import { get,sync,call } from "vuex-pathify";
     import listhotel from "../../components/page/hotel/listhotel"
-    
+
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
@@ -21,18 +21,21 @@ props:{
 },
     /*-------------------------DataVarible---------------------------------------*/
     data() {
-        hrname = "โรงแรม"
+
+
     return {
-        
+        hrname:{
+          ชื่อ :'โรงแรม',
+        },
         };
-    }, 
+    },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load(); 
+            this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) { 
+     async beforeRouteEnter(to, from, next) {
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/

@@ -1,22 +1,23 @@
 <!----------Make By YourName---------------->
 <template>
     <div style="padding:5%;">
-        <q-input outlined v-model="text" label="โรงเเรม" /><br>
-        <q-input outlined v-model="text" label="ที่อยู่" /><br>
-        <q-input outlined v-model="text" label="อำเภอ" /><br>
-        <q-input outlined v-model="text" label="จังหวัด" /><br>
-        <q-input outlined v-model="text" label="รหัสไปรษณีย" /><br>
-        <q-input outlined v-model="text" label="เบอร์ติดต่อ" /><br>
-        <q-input outlined v-model="text" label="อีเมล" /><br>
-        <q-input outlined v-model="text" label="เลขประจำตัวผู้เสียภาษ" /><br>
+      <form @submit.prevent="submitFrom()">
+        <q-input outlined v-model="hotelform.Hotel_name" label="โรงเเรม" /><br>
+        <q-input outlined v-model="hotelform.Hotel_address" label="ที่อยู่" /><br>
+        <q-input outlined v-model="hotelform.Hotel_district" label="อำเภอ" /><br>
+        <q-input outlined v-model="hotelform.Hotel_province" label="จังหวัด" /><br>
+        <!--<q-input outlined v-model="hotel.Hotel_" label="รหัสไปรษณีย" /><br>-->
+        <q-input outlined v-model="hotelform.Hotel_tel" label="เบอร์ติดต่อ" /><br>
+        <q-input outlined v-model="hotelform.Hotel_email" label="อีเมล" /><br>
+        <q-input outlined v-model="hotelform.Hotel_taxid" label="เลขประจำตัวผู้เสียภาษ" /><br>
 
-        <q-btn style="width:100%;" color="primary" label="บันทึก" @click="hotel()" />
-
+        <q-btn type="submit" style="width:100%;" color="primary" label="บันทึก"  />
+      </form>
     </div>
 </template>
 
     <script>
-    import { get,sync,call } from "vuex-pathify"; 
+    import { get,sync,call } from "vuex-pathify";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
@@ -32,27 +33,39 @@ props:{
     return {
 
         };
-    }, 
+    },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load(); 
+            this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) { 
+     async beforeRouteEnter(to, from, next) {
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed:{
-
+        ...sync('hotel/*')
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
+    ...call('hotel/*'),
     /******* Methods default run ******/
     async hotel() {
           this.$router.push('/hotel')
 
 
+        },
+        async submitFrom() {
+          let check = await this.create(this.hotelform);
+          if(check){
+              alert('Create Success');
+              this.hotelform = {};
+              this.$router.replace('/hotel')
+              await this.read();
+          }else{
+                alert('Create Error');
+          }
         },
     load:async function(){
 }
