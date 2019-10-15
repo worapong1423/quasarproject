@@ -67,7 +67,7 @@ methods:{
           this.$router.push('/hotel/layouttab/')
         },
     async addorder() {
-          this.$router.push('/hotel/addorder')
+          this.$router.push('/hotel/statusone')
 
         },
 

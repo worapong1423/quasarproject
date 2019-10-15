@@ -40,9 +40,9 @@ const routes = [
         ]
       },
       {
-        path: 'addorder',
-        name: 'addorder',
-        component: () => import('pages/hotel/tabhotel/order/addorder.vue'),
+        path: 'statusone',
+        name: 'statusone',
+        component: () => import('pages/hotel/tabhotel/order/statusone.vue'),
       }
 
     ]

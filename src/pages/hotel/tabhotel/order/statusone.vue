@@ -1,18 +1,18 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-    <addorder/>
+    <statusone/>
     </div>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
-    import addorder from "../../../../components/page/hotel/order/addorder"
+    import statusone from "../../../../components/page/hotel/order/statusone"
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        addorder
+        statusone
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
