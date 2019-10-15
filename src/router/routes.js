@@ -1,5 +1,5 @@
 
-const routes = [
+let routes = [
   {
     path: '/hotel',
     name:'hotel',
@@ -15,8 +15,20 @@ const routes = [
       {
         path: 'addhotel',
         name: 'addhotel',
-        component: () => import('pages/hotel/hoteladd.vue')
-      }
+        component: () => import('pages/hotel/hoteladd.vue'),
+      },
+      {
+        path: 'layouttab',
+        name: 'layouttab',
+        component: () => import('pages/hotel/tabhotel/layouttab.vue'),
+        children: [
+          {
+            path: 'tablist',
+            name: 'tablist',
+            component: () => import('pages/hotel/tabhotel/taborderlist.vue'),
+          }
+        ]
+      },
 
     ]
   },

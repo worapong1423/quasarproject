@@ -1,18 +1,35 @@
 <!----------Make By YourName---------------->
 <template>
-    <div style="padding:5%;">
-        <q-input outlined v-model="text" label="โรงเเรม" /><br>
-        <q-input outlined v-model="text" label="ที่อยู่" /><br>
-        <q-input outlined v-model="text" label="อำเภอ" /><br>
-        <q-input outlined v-model="text" label="จังหวัด" /><br>
-        <q-input outlined v-model="text" label="รหัสไปรษณีย" /><br>
-        <q-input outlined v-model="text" label="เบอร์ติดต่อ" /><br>
-        <q-input outlined v-model="text" label="อีเมล" /><br>
-        <q-input outlined v-model="text" label="เลขประจำตัวผู้เสียภาษ" /><br>
+  <q-layout view="lHh Lpr lFf">
+    <q-header elevated>
+      <q-toolbar>
+        <q-toolbar-title>
+          {{hrname}}
+        </q-toolbar-title>
+      </q-toolbar>
 
-        <q-btn style="width:100%;" color="primary" label="บันทึก" @click="hotel()" />
+    <div class="q-gutter-y-md" style="max-width: 600px">
+        <q-tabs
+         v-model="tab"
+         inline-label
+         switch-indicator
+         indicator-color="primary"
+         class="bg-primary text-white shadow-2"
+         slot="navigation"
+        >
+        <q-tab routes="/hotel/layouttab/tablist" exact replace>รายการ</q-tab>
+        <q-tab routes="" exact replace>เรท</q-tab>
+        <q-tab routes="" exact replace>ข้อมูล</q-tab>
+        </q-tabs>
+
 
     </div>
+    </q-header>
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+
+  </q-layout>
 </template>
 
     <script>
@@ -21,7 +38,7 @@ export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-
+        
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
@@ -49,11 +66,6 @@ props:{
     /*-------------------------Methods------------------------------------------*/
 methods:{
     /******* Methods default run ******/
-    async hotel() {
-          this.$router.push('/hotel')
-
-
-        },
     load:async function(){
 }
 },

@@ -1,17 +1,7 @@
 <!----------Make By YourName---------------->
-<template>
-    <div style="padding:5%;">
-        <q-input outlined v-model="text" label="โรงเเรม" /><br>
-        <q-input outlined v-model="text" label="ที่อยู่" /><br>
-        <q-input outlined v-model="text" label="อำเภอ" /><br>
-        <q-input outlined v-model="text" label="จังหวัด" /><br>
-        <q-input outlined v-model="text" label="รหัสไปรษณีย" /><br>
-        <q-input outlined v-model="text" label="เบอร์ติดต่อ" /><br>
-        <q-input outlined v-model="text" label="อีเมล" /><br>
-        <q-input outlined v-model="text" label="เลขประจำตัวผู้เสียภาษ" /><br>
-
-        <q-btn style="width:100%;" color="primary" label="บันทึก" @click="hotel()" />
-
+ <template>
+<div>
+    <h1>Hello orlist</h1>
     </div>
 </template>
 
@@ -49,11 +39,6 @@ props:{
     /*-------------------------Methods------------------------------------------*/
 methods:{
     /******* Methods default run ******/
-    async hotel() {
-          this.$router.push('/hotel')
-
-
-        },
     load:async function(){
 }
 },
