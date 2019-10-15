@@ -1,18 +1,16 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-    <addlist/>
+    <h1>Hello detail</h1>
     </div>
 </template>
 
     <script>
-    import { get,sync,call } from "vuex-pathify";
-    import addlist from "../../../components/page/hotel/tabhotel/listorder";
+    import { get,sync,call } from "vuex-pathify"; 
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        addlist,
 
     },
   /*-------------------------Set Component---------------------------------------*/

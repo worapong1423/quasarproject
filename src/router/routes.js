@@ -26,9 +26,24 @@ const routes = [
             path: 'tablist',
             name: 'tablist',
             component: () => import('pages/hotel/tabhotel/taborderlist.vue'),
+          },
+          {
+            path: 'tabrate',
+            name: 'tabrate',
+            component: () => import('pages/hotel/tabhotel/tabrate.vue'),
+          },
+          {
+            path: 'tabdetail',
+            name: 'tabdetail',
+            component: () => import('pages/hotel/tabhotel/tabdetail.vue'),
           }
         ]
       },
+      {
+        path: 'addorder',
+        name: 'addorder',
+        component: () => import('pages/hotel/tabhotel/order/addorder.vue'),
+      }
 
     ]
   },

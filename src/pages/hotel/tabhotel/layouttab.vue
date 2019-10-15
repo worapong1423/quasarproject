@@ -10,12 +10,10 @@
          class="bg-primary text-white shadow-2"
          slot="navigation"
         >
-        <q-tab router="/hotel/layouttab/tablist" replace>รายการ</q-tab>
-        <q-tab router="/hotel/layouttab/tablist" replace>เรท</q-tab>
-        <q-tab router="/hotel/layouttab/tablist" replace>ข้อมูล</q-tab>
+        <q-tab  @click="list()" replace>รายการ</q-tab>
+        <q-tab  @click="rate()" replace>เรท</q-tab>
+        <q-tab  @click="detail()" replace>ข้อมูล</q-tab>
         </q-tabs>
-
-
     </div>
 
     <q-page-container>
@@ -54,11 +52,25 @@ props:{
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed:{
-
+      ...call('hotel/*'),
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
+    ...call('hotel/*'),
     /******* Methods default run ******/
+    async list() {
+          this.$router.push('/hotel/layouttab/tablist')
+    },
+    async rate() {
+          this.$router.push('/hotel/layouttab/tabrate')
+    },
+    async detail() {
+          this.$router.push('/hotel/layouttab/tabdetail')
+    },
+
+
+
+
     load:async function(){
 }
 },
