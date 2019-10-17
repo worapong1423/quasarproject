@@ -2,6 +2,7 @@
  <template>
 <div>
     <detail/>
+        <q-btn type="submit" style="width:100%;" color="primary" label="บันทึก" @click="submit()" />
     </div>
 </template>
 
@@ -40,7 +41,10 @@ props:{
     /*-------------------------Methods------------------------------------------*/
 methods:{
     /******* Methods default run ******/
+    async submit() {
+          this.$router.push('/hotel/layouttab/tabdetail')
 
+        },
     load:async function(){
 }
 },
