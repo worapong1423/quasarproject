@@ -43,10 +43,15 @@ const routes = [
         path: 'statusone',
         name: 'statusone',
         component: () => import('pages/hotel/tabhotel/order/statusone.vue'),
-      }
-
+      },
+      {
+        path: 'statusonesign',
+        name: 'statusonesign',
+        component: () => import('pages/hotel/tabhotel/order/statusonesign.vue')
+      },
     ]
   },
+
 
   {
     path: '/',

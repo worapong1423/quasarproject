@@ -9,6 +9,7 @@
 
   <script>
   import { get,sync,call } from "vuex-pathify";
+  
 export default {
   name: 'App',
   /*-------------------------Load Component---------------------------------------*/

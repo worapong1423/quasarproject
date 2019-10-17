@@ -7,7 +7,7 @@
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
-    import statusone from "../../../../components/page/hotel/order/statusone"
+    import statusone from "../../../../components/page/hotel/status/statussone";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
