@@ -1,21 +1,18 @@
 <!----------Make By YourName---------------->
- <template>
-<div>
-    <detail/>
-    <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn @click="edit()" fab icon="edit" color="primary"  />
-    </q-page-sticky>
-    </div>
+<template>
+  <div>
+    <statustwo/>
+  </div>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify";
-    import detail from "../../../components/page/hotel/tabhotel/detail"
+    import statustwo from "../../../components/page/hotel/status/statustwo" 
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        detail,
+        statustwo,
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
@@ -26,14 +23,14 @@ props:{
     return {
 
         };
-    },
+    }, 
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load();
+            this.load(); 
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) {
+     async beforeRouteEnter(to, from, next) { 
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
@@ -43,13 +40,7 @@ props:{
     /*-------------------------Methods------------------------------------------*/
 methods:{
     /******* Methods default run ******/
-    async edit() {
-          this.$router.push('/hotel/layouttab/editdetail')
-
-        },
     load:async function(){
-      let getRoute =this.$route.query
-      alert(getRoute.id);
 }
 },
     }
