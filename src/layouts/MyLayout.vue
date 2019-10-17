@@ -47,12 +47,12 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item clickable v-ripple onclick>
               <q-item-section avatar>
                 <q-icon name="apartment" />
               </q-item-section>
 
-              <q-item-section>
+              <q-item-section @click="Hotelpage()">
                 โรงแรม
               </q-item-section>
             </q-item>
@@ -128,6 +128,11 @@ methods:{
     async logoutform() {
            await this.userLogout();
            await this.$router.replace('/')
+        },
+
+    async Hotelpage() {
+          this.$router.push('/hotel')
+
         },
     load:async function(){
 }

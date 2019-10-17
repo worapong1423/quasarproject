@@ -10,8 +10,8 @@
         </thead>
         <tbody>
           <tr>
-            <td class="text-left"></td>
-            <td class="text-right"></td>
+            <td class="text-left">{{hotel.Hotel_name}}</td>
+            <td class="text-right">{{hotel.Hotel_name}}</td>
           </tr>
         </tbody>
       </q-markup-table>
@@ -19,7 +19,7 @@
 </template>
 
     <script>
-    import { get,sync,call } from "vuex-pathify"; 
+    import { get,sync,call } from "vuex-pathify";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
@@ -35,14 +35,14 @@ props:{
     return {
 
         };
-    }, 
+    },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load(); 
+            this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) { 
+     async beforeRouteEnter(to, from, next) {
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
@@ -53,6 +53,8 @@ props:{
 methods:{
     /******* Methods default run ******/
     load:async function(){
+      let getRoute =this.$route.query
+      await this.read(getRoute);
 }
 },
     }

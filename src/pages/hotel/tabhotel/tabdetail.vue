@@ -9,7 +9,7 @@
 </template>
 
     <script>
-    import { get,sync,call } from "vuex-pathify"; 
+    import { get,sync,call } from "vuex-pathify";
     import detail from "../../../components/page/hotel/tabhotel/detail"
 export default {
     name: 'Root',
@@ -26,14 +26,14 @@ props:{
     return {
 
         };
-    }, 
+    },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load(); 
+            this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) { 
+     async beforeRouteEnter(to, from, next) {
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
@@ -48,6 +48,8 @@ methods:{
 
         },
     load:async function(){
+      let getRoute =this.$route.query
+      alert(getRoute.id);
 }
 },
     }
