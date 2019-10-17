@@ -10,9 +10,9 @@
          class="bg-primary text-white shadow-2"
          slot="navigation"
         >
-        <q-tab  @click="list()" replace>รายการ</q-tab>
-        <q-tab  @click="rate()" replace>เรท</q-tab>
-        <q-tab  @click="detail()" replace>ข้อมูล</q-tab>
+        <q-tab  @click="list(id)" replace>รายการ</q-tab>
+        <q-tab  @click="rate(id)" replace>เรท</q-tab>
+        <q-tab  @click="detail(id)" replace>ข้อมูล</q-tab>
         </q-tabs>
     </div>
 
@@ -58,14 +58,14 @@ props:{
 methods:{
     ...call('hotel/*'),
     /******* Methods default run ******/
-    async list() {
-          this.$router.replace('/hotel/layouttab/tablist')
+    async list(id) {
+          this.$router.push(`/hotel/layouttab/tablist?id=${id}`)
     },
-    async rate() {
-          this.$router.replace('/hotel/layouttab/tabrate')
+    async rate(id) {
+          this.$router.push(`/hotel/layouttab/tablist?id=${id}`)
     },
-    async detail() {
-          this.$router.replace('/hotel/layouttab/tabdetail')
+    async detail(id) {
+          this.$router.push(`/hotel/layouttab/tablist?id=${id}`)
     },
 
 
