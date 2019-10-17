@@ -42,12 +42,17 @@ const routes = [
       {
         path: 'statusone',
         name: 'statusone',
-        component: () => import('pages/hotel/tabhotel/order/statusone.vue'),
+        component: () => import('pages/hotel/tabhotel/status/statusone.vue'),
       },
       {
         path: 'statusonesign',
         name: 'statusonesign',
-        component: () => import('pages/hotel/tabhotel/order/statusonesign.vue')
+        component: () => import('pages/hotel/tabhotel/status/statusonesign.vue')
+      },
+      {
+        path: 'statustwo',
+        name: 'statustwo',
+        component: () => import('pages/hotel/tabhotel/status/statustwo.vue')
       },
     ]
   },

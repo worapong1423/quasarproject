@@ -1,18 +1,17 @@
 <!----------Make By YourName---------------->
- <template>
-<div>
-    <sign/>
+<template>
+    <div>
+    <h1>Hello</h1>
     </div>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
-    import sign from "../../../../components/share/statussign"
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        sign,
+
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{

@@ -1,19 +1,18 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-    <rate/>
+    <sign/>
     </div>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
-    import rate from "../../../components/page/hotel/tabhotel/rate"
+    import sign from "../../../../components/page/hotel/status/statussignone"
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        rate,
-
+        sign,
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{

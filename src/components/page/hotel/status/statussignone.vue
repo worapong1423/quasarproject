@@ -9,22 +9,14 @@
             height="500px"
             ref="signaturePad"
           />
+        </div><br>
+        <div class="fit row wrap justify-center items-center content-center">
+        <div style="padding:2%" class=".col">
+          <q-btn color="primary" @click="undo" label="undo" />
         </div>
-        <div class="col-6 mt-2">
-          <button
-            class="btn btn-outline-secondary float-right"
-            @click="undo"
-          >
-            Undo
-          </button>
+        <div style="padding:2%" class=".col">
+          <q-btn color="primary" @click="save" label="save" />
         </div>
-        <div class="col-6 mt-2">
-          <button
-            class="btn btn-outline-primary float-left"
-            @click="save"
-          >
-            Save
-          </button>
         </div>
       </div>
     </div>
@@ -38,12 +30,13 @@ export default {
     undo() {
       this.$refs.signaturePad.undoSignature();
     },
-    save() {
+    async save() {
       const { isEmpty, data } = this.$refs.signaturePad.saveSignature();
       alert('Open DevTools see the save data.');
       console.log(isEmpty);
       console.log(data);
-    }
+      this.$router.push('/hotel/statustwo');
+    },
   }
 };
 </script>
