@@ -1,12 +1,22 @@
 <!----------Make By YourName---------------->
 
 <template  >
-
 <div class="Fullscreen" >
 <div style="padding:5%;"  >
+    
+    <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <q-img 
+          src="../statics/logo.png"
+          style="height: 204px; max-width: 144px"
+        />
+    </div>
+    <div class="col-3"></div>
+    </div><br>
     <form @submit.prevent="loginform()">
-        <q-input v-model="user.email" required square outlined label="อีเมลล์" /><br>
-        <q-input v-model="user.password"  type="password" required square outlined label="รหัสผ่าน" /><br>
+        <q-input bg-color="white" v-model="user.email" required square outlined label="อีเมลล์" /><br>
+        <q-input bg-color="white" v-model="user.password"  type="password" required square outlined label="รหัสผ่าน" /><br>
         <q-btn  type="submit" style="width:100%;" color="primary" label="เข้าสู่ระบบ" />
     </form>
 <br>
@@ -25,7 +35,7 @@
     height: 100%;
     /* Optional - just for DIV)*/
     border: solid 1px #000000;
-    background-color:#00e6e6;
+    background-color:#00B0FF;
   }
 </style>
 <script>
