@@ -15,6 +15,7 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "quasar": "^1.0.0",
+    "vue-signature-pad": "^1.1.15",
     "vuex-pathify": "^1.4.0"
   },
   "devDependencies": {

@@ -3,6 +3,11 @@ import VueRouter from 'vue-router'
 
 import routes from './routes'
 
+import VueSignature from 'vue-signature-pad';
+
+Vue.use(VueSignature);
+Vue.config.productionTip = false;
+
 Vue.use(VueRouter)
 
 /*
