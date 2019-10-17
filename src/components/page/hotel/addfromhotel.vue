@@ -3,13 +3,13 @@
     <div style="padding:5%;">
       <form @submit.prevent="submitFrom()">
         <q-input outlined v-model="hotelform.Hotel_name" label="โรงเเรม" /><br>
-        <q-input outlined v-model="hotelform.Hotel_tel" label="เบอร์ติดต่อ" /><br>
-        <q-input outlined v-model="hotelform.Hotel_taxid" label="เลขประจำตัวผู้เสียภาษ" /><br>
-        <q-input outlined v-model="hotelform.Hotel_email" label="อีเมล" /><br>
         <q-input outlined v-model="hotelform.Hotel_address" label="ที่อยู่" /><br>
-        <q-input outlined v-model="hotelform.Hotel_province" label="จังหวัด" /><br>
         <q-input outlined v-model="hotelform.Hotel_district" label="อำเภอ" /><br>
+        <q-input outlined v-model="hotelform.Hotel_province" label="จังหวัด" /><br>
         <q-input outlined v-model="hotelform.Hotel_zipcode" label="รหัสไปรษณีย" /><br>
+        <q-input outlined v-model="hotelform.Hotel_tel" label="เบอร์ติดต่อ" /><br>
+        <q-input outlined v-model="hotelform.Hotel_email" label="อีเมล" /><br>
+        <q-input outlined v-model="hotelform.Hotel_taxid" label="เลขประจำตัวผู้เสียภาษี" /><br>
 
 
         <q-btn type="submit" style="width:100%;" color="primary" label="บันทึก"  />

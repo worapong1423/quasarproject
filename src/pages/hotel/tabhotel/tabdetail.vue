@@ -1,17 +1,18 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-    <h1>Hello detail</h1>
+    <detail/>
     </div>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
+    import detail from "../../../components/page/hotel/tabhotel/detail"
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-
+        detail,
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{

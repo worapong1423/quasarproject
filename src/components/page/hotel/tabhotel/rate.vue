@@ -10,44 +10,8 @@
         </thead>
         <tbody>
           <tr>
-            <td class="text-left">ผ้าปูที่นอน3.5ฟุต</td>
-            <td class="text-right">5</td>
-          </tr>
-          <tr>
-            <td class="text-left">Ice cream sandwich</td>
-            <td class="text-right">237</td>
-          </tr>
-          <tr>
-            <td class="text-left">Eclair</td>
-            <td class="text-right">262</td>
-          </tr>
-          <tr>
-            <td class="text-left">Cupcake</td>
-            <td class="text-right">305</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
+            <td class="text-left">{{(index+1)}}.  {{hotel.Hotel_name}}</td>
+            <td class="text-right">{{(index+1)}}.  {{hotel.Hotel_name}}</td>
           </tr>
         </tbody>
       </q-markup-table>
