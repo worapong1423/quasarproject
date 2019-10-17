@@ -53,7 +53,7 @@ async destroyData(context,id ){
       let x = await axios.delete(`/api/hotel/${id}`)
   .then(async (r) => {
       alert('Delete Success');
-      await actions.getData();
+      await actions.read();
   }).catch((e) => {
       alert('Delete Error');
    });
