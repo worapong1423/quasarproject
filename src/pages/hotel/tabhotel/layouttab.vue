@@ -24,12 +24,12 @@
 </template>
 
     <script>
-    import { get,sync,call } from "vuex-pathify"; 
+    import { get,sync,call } from "vuex-pathify";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        
+
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
@@ -40,14 +40,14 @@ props:{
     return {
 
         };
-    }, 
+    },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load(); 
+            this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) { 
+     async beforeRouteEnter(to, from, next) {
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
@@ -59,13 +59,13 @@ methods:{
     ...call('hotel/*'),
     /******* Methods default run ******/
     async list() {
-          this.$router.push('/hotel/layouttab/tablist')
+          this.$router.replace('/hotel/layouttab/tablist')
     },
     async rate() {
-          this.$router.push('/hotel/layouttab/tabrate')
+          this.$router.replace('/hotel/layouttab/tabrate')
     },
     async detail() {
-          this.$router.push('/hotel/layouttab/tabdetail')
+          this.$router.replace('/hotel/layouttab/tabdetail')
     },
 
 

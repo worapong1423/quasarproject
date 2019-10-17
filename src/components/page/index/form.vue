@@ -10,8 +10,8 @@
     </form>
 <br>
  <q-btn v-if="form.id"   style="width:100%;" color="brown" icon="close" label="reform" @click="form = {}" />
- <q-btn    style="width:100%;" color="red" icon="close" label="logout" @click="logoutform()" />
-    
+ 
+
 
 </div>
 </template>
@@ -39,7 +39,7 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
-          
+
 
         };
     },
@@ -72,8 +72,8 @@ export default {
           }else{
                 alert('Create Error');
           }
-           
-        
+
+
         },
 
          async updateFrom() {
@@ -85,19 +85,19 @@ export default {
           }else{
                 alert('Create Error');
           }
-           
-        
+
+
         },
         async logoutform() {
            await this.userLogout();
            await this.$router.replace('/')
         },
-           
-        
+
+
 
         /******* Methods default run ******/
         load: async function () {
-         
+
         }
     },
 }

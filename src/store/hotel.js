@@ -13,7 +13,7 @@ const getters = {
 const mutations = make.mutations(state)
 
 const actions = {
-async getData() {
+async read() {
 let load = await axios.get('/api/hotel')
   .then((r) => {
     state.hotel = r.data

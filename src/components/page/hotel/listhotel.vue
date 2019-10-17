@@ -11,7 +11,7 @@
               <q-item-section @click="openpage()">{{(index+1)}}.  {{hotel.Hotel_name}}</q-item-section>
                <q-item-section top side>
           <div class="text-grey-8 q-gutter-xs">
-            <q-btn size="12px" flat dense round icon="more_vert" />
+
             <q-btn  size="12px" flat dense round icon="delete" @click="destroyData(hotel.id)" />
 
           </div>
@@ -65,6 +65,7 @@ methods:{
         ...call('hotel/*'),
     /******* Methods default run ******/
 
+
     async openpage() {
           this.$router.push('/hotel/layouttab/tablist')
 
@@ -76,7 +77,7 @@ methods:{
         },
 
     load:async function(){
-      await this.getData();
+      await this.read();
 }
 },
     }
