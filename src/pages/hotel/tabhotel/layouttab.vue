@@ -12,27 +12,26 @@
           align="justify"
           narrow-indicator
         >
-          <q-tab name="mails" label="Mails" />
-          <q-tab name="alarms" label="Alarms" />
-          <q-tab name="movies" label="Movies" />
+          <q-tab name="order" label="ออเดอร์" />
+          <q-tab name="rate" label="เรท" />
+          <q-tab name="detail" label="ข้อมูล" />
         </q-tabs>
 
         <q-separator />
 
         <q-tab-panels v-model="tab" animated>
-          <q-tab-panel name="mails">
+          <q-tab-panel name="order">
             <div class="text-h6">ชื่อโรงแรม</div>
               <addlist/>
           </q-tab-panel>
 
-          <q-tab-panel name="alarms">
+          <q-tab-panel name="rate">
             <div class="text-h6">Alarms</div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <rate/>
           </q-tab-panel>
 
-          <q-tab-panel name="movies">
-            <div class="text-h6">Movies</div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <q-tab-panel name="detail">
+            <detail/>
           </q-tab-panel>
         </q-tab-panels>
       </q-card>
@@ -43,11 +42,13 @@
     <script>
     import { get,sync,call } from "vuex-pathify";
     import addlist from "../../../components/page/hotel/tabhotel/listorder";
+    import detail from "../../../components/page/hotel/tabhotel/detail"
+    import rate from "../../../components/page/hotel/tabhotel/rate"
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-      addlist,
+      addlist,detail,rate
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{

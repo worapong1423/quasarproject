@@ -4,7 +4,7 @@ import { make } from 'vuex-pathify'
 const state = {
   hotel:[],
   hotelform:{},
-
+  hoteldetail:{},
 }
 const getters = {
 
@@ -61,6 +61,15 @@ async destroyData(context,id ){
 
 
 },
+async readOne(context,id){
+  let x = await axios.get(`/api/hotel/${id}`)
+  .then(async (r) => {
+    state.hoteldetail = r.data
+    console.log(r.data);
+  }).catch((e) => {
+
+   });
+}
 
 
 }
