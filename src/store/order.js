@@ -2,6 +2,7 @@ import axios from '../axios'
 
 import { make } from 'vuex-pathify'
 const state = {
+  hotelData:{},
   hotel:[],
   hotelform:{},
 }
@@ -59,8 +60,18 @@ const actions = {
     }
 
 
+
   },
 
+  async readOne(context,id){
+    let x = await axios.get(`/api/order/${id}`)
+    .then(async (r) => {
+      state.hotelData = r.data
+      console.log(r.data);
+    }).catch((e) => {
+
+     });
+  }
 
   }
 

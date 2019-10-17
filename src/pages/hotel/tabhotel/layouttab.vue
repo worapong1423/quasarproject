@@ -2,34 +2,52 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <div class="q-gutter-y-md" style="max-width: 600px">
+        <q-card>
         <q-tabs
-         v-model="tab"
-         inline-label
-         switch-indicator
-         indicator-color="primary"
-         class="bg-primary text-white shadow-2"
-         slot="navigation"
+          v-model="tab"
+          dense
+          class="text-grey"
+          active-color="primary"
+          indicator-color="primary"
+          align="justify"
+          narrow-indicator
         >
-        <q-tab  @click="list(id)" replace>รายการ</q-tab>
-        <q-tab  @click="rate(id)" replace>เรท</q-tab>
-        <q-tab  @click="detail(id)" replace>ข้อมูล</q-tab>
+          <q-tab name="mails" label="Mails" />
+          <q-tab name="alarms" label="Alarms" />
+          <q-tab name="movies" label="Movies" />
         </q-tabs>
+
+        <q-separator />
+
+        <q-tab-panels v-model="tab" animated>
+          <q-tab-panel name="mails">
+            <div class="text-h6">ชื่อโรงแรม</div>
+              <addlist/>
+          </q-tab-panel>
+
+          <q-tab-panel name="alarms">
+            <div class="text-h6">Alarms</div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </q-tab-panel>
+
+          <q-tab-panel name="movies">
+            <div class="text-h6">Movies</div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </q-tab-panel>
+        </q-tab-panels>
+      </q-card>
     </div>
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-
   </q-layout>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify";
+    import addlist from "../../../components/page/hotel/tabhotel/listorder";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-
+      addlist,
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{
@@ -38,7 +56,7 @@ props:{
     /*-------------------------DataVarible---------------------------------------*/
     data() {
     return {
-
+      tab:"mails"
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -58,15 +76,6 @@ props:{
 methods:{
     ...call('hotel/*'),
     /******* Methods default run ******/
-    async list(id) {
-          this.$router.push(`/hotel/layouttab/tablist?id=${id}`)
-    },
-    async rate(id) {
-          this.$router.push(`/hotel/layouttab/tablist?id=${id}`)
-    },
-    async detail(id) {
-          this.$router.push(`/hotel/layouttab/tablist?id=${id}`)
-    },
 
 
 

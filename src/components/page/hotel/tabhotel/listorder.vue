@@ -8,6 +8,7 @@
           <q-item>{{hotel.Hotel_name}}</q-item>
 
         </div>-->
+        <pre>{{hotelData}}</pre>
 
         <div v-for="hotel,index in hotel" :key="index">
         <q-list bordered separator>
@@ -76,7 +77,7 @@ methods:{
 
     load:async function(){
       let getRoute =this.$route.query
-      await this.read();
+      await this.readOne(getRoute.id);
 }
 },
     }
