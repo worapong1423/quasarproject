@@ -1,7 +1,72 @@
 <!----------Make By YourName---------------->
 <template>
-    <div>
-    <h1>Hello</h1>
+    <div class="q-pa-md">
+        <q-card class="my-card">
+      <q-item>
+        <q-item-section>
+          <q-item-label>รายการที่  : HT0005</q-item-label>
+          <q-item-label>โรงเเรม อินเตอร์เนชั่นแนลเฮาล์</q-item-label>
+          <q-item-label caption>วันที่ 02 ก.พ. 2562</q-item-label>
+        </q-item-section>
+      </q-item>
+ 
+      <div style="padding:2%;">
+        <q-markup-table>
+        <thead>
+          <tr>
+            <th class="text-left">รายการ</th>
+            <th class="text-right">จำนวน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left">ผ้าปูที่นอน3.5ฟุต</td>
+            <td class="text-right">2</td>
+          </tr>
+          <tr>
+            <td class="text-left">Ice cream sandwich</td>
+            <td class="text-right">237</td>
+          </tr>
+          <tr>
+            <td class="text-left">Eclair</td>
+            <td class="text-right">262</td>
+          </tr>
+          <tr>
+            <td class="text-left">Cupcake</td>
+            <td class="text-right">305</td>
+          </tr>
+          <tr>
+            <td class="text-left">Gingerbread</td>
+            <td class="text-right">356</td>
+          </tr>
+          <tr>
+            <td class="text-left">Gingerbread</td>
+            <td class="text-right">356</td>
+          </tr>
+          <tr>
+            <td class="text-left">Gingerbread</td>
+            <td class="text-right">356</td>
+          </tr>
+          <tr>
+            <td class="text-left">Gingerbread</td>
+            <td class="text-right">356</td>
+          </tr>
+          <tr>
+            <td class="text-left">Gingerbread</td>
+            <td class="text-right">356</td>
+          </tr>
+          <tr>
+            <td class="text-left">Gingerbread</td>
+            <td class="text-right">356</td>
+          </tr>
+        </tbody>
+      </q-markup-table>
+        
+        <q-btn type="submit" style="width:100%;" color="primary" label="เสร็จสิ้นการดำเนินการ" @click="next()" />
+      </div>
+
+      
+    </q-card>
     </div>
 </template>
 

@@ -10,8 +10,8 @@
         </thead>
         <tbody>
           <tr>
-            <td class="text-left">{{(index+1)}}.  {{hotel.Hotel_name}}</td>
-            <td class="text-right">{{(index+1)}}.  {{hotel.Hotel_name}}</td>
+            <td class="text-left"></td>
+            <td class="text-right"></td>
           </tr>
         </tbody>
       </q-markup-table>

@@ -7,7 +7,7 @@
 
     <script>
     import { get,sync,call } from "vuex-pathify"; 
-    import sign from "../../../../components/page/hotel/status/statussignone"
+    import sign from "../../../components/page/hotel/status/statussignone"
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/

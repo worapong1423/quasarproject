@@ -2,9 +2,6 @@
  <template>
 <div>
     <detail/>
-    <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn @click="edit()" fab icon="edit" color="primary"  />
-    </q-page-sticky>
     </div>
 </template>
 
@@ -43,10 +40,7 @@ props:{
     /*-------------------------Methods------------------------------------------*/
 methods:{
     /******* Methods default run ******/
-    async edit() {
-          this.$router.push('/hotel/layouttab/editdetail')
 
-        },
     load:async function(){
 }
 },

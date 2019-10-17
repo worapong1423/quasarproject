@@ -35,7 +35,6 @@
             <q-item-section></q-item-section>
             </q-item>
         </q-list>
-
     </div>
 </template>
 

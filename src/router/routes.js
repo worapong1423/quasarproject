@@ -36,23 +36,28 @@ const routes = [
             path: 'tabdetail',
             name: 'tabdetail',
             component: () => import('pages/hotel/tabhotel/tabdetail.vue'),
+          },
+          {
+            path: 'editdetail',
+            name: 'editdetail',
+            component: () => import('pages/hotel/tabhotel/editdetail.vue'),
           }
         ]
       },
       {
         path: 'statusone',
         name: 'statusone',
-        component: () => import('pages/hotel/tabhotel/status/statusone.vue'),
+        component: () => import('pages/hotel/status/statusone.vue'),
       },
       {
         path: 'statusonesign',
         name: 'statusonesign',
-        component: () => import('pages/hotel/tabhotel/status/statusonesign.vue')
+        component: () => import('pages/hotel/status/statusonesign.vue')
       },
       {
         path: 'statustwo',
         name: 'statustwo',
-        component: () => import('pages/hotel/tabhotel/status/statustwo.vue')
+        component: () => import('pages/hotel/status/statustwo.vue')
       },
     ]
   },
