@@ -58,8 +58,8 @@ methods:{
         },
 
     load:async function(){
-      let getRoute =this.$route.query
-      await this.readOne(getRoute.id);
+      let id =this.$route.params.id;
+      await this.readOne(id);
 }
 },
     }
