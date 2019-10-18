@@ -18,7 +18,7 @@ const routes = [
         component: () => import('pages/hotel/hoteladd.vue'),
       },
       {
-        path: 'layouttab',
+        path: ':id',
         name: 'layouttab',
         component: () => import('pages/hotel/tabhotel/layouttab.vue'),
         children: [
