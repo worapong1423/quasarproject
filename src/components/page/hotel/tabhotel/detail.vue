@@ -35,6 +35,10 @@
             <q-item-section>{{hoteldetail.Hotel_taxid}}</q-item-section>
             </q-item>
         </q-list>
+
+        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-btn @click="editdata()" fab icon="edit" color="primary"  />
+        </q-page-sticky>
     </div>
 </template>
 

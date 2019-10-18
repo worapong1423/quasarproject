@@ -5,9 +5,12 @@
 
       <q-page-container>
         <pre>{{hotelData}}</pre>
-
-
       </q-page-container>
+
+      <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-btn @click="addorder()" fab icon="add" color="primary"  />
+      </q-page-sticky>
+
     </q-layout>
   </div>
 </template>
