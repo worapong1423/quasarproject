@@ -62,10 +62,9 @@
             async openpage(id) {
                 this.$router.push({name : "layouttab", params : { id : id}})
 
-
             },
             async addhotel() {
-                this.$router.push('/hotel/addhotel')
+                this.$router.push({name : "addhotel"})
 
             },
 

@@ -1,12 +1,13 @@
 
 const routes = [
   {
-    path: '/hotel',
-    name:'hotel',
+    path: '',
+    name:'layout',
     component: () => import('layouts/MyLayout.vue'),
     children: [
-      { path: '',
-       component: () => import('pages/hotel/hotelmainscreen.vue'),
+      { path: 'hotel',
+        name: 'hotel',
+        component: () => import('pages/hotel/hotelmainscreen.vue'),
       },
       { path: 'test',
         name: 'test',
@@ -21,28 +22,6 @@ const routes = [
         path: ':id',
         name: 'layouttab',
         component: () => import('pages/hotel/tabhotel/layouttab.vue'),
-        children: [
-          {
-            path: 'tablist',
-            name: 'tablist',
-            component: () => import('pages/hotel/tabhotel/taborderlist.vue'),
-          },
-          {
-            path: 'tabrate',
-            name: 'tabrate',
-            component: () => import('pages/hotel/tabhotel/tabrate.vue'),
-          },
-          {
-            path: 'tabdetail',
-            name: 'tabdetail',
-            component: () => import('pages/hotel/tabhotel/tabdetail.vue'),
-          },
-          {
-            path: 'editdetail',
-            name: 'editdetail',
-            component: () => import('pages/hotel/tabhotel/editdetail.vue'),
-          }
-        ]
       },
       {
         path: 'statusone',
@@ -61,8 +40,6 @@ const routes = [
       },
     ]
   },
-
-
   {
     path: '/',
     name:'login',

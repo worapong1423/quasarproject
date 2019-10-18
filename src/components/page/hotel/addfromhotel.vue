@@ -53,7 +53,7 @@ methods:{
     ...call('hotel/*'),
     /******* Methods default run ******/
     async hotel() {
-          this.$router.push('/hotel')
+          this.$router.push({name : "hotel"})
 
 
         },
@@ -62,7 +62,7 @@ methods:{
           if(check){
               alert('Create Success');
               this.hotelform = {};
-              this.$router.replace('/hotel')
+              this.$router.replace({name : "hotel"})
               await this.read();
           }else{
                 alert('Create Error');

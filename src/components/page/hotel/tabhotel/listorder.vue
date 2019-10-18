@@ -53,8 +53,7 @@ methods:{
 
 
     async addorder() {
-          this.$router.push('/hotel/statusone')
-
+          this.$router.push({name : "statusone"})
         },
 
     load:async function(){

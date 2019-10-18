@@ -15,6 +15,9 @@
           </tr>
         </tbody>
       </q-markup-table>
+      <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-btn @click="editrate()" fab icon="edit" color="primary"  />
+      </q-page-sticky>
     </div>
 </template>
 
