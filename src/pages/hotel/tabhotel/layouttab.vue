@@ -6,11 +6,7 @@
         <q-tabs
           v-model="tab"
           dense
-          class="text-grey"
-          active-color="primary"
-          indicator-color="primary"
-          align="justify"
-          narrow-indicator
+          class="bg-primary text-white shadow-2"
         >
           <q-tab name="order" label="ออเดอร์" />
           <q-tab name="rate" label="เรท" />
@@ -21,12 +17,10 @@
 
         <q-tab-panels v-model="tab" animated>
           <q-tab-panel name="order">
-            <div class="text-h6">ชื่อโรงแรม</div>
               <addlist/>
           </q-tab-panel>
 
           <q-tab-panel name="rate">
-            <div class="text-h6">Alarms</div>
             <rate/>
           </q-tab-panel>
 
