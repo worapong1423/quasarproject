@@ -2,6 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
+        <div>
         <q-btn
           flat
           dense
@@ -10,6 +11,8 @@
           icon="menu"
           aria-label="Menu"
         />
+        </div>
+
 
         <q-toolbar-title>
           {{hrname}}
@@ -105,7 +108,7 @@ props:{
     /*-------------------------DataVarible---------------------------------------*/
     data() {
     return {
-        leftDrawerOpen: false
+          leftDrawerOpen: false
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/

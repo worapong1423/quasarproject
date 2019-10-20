@@ -7,6 +7,7 @@ const routes = [
     children: [
       { path: 'hotel',
         name: 'hotel',
+        types: "do",
         component: () => import('pages/hotel/hotelmainscreen.vue'),
       },
       { path: 'test',
@@ -16,6 +17,7 @@ const routes = [
       {
         path: 'addhotel',
         name: 'addhotel',
+        types: "gb",
         component: () => import('pages/hotel/hoteladd.vue'),
       },
       {

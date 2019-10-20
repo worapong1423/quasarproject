@@ -6,7 +6,7 @@
 </template>
 
     <script>
-    import { get,sync,call } from "vuex-pathify"; 
+    import { get,sync,call } from "vuex-pathify";
     import addfrom from "../../components/page/hotel/addfromhotel"
 export default {
     name: 'Root',
@@ -21,16 +21,15 @@ props:{
     /*-------------------------DataVarible---------------------------------------*/
     data() {
     return {
-
         };
-    }, 
+    },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load(); 
+            this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) { 
+     async beforeRouteEnter(to, from, next) {
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/

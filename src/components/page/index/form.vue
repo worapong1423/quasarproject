@@ -10,7 +10,7 @@
     </form>
 <br>
  <q-btn v-if="form.id"   style="width:100%;" color="brown" icon="close" label="reform" @click="form = {}" />
- 
+
 
 
 </div>
@@ -65,13 +65,13 @@ export default {
 
         async submitFrom() {
           let check = await this.create(this.form);
-          if(check){
-              alert('Create Success');
-              this.form = {};
-              await this.read();
-          }else{
+            if(check){
+                alert('Create Success');
+                this.form = {};
+                await this.read();
+            }else{
                 alert('Create Error');
-          }
+            }
 
 
         },
