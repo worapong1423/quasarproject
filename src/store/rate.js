@@ -20,6 +20,15 @@ const actions = {
 
       });
   },
+  create : async function(context,params){
+    let x = await axios.post(`/api/rate`, params)
+      .then((r) => {
+        return true;
+      }).catch((e) => {
+        return false;
+      });
+    return x;
+  },
 
 async NameMethods(context,params){
 

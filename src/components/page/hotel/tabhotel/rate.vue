@@ -49,15 +49,15 @@
         </thead>
         <tbody>
         <td class="text-left">
-          <q-input outlined v-model="text" />
+          <q-input outlined v-model="rateData.Product_name" />
         </td>
         <td class="text-right">
-          <q-input outlined v-model="text" />
+          <q-input outlined v-model="rateData.Product_price" />
         </td>
         </tbody>
       </q-markup-table><br>
       <div>
-        <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary">บันทึก</q-btn>
+        <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" @click="submitFrom()">บันทึก</q-btn>
       </div>
     </div>
 
@@ -96,11 +96,25 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
-
+            ...sync('rate/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
+
+            ...call('rate/*'),
             /******* Methods default run ******/
+            async submitFrom() {
+                let check = await this.create(this.rateData);
+                if(check){
+                    alert('Create Success');
+                    this.rateData = {};
+                }else{
+                    alert('Create Error');
+
+                }
+
+            },
+
             load:async function(){
                 let id =this.$route.params.id;
                 await this.readOne(id);
