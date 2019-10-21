@@ -100,8 +100,7 @@ methods:{
         let id =this.$route.params.id;
         let check = await this.updateData(this.hoteldetail);
         if (check) {
-            this.hotelform = {};
-            await this.readOne(id);
+            this.hotelform = {}
         } else {
 
         }
