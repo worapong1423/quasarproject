@@ -1,7 +1,6 @@
-import Axios from '../axios'
-import _ from 'lodash'
+import axios from '../axios'
+
 import { make } from 'vuex-pathify'
-import store from '.'
 const state = {
 
 }

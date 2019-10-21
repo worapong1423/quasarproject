@@ -3,11 +3,11 @@
 <template  >
 <div class="Fullscreen" >
 <div style="padding:5%;"  >
-    
+
     <div class="row">
     <div class="col-3"></div>
     <div class="col-6">
-        <q-img 
+        <q-img
           src="../statics/logo.png"
           style="height: 204px; max-width: 144px"
         />
@@ -76,7 +76,7 @@ methods:{
      async loginform() {
           let check = await this.login();
           if(check){
-              this.$router.replace({name : "hotel"})
+              this.$router.replace({name: "hotel"})
 
           }else{
                 alert('login error');

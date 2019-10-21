@@ -3,42 +3,42 @@
   <div>
     <div v-if="!ilke" style="padding:5%;">
         <q-list bordered separator>
-            <q-item clickable v-ripple>
+            <q-item >
             <q-item-section>โรงเเรม : </q-item-section>
             <q-item-section >{{hoteldetail.Hotel_name}}</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item  >
             <q-item-section>ที่อยู่ : </q-item-section>
             <q-item-section>{{hoteldetail.Hotel_address}}</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item >
             <q-item-section>อำเภอ : </q-item-section>
             <q-item-section>{{hoteldetail.Hotel_district}}</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item >
             <q-item-section>จังหวัด : </q-item-section>
             <q-item-section>{{hoteldetail.Hotel_province}}</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item >
             <q-item-section>รหัสไปรษณีย : </q-item-section>
             <q-item-section>{{hoteldetail.Hotel_zipcode}}</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item >
             <q-item-section>เบอร์ติดต่อ : </q-item-section>
             <q-item-section>{{hoteldetail.Hotel_tel}}</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item >
             <q-item-section>อีเมล : </q-item-section>
             <q-item-section>{{hoteldetail.Hotel_email}}</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item >
             <q-item-section>เลขประจำตัวผู้เสียภาษี : </q-item-section>
             <q-item-section>{{hoteldetail.Hotel_taxid}}</q-item-section>
             </q-item>
         </q-list>
 
         <q-page-sticky  position="bottom-right" :offset="[18, 18]">
-            <q-btn v-on:click="ilke=true" fab icon="edit" color="primary"  />
+            <q-btn v-on:click="ilke=true" fab icon="edit" color="primary"  @click=" hotelform = hoteldetail" />
         </q-page-sticky>
     </div>
 
@@ -55,7 +55,7 @@
           <q-input outlined v-model="hotelform.Hotel_taxid" label="เลขประจำตัวผู้เสียภาษี" />
         </div>
       </q-list>
-      <q-btn v-on:click="ilke=false" style="width:100%;" color="primary" >บันทึก
+      <q-btn v-on:click="ilke=false" style="width:100%;" color="primary" @click="updateFrom()">บันทึก
       </q-btn>
     </div>
   </div>
@@ -95,13 +95,23 @@ props:{
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
-  ...call('hotel/*'),
+    ...call('hotel/*'),
+    async updateFrom() {
+        let id =this.$route.params.id;
+        let check = await this.updateData(this.hoteldetail);
+        if (check) {
+            this.hotelform = {};
+            await this.readOne(id);
+        } else {
+
+        }
+    },
 
 
     /******* Methods default run ******/
     load:async function(){
-      let getRoute =this.$route.query
-      await this.readOne(getRoute.id);
+        let id =this.$route.params.id;
+        await this.readOne(id);
 
 
 }

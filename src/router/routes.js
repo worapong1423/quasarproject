@@ -1,11 +1,11 @@
 
 const routes = [
   {
-    path: '',
+    path: '/hotel',
     name:'layout',
     component: () => import('layouts/MyLayout.vue'),
     children: [
-      { path: 'hotel',
+      { path: '',
         name: 'hotel',
         types: "do",
         component: () => import('pages/hotel/hotelmainscreen.vue'),

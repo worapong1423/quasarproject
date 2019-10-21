@@ -56,8 +56,8 @@ props:{
 methods:{
     /******* Methods default run ******/
     load:async function(){
-      let getRoute =this.$route.query
-      await this.read(getRoute);
+        let id =this.$route.params.id;
+        await this.readOne(id);
 }
 },
     }
