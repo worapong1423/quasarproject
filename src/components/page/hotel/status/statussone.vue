@@ -9,21 +9,21 @@
           <q-item-label caption>วันที่ 02 ก.พ. 2562</q-item-label>
         </q-item-section>
       </q-item>
- 
+
       <div style="padding:2%;">
-        <q-input outlined v-model="text" >ผ้าปูที่นอน3.5ฟุต/จำนวน</q-input>
+        <q-input outlined v-model="text" test="ผ้าปูที่นอน3.5ฟุต/จำนวน"></q-input>
         <br>
 
         <q-btn type="submit" style="width:100%;" color="primary" label="ขั้นตอนถัดไป" @click="sign()" />
       </div>
 
-      
+
     </q-card>
   </div>
 </template>
 
   <script>
-  import { get,sync,call } from "vuex-pathify"; 
+  import { get,sync,call } from "vuex-pathify";
 export default {
   name: 'Root',
   /*-------------------------Load Component---------------------------------------*/
@@ -39,14 +39,14 @@ props:{
   return {
 
     };
-  }, 
+  },
   /*-------------------------Run Methods when Start this Page------------------------------------------*/
    async mounted() {
   /**** Call loading methods*/
-      this.load(); 
+      this.load();
   },
   /*-------------------------Run Methods when Start Routed------------------------------------------*/
-   async beforeRouteEnter(to, from, next) { 
+   async beforeRouteEnter(to, from, next) {
     next()
   },
   /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
