@@ -11,16 +11,26 @@
       </q-item>
 
       <div style="padding:2%;">
+        <q-markup-table>
+        <thead>
+        <tr>
+          <th style="padding:12px 12px;" class="text-left">รายการ</th>
+          <th style="padding:12px 8px;" class="text-right">จำนวน</th>
+        </tr>
+        </thead>
         <tbody>
-          <th class="text-left">
+        <tr>
+          <th class="text-left" style="padding:12px 12px;">
             ผ้าปูที่นอน3.5ฟุต
           </th>
-          <th class="text-right">
-            <q-input outlined v-model="ph" placeholder="จำนวน" color="white" />
+          <th class="text-right" style="padding:12px 12px;">
+            <q-input outlined v-model="ph" placeholder="" color="white" />
           </th>
+        </tr>
         </tbody>
+        </q-markup-table>
 
-        <q-btn type="submit" style="width:100%;" color="primary" label="ขั้นตอนถัดไป" @click="sign()" />
+        <q-btn type="submit" style="width:100%;" color="primary" label="ยืนยัน" @click="sign()" />
       </div>
 
 
