@@ -4,16 +4,12 @@
     <div v-if="!typerate">
       <q-markup-table>
         <thead>
-        <tr>
           <th class="text-left">รายการ</th>
-          <th class="text-right">บาท/ชิ้น</th>
-        </tr>
+          <th >บาท/ชิ้น</th>
         </thead>
         <tbody>
-        <tr>
           <td class="text-left">1</td>
           <td class="text-right">1</td>
-        </tr>
         </tbody>
       </q-markup-table>
 
@@ -33,13 +29,16 @@
         </thead>
         <tbody>
         <tr>
-          <td class="text-left"></td>
+          <td class="text-left">1</td>
           <td class="text-right">
-            <q-input v-model="text" label="Standard" />
+            <q-input v-model="text" />
           </td>
         </tr>
         </tbody>
-      </q-markup-table>
+      </q-markup-table><br>
+      <div>
+        <q-btn v-on:click="typerate=false" style="width:100%;" color="primary">บันทึก</q-btn>
+      </div>
     </div>
 
 
