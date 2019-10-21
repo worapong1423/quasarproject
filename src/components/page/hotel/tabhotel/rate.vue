@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
   <div style="padding:5%;">
-    <div v-if="!typerate">
+    <div v-if="!typerate&&!typeadd">
       <q-markup-table>
         <thead>
           <th class="text-left">รายการ</th>
@@ -13,6 +13,10 @@
         </tbody>
       </q-markup-table>
 
+      <q-page-sticky position="bottom-right" :offset="[18, 80]">
+        <q-btn v-on:click="typeadd=true" fab icon="add" color="primary"  />
+      </q-page-sticky>
+
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
         <q-btn v-on:click="typerate=true" fab icon="edit" color="primary"  />
       </q-page-sticky>
@@ -20,20 +24,40 @@
     </div>
 
     <div v-else-if="typerate">
+    <q-markup-table>
+      <thead>
+      <th class="text-left">รายการ</th>
+      <th class="text-right">บาท/ชิ้น</th>
+      </thead>
+      <tbody>
+      <td class="text-left">1</td>
+      <td class="text-right">
+        <q-input outlined v-model="text" />
+      </td>
+      </tbody>
+    </q-markup-table><br>
+    <div>
+      <q-btn v-on:click="typerate=false" style="width:100%;" color="primary">บันทึก</q-btn>
+    </div>
+  </div>
+
+    <div v-else-if="typeadd">
       <q-markup-table>
         <thead>
-          <th class="text-left">รายการ</th>
-          <th class="text-right">บาท/ชิ้น</th>
+        <th class="text-left">รายการ</th>
+        <th class="text-right">บาท/ชิ้น</th>
         </thead>
         <tbody>
-          <td class="text-left">1</td>
-          <td class="text-right">
-            <q-input v-model="text" />
-          </td>
+        <td class="text-left">
+          <q-input outlined v-model="text" />
+        </td>
+        <td class="text-right">
+          <q-input outlined v-model="text" />
+        </td>
         </tbody>
       </q-markup-table><br>
       <div>
-        <q-btn v-on:click="typerate=false" style="width:100%;" color="primary">บันทึก</q-btn>
+        <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary">บันทึก</q-btn>
       </div>
     </div>
 
@@ -57,7 +81,8 @@
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
-                typerate: false
+                typerate: false,
+                typeadd:false,
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
