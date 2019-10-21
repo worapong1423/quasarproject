@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
-  <div style="padding:5%;">
-    <div v-if="!typerate">
+  <!--<div style="padding:5%;">
+    <div>
       <q-markup-table>
         <thead>
         <tr>
@@ -44,7 +44,7 @@
 
 
 
-  </div>
+  </div>-->
 </template>
 
 <script>
