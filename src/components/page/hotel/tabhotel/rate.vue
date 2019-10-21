@@ -1,6 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
     <div style="padding:5%;">
+      <div v-if="!ilke" >
       <q-markup-table>
         <thead>
           <tr>
@@ -10,14 +11,34 @@
         </thead>
         <tbody>
           <tr>
-            <td class="text-left">{{hotel.Hotel_name}}</td>
-            <td class="text-right">{{hotel.Hotel_name}}</td>
+            <td class="text-left"></td>
+            <td class="text-right"></td>
           </tr>
         </tbody>
       </q-markup-table>
+
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn @click="editrate()" fab icon="edit" color="primary"  />
+            <q-btn v-on:click="ilke=true" fab icon="edit" color="primary"  />
       </q-page-sticky>
+      </div>
+
+      <div v-else-if="ilke">
+        <q-markup-table>
+          <thead>
+          <tr>
+            <th class="text-left">รายการ</th>
+            <th class="text-right">บาท/ชิ้น</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="text-left"></td>
+            <q-input  outlined class="text-right" v-model=""  />
+          </tr>
+          </tbody>
+        </q-markup-table>
+
+      </div>
     </div>
 </template>
 
@@ -36,7 +57,7 @@ props:{
     /*-------------------------DataVarible---------------------------------------*/
     data() {
     return {
-
+        ilke:false,
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
