@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
-  <!--<div style="padding:5%;">
-    <div>
+  <div style="padding:5%;">
+    <div v-if="!typerate">
       <q-markup-table>
         <thead>
         <tr>
@@ -11,14 +11,14 @@
         </thead>
         <tbody>
         <tr>
-          <td class="text-left">{{hotel.Hotel_name}}</td>
-          <td class="text-right">{{hotel.Hotel_name}}</td>
+          <td class="text-left">1</td>
+          <td class="text-right">1</td>
         </tr>
         </tbody>
       </q-markup-table>
 
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
-        <q-btn v-on:click="typerate=false" fab icon="edit" color="primary"  />
+        <q-btn v-on:click="typerate=true" fab icon="edit" color="primary"  />
       </q-page-sticky>
 
     </div>
@@ -33,9 +33,9 @@
         </thead>
         <tbody>
         <tr>
-          <td class="text-left">{{hotel.Hotel_name}}</td>
+          <td class="text-left"></td>
           <td class="text-right">
-            <q-input outlined v-model=""/>
+            <q-input v-model="text" label="Standard" />
           </td>
         </tr>
         </tbody>
@@ -44,7 +44,7 @@
 
 
 
-  </div>-->
+  </div>
 </template>
 
 <script>
