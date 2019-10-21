@@ -11,8 +11,14 @@
       </q-item>
 
       <div style="padding:2%;">
-        <q-input outlined v-model="text" test="ผ้าปูที่นอน3.5ฟุต/จำนวน"></q-input>
-        <br>
+        <tbody>
+          <th class="text-left">
+            ผ้าปูที่นอน3.5ฟุต
+          </th>
+          <th class="text-right">
+            <q-input outlined v-model="ph" placeholder="จำนวน" color="white" />
+          </th>
+        </tbody>
 
         <q-btn type="submit" style="width:100%;" color="primary" label="ขั้นตอนถัดไป" @click="sign()" />
       </div>

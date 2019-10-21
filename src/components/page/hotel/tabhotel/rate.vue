@@ -22,18 +22,14 @@
     <div v-else-if="typerate">
       <q-markup-table>
         <thead>
-        <tr>
           <th class="text-left">รายการ</th>
           <th class="text-right">บาท/ชิ้น</th>
-        </tr>
         </thead>
         <tbody>
-        <tr>
           <td class="text-left">1</td>
           <td class="text-right">
             <q-input v-model="text" />
           </td>
-        </tr>
         </tbody>
       </q-markup-table><br>
       <div>
