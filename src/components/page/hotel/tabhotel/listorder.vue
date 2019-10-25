@@ -44,11 +44,11 @@ props:{
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed:{
-        ...sync('order/*')
+
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
-        ...call('order/*'),
+
     /******* Methods default run ******/
 
 
@@ -58,7 +58,7 @@ methods:{
 
     load:async function(){
       let id =this.$route.params.id;
-      await this.readOne(id);
+      //await this.readOne(id);
 }
 },
     }
