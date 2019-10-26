@@ -5,35 +5,35 @@
         <q-list bordered separator>
             <q-item >
             <q-item-section>โรงเเรม : </q-item-section>
-            <q-item-section >{{hoteldetail.Hotel_name}}</q-item-section>
+            <q-item-section >{{hoteldetail.name}}</q-item-section>
             </q-item>
             <q-item  >
             <q-item-section>ที่อยู่ : </q-item-section>
-            <q-item-section>{{hoteldetail.Hotel_address}}</q-item-section>
+            <q-item-section>{{hoteldetail.address}}</q-item-section>
             </q-item>
             <q-item >
             <q-item-section>อำเภอ : </q-item-section>
-            <q-item-section>{{hoteldetail.Hotel_district}}</q-item-section>
+            <q-item-section>{{hoteldetail.district}}</q-item-section>
             </q-item>
             <q-item >
             <q-item-section>จังหวัด : </q-item-section>
-            <q-item-section>{{hoteldetail.Hotel_province}}</q-item-section>
+            <q-item-section>{{hoteldetail.province}}</q-item-section>
             </q-item>
             <q-item >
             <q-item-section>รหัสไปรษณีย : </q-item-section>
-            <q-item-section>{{hoteldetail.Hotel_zipcode}}</q-item-section>
+            <q-item-section>{{hoteldetail.zipcode}}</q-item-section>
             </q-item>
             <q-item >
             <q-item-section>เบอร์ติดต่อ : </q-item-section>
-            <q-item-section>{{hoteldetail.Hotel_tel}}</q-item-section>
+            <q-item-section>{{hoteldetail.tel}}</q-item-section>
             </q-item>
             <q-item >
             <q-item-section>อีเมล : </q-item-section>
-            <q-item-section>{{hoteldetail.Hotel_email}}</q-item-section>
+            <q-item-section>{{hoteldetail.email}}</q-item-section>
             </q-item>
             <q-item >
             <q-item-section>เลขประจำตัวผู้เสียภาษี : </q-item-section>
-            <q-item-section>{{hoteldetail.Hotel_taxid}}</q-item-section>
+            <q-item-section>{{hoteldetail.taxid}}</q-item-section>
             </q-item>
         </q-list>
 
@@ -45,14 +45,14 @@
     <div v-else-if="ilke">
       <q-list bordered separator>
         <div style="padding:2%;">
-          <q-input outlined v-model="hotelform.Hotel_name" label="โรงเเรม" />
-          <q-input outlined v-model="hotelform.Hotel_address" label="ที่อยู่" />
-          <q-input outlined v-model="hotelform.Hotel_district" label="อำเภอ" />
-          <q-input outlined v-model="hotelform.Hotel_province" label="จังหวัด" />
-          <q-input outlined v-model="hotelform.Hotel_zipcode" label="รหัสไปรษณีย" />
-          <q-input outlined v-model="hotelform.Hotel_tel" label="เบอร์ติดต่อ" />
-          <q-input outlined v-model="hotelform.Hotel_email" label="อีเมล" />
-          <q-input outlined v-model="hotelform.Hotel_taxid" label="เลขประจำตัวผู้เสียภาษี" />
+          <q-input outlined v-model="hotelform.name" label="โรงเเรม" />
+          <q-input outlined v-model="hotelform.address" label="ที่อยู่" />
+          <q-input outlined v-model="hotelform.district" label="อำเภอ" />
+          <q-input outlined v-model="hotelform.province" label="จังหวัด" />
+          <q-input outlined v-model="hotelform.zipcode" label="รหัสไปรษณีย" />
+          <q-input outlined v-model="hotelform.tel" label="เบอร์ติดต่อ" />
+          <q-input outlined v-model="hotelform.email" label="อีเมล" />
+          <q-input outlined v-model="hotelform.taxid" label="เลขประจำตัวผู้เสียภาษี" />
         </div>
       </q-list>
       <q-btn v-on:click="ilke=false" style="width:100%;" color="primary" @click="updateFrom()">บันทึก

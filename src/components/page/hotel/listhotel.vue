@@ -6,7 +6,7 @@
         <div v-for="hotel,index in hotel" :key="index">
           <q-list bordered separator>
             <q-item clickable v-ripple>
-              <q-item-section @click="openpage(hotel.id)">{{(index+1)}}. {{hotel.Hotel_name}}</q-item-section>
+              <q-item-section @click="openpage(hotel.id)">{{(index+1)}}. {{hotel.name}}</q-item-section>
               <q-item-section top side>
                 <div class="text-grey-8 q-gutter-xs">
 

@@ -1,20 +1,16 @@
 <!----------Make By YourName---------------->
 <template>
-  <div style="padding:5%;" class="readonly"  >
+  <div style="padding:5%;">
     <div v-if="!typerate&&!typeadd">
-      <q-markup-table no-route-fullscreen-exit>
+      <q-markup-table>
         <thead>
           <th class="text-left">รายการ</th>
-          <th class="text-right">บาท/ชิ้น</th>
+          <th >บาท/ชิ้น</th>
         </thead>
         <tbody>
-        <tr :readonly="readonly">
-          <td class="text-left">1</td>
-          <td class="text-right">1</td>
-        </tr>
-        <tr :readonly="readonly" >
-          <td class="text-left">2</td>
-          <td class="text-right">2</td>
+        <tr v-for="rate in rateList">
+          <td class="text-left">{{rate.product_name}}</td>
+          <td class="text-right">{{rate.product_price}}</td>
         </tr>
         </tbody>
       </q-markup-table>
@@ -24,12 +20,11 @@
       </q-page-sticky>
 
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
-        <q-btn v-on:click="typerate=true" fab icon="edit" color="primary"  />
+        <q-btn v-on:click="typerate=true" fab icon="edit" color="primary"  @click=" rateedit = rateList" />
       </q-page-sticky>
 
     </div>
 
-    <!----edit------>
     <div v-else-if="typerate">
     <q-markup-table>
       <thead>
@@ -37,20 +32,22 @@
       <th class="text-right">บาท/ชิ้น</th>
       </thead>
       <tbody>
-      <tr>
-      <td class="text-left">1</td>
-      <td class="text-right">
-        <q-input outlined v-model="text" />
-      </td>
+      <tr v-for="rateedit in rateList">
+        <td class="text-left">
+          <q-input outlined v-model="rateedit.product_name" />
+        </td>
+        <td class="text-right">
+          <q-input outlined v-model="rateedit.product_price" />
+        </td>
       </tr>
       </tbody>
     </q-markup-table><br>
     <div>
-      <q-btn v-on:click="typerate=false" style="width:100%;" color="primary">บันทึก</q-btn>
+      <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="updateFrom()">บันทึก</q-btn>
+      <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
     </div>
   </div>
 
-    <!----Add------>
     <div v-else-if="typeadd">
       <q-markup-table>
         <thead>
@@ -58,18 +55,17 @@
         <th class="text-right">บาท/ชิ้น</th>
         </thead>
         <tbody>
-        <tr>
         <td class="text-left">
-          <q-input outlined v-model="rateData.Product_name" />
+          <q-input outlined v-model="product.product_name" />
         </td>
         <td class="text-right">
-          <q-input outlined v-model="rateData.Product_price" />
+          <q-input outlined v-model="product.product_price" />
         </td>
-        </tr>
         </tbody>
       </q-markup-table><br>
       <div>
         <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" @click="submitFrom()">บันทึก</q-btn>
+        <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
       </div>
     </div>
 
@@ -93,8 +89,7 @@
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
-                typerate: false,
-                typeadd:false,
+
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -115,21 +110,34 @@
 
             ...call('rate/*'),
             /******* Methods default run ******/
+
+            async updateFrom() {
+                let id =this.$route.params.id;
+                console.log(id)
+                let check = await this.update({hotelId : id,form: {
+                    rates : this.rateedit
+                    }});
+
+
+            },
+
             async submitFrom() {
-                let check = await this.create(this.rateData);
+                let id =this.$route.params.id;
+                let check = await this.create({hotelId : id,form: this.product});
                 if(check){
                     alert('Create Success');
-                    this.rateData = {};
+                    this.product = {};
                 }else{
                     alert('Create Error');
 
                 }
+                await this.readbyID(id);
 
             },
 
             load:async function(){
                 let id =this.$route.params.id;
-                await this.readOne(id);
+                await this.readbyID(id);
             }
         },
     }

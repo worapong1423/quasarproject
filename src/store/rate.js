@@ -2,7 +2,11 @@ import axios from '../axios'
 
 import { make } from 'vuex-pathify'
 const state = {
-  rateData : {},
+  rateList :[],
+  rateedit :{},
+  product : {},
+  typerate: false,
+  typeadd:false,
 }
 const getters = {
 
@@ -11,23 +15,35 @@ const getters = {
 const mutations = make.mutations(state)
 
 const actions = {
-  async readOne(context,id){
-    let x = await axios.get(`/api/rate/${id}`)
+  async readbyID(context,id){
+    let x = await axios.get(`/api/hotel/${id}/rate`)
       .then(async (r) => {
-        state.hotelData = r.data
+        state.rateList = r.data
         console.log(r.data);
       }).catch((e) => {
 
       });
   },
-  create : async function(context,params){
-    let x = await axios.post(`/api/rate`, params)
+  create : async function(context,{hotelId,form}){
+    let x = await axios.post(`/api/hotel/${hotelId}/rate`, form)
       .then((r) => {
         return true;
       }).catch((e) => {
         return false;
       });
     return x;
+  },
+
+  async update(context, {hotelId,form}) {
+    let load = await axios.put(`/api/hotel/${hotelId}/rate/0`, form)
+      .then((r) => {
+
+        return true;
+      }).catch((e) => {
+        alert('Error Update');
+        return false;
+      });
+    return load
   },
 
 async NameMethods(context,params){
