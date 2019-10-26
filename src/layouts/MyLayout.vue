@@ -134,7 +134,7 @@ methods:{
         },
 
     async Hotelpage() {
-         this.$router.push({name: "hotel"})
+         this.$router.push('/hotel')
 
         },
     load:async function(){

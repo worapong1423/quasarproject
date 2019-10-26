@@ -1,15 +1,21 @@
 <!----------Make By YourName---------------->
 <template>
-  <div style="padding:5%;">
+  <div style="padding:5%;" class="readonly"  >
     <div v-if="!typerate&&!typeadd">
-      <q-markup-table>
+      <q-markup-table no-route-fullscreen-exit>
         <thead>
           <th class="text-left">รายการ</th>
-          <th >บาท/ชิ้น</th>
+          <th class="text-right">บาท/ชิ้น</th>
         </thead>
         <tbody>
+        <tr :readonly="readonly">
           <td class="text-left">1</td>
           <td class="text-right">1</td>
+        </tr>
+        <tr :readonly="readonly" >
+          <td class="text-left">2</td>
+          <td class="text-right">2</td>
+        </tr>
         </tbody>
       </q-markup-table>
 
@@ -23,6 +29,7 @@
 
     </div>
 
+    <!----edit------>
     <div v-else-if="typerate">
     <q-markup-table>
       <thead>
@@ -30,10 +37,12 @@
       <th class="text-right">บาท/ชิ้น</th>
       </thead>
       <tbody>
+      <tr>
       <td class="text-left">1</td>
       <td class="text-right">
         <q-input outlined v-model="text" />
       </td>
+      </tr>
       </tbody>
     </q-markup-table><br>
     <div>
@@ -41,6 +50,7 @@
     </div>
   </div>
 
+    <!----Add------>
     <div v-else-if="typeadd">
       <q-markup-table>
         <thead>
@@ -48,12 +58,14 @@
         <th class="text-right">บาท/ชิ้น</th>
         </thead>
         <tbody>
+        <tr>
         <td class="text-left">
           <q-input outlined v-model="rateData.Product_name" />
         </td>
         <td class="text-right">
           <q-input outlined v-model="rateData.Product_price" />
         </td>
+        </tr>
         </tbody>
       </q-markup-table><br>
       <div>

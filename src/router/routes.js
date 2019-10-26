@@ -2,12 +2,10 @@
 const routes = [
   {
     path: '/hotel',
-    name:'layout',
+    name:'hotel',
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '',
-        name: 'hotel',
-        types: "do",
         component: () => import('pages/hotel/hotelmainscreen.vue'),
       },
       { path: 'test',
@@ -17,7 +15,6 @@ const routes = [
       {
         path: 'addhotel',
         name: 'addhotel',
-        types: "gb",
         component: () => import('pages/hotel/hoteladd.vue'),
       },
       {
@@ -39,6 +36,26 @@ const routes = [
         path: 'statustwo',
         name: 'statustwo',
         component: () => import('pages/hotel/status/statustwo.vue')
+      },
+      {
+        path: 'statusthree',
+        name: 'statusthree',
+        component: () => import('pages/hotel/status/statusthree.vue')
+      },
+      {
+        path: 'statusfour',
+        name: 'statusfour',
+        component: () => import('pages/hotel/status/statusfour.vue')
+      },
+      {
+        path: 'statustwosign',
+        name: 'statustwosign',
+        component: () => import('pages/hotel/status/statustwosign.vue')
+      },
+      {
+        path: 'statusfinal',
+        name: 'statusfinal',
+        component: () => import('pages/hotel/status/statusfinal.vue')
       },
     ]
   },

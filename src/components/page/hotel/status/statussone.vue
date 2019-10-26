@@ -11,7 +11,7 @@
       </q-item>
 
       <div style="padding:2%;">
-        <q-markup-table>
+        <q-markup-table >
         <thead>
         <tr>
           <th style="padding:12px 12px;" class="text-left">รายการ</th>
@@ -20,8 +20,16 @@
         </thead>
         <tbody>
         <tr>
-          <th class="text-left" style="padding:12px 12px;">
+          <th native class="text-left" style="padding:12px 12px;">
             ผ้าปูที่นอน3.5ฟุต
+          </th>
+          <th class="text-right" style="padding:12px 12px;">
+            <q-input outlined v-model="ph" placeholder="" color="white" />
+          </th>
+        </tr>
+        <tr>
+          <th class="text-left" style="padding:12px 12px;">
+            ผ้าปูที่นอน5-6ฟุต
           </th>
           <th class="text-right" style="padding:12px 12px;">
             <q-input outlined v-model="ph" placeholder="" color="white" />
@@ -37,7 +45,26 @@
     </q-card>
   </div>
 </template>
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
 
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+  .item1 {
+    grid-column: 1 / 5;
+  }
+</style>
   <script>
   import { get,sync,call } from "vuex-pathify";
 export default {

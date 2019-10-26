@@ -4,15 +4,13 @@
 <div class="Fullscreen" >
 <div style="padding:5%;"  >
 
-    <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
+    <div class="grid-container">
+      <div class="item1">
         <q-img
           src="../statics/logo.png"
           style="height: 204px; max-width: 144px"
         />
-    </div>
-    <div class="col-3"></div>
+      </div>
     </div><br>
     <form @submit.prevent="loginform()">
         <q-input bg-color="white" v-model="user.email" required square outlined label="อีเมลล์" /><br>
@@ -36,6 +34,21 @@
     /* Optional - just for DIV)*/
     border: solid 1px #000000;
     background-color:#00B0FF;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto ;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+  .grid-container > div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+  .item1 {
+    grid-column: 1 ;
   }
 </style>
 <script>
