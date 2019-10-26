@@ -34,8 +34,7 @@
               <q-item-section avatar>
                 <q-icon name="store" />
               </q-item-section>
-
-              <q-item-section>
+              <q-item-section @click="shoppage()">
                 ข้อมูลร้าน
               </q-item-section>
             </q-item>
@@ -134,9 +133,11 @@ methods:{
         },
 
     async Hotelpage() {
-         this.$router.push('/hotel')
-
-        },
+        this.$router.push('/hotel')
+    },
+    async shoppage() {
+        this.$router.push({name : "shop"})
+    },
     load:async function(){
 }
 },

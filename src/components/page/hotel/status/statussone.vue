@@ -11,29 +11,30 @@
       </q-item>
 
       <div style="padding:2%;">
-        <q-markup-table >
+        <v-close-popup></v-close-popup>
+        <q-markup-table separate-close-popup >
         <thead>
         <tr>
-          <th style="padding:12px 12px;" class="text-left">รายการ</th>
-          <th style="padding:12px 8px;" class="text-right">จำนวน</th>
+          <th class="text-left">รายการ</th>
+          <th class="text-right">จำนวน</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-          <th native class="text-left" style="padding:12px 12px;">
+        <tbody >
+        <tr  >
+          <td  class="text-left" style="padding:12px 12px;">
             ผ้าปูที่นอน3.5ฟุต
-          </th>
-          <th class="text-right" style="padding:12px 12px;">
+          </td>
+          <td class="text-right" style="padding:12px 12px;">
             <q-input outlined v-model="ph" placeholder="" color="white" />
-          </th>
+          </td>
         </tr>
-        <tr>
-          <th class="text-left" style="padding:12px 12px;">
+        <tr  >
+          <td class="text-left" style="padding:12px 12px;">
             ผ้าปูที่นอน5-6ฟุต
-          </th>
-          <th class="text-right" style="padding:12px 12px;">
+          </td>
+          <td class="text-right" style="padding:12px 12px;">
             <q-input outlined v-model="ph" placeholder="" color="white" />
-          </th>
+          </td>
         </tr>
         </tbody>
         </q-markup-table>

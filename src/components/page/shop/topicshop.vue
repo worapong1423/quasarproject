@@ -1,23 +1,55 @@
 <!----------Make By YourName---------------->
 <template>
   <div>
-    <topicshop/>
-    <shopmain/>
-  </div>
+      <div class="grid-container">
+        <div class="item1">
+          <q-img
+            src="../statics/logo.png"
+            style="height: 102px; max-width: 72px"
+          />
+        </div>
+        <div class="item2" >
+          <div >
+            บริษัท<br>
+            ปัญญาคลีนนิ่ง
+          </div>
+        </div>
+      </div>
+    </div>
 </template>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-gap: 2px ;
+    padding: 2px;
+    justify-content: center;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+  }
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+  .item1 {
+    grid-column: 2 ;
+  }
+  .item2 {
+    grid-column: 3/5 ;
+  }
+</style>
+
 <script>
     import {
         get,
         sync,
         call
     } from "vuex-pathify";
-    import topicshop from "../../components/page/shop/topicshop";
-    import shopmain from "../../components/page/shop/shopmain";
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
         components: {
-            topicshop,shopmain
         },
         /*-------------------------Set Component---------------------------------------*/
         props: {

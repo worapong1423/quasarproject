@@ -57,6 +57,12 @@ const routes = [
         name: 'statusfinal',
         component: () => import('pages/hotel/status/statusfinal.vue')
       },
+
+      {
+        path: 'shop',
+        name: 'shop',
+        component: ()=> import('pages/shop/shopmain.vue')
+      }
     ]
   },
   {
