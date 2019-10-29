@@ -138,7 +138,7 @@ methods:{
         this.$router.push({name : "shop"})
     },
     async personelpage() {
-        this.$router.push({name : "personel"})
+        this.$router.push({name : "personels"})
     },
     load:async function(){
 }

@@ -65,8 +65,8 @@ const routes = [
       },
 
       {
-        path: 'personel',
-        name: 'personel' ,
+        path: 'personels',
+        name: 'personels' ,
         component: ()=> import('pages/personel/personelmain.vue')
       },
       {
