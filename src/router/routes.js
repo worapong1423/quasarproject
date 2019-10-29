@@ -62,7 +62,19 @@ const routes = [
         path: 'shop',
         name: 'shop',
         component: ()=> import('pages/shop/shopmain.vue')
-      }
+      },
+
+      {
+        path: 'personel',
+        name: 'personel' ,
+        component: ()=> import('pages/personel/personelmain.vue')
+      },
+      {
+        path: 'detail',
+        name: 'personeldetail' ,
+        component: ()=> import('pages/personel/personeldetail.vue')
+      },
+
     ]
   },
   {

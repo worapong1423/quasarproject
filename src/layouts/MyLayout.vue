@@ -39,12 +39,11 @@
               </q-item-section>
             </q-item>
 
-            <q-item active clickable v-ripple>
+            <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="people" />
               </q-item-section>
-
-              <q-item-section>
+              <q-item-section @click="personelpage()">
                 พนักงาน
               </q-item-section>
             </q-item>
@@ -137,6 +136,9 @@ methods:{
     },
     async shoppage() {
         this.$router.push({name : "shop"})
+    },
+    async personelpage() {
+        this.$router.push({name : "personel"})
     },
     load:async function(){
 }

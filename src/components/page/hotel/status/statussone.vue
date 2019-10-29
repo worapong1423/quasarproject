@@ -11,7 +11,6 @@
       </q-item>
 
       <div style="padding:2%;">
-        <v-close-popup></v-close-popup>
         <q-markup-table separate-close-popup >
         <thead>
         <tr>
