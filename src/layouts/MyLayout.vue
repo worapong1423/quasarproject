@@ -34,18 +34,16 @@
               <q-item-section avatar>
                 <q-icon name="store" />
               </q-item-section>
-
-              <q-item-section>
+              <q-item-section @click="shoppage()">
                 ข้อมูลร้าน
               </q-item-section>
             </q-item>
 
-            <q-item active clickable v-ripple>
+            <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="people" />
               </q-item-section>
-
-              <q-item-section>
+              <q-item-section @click="personelpage()">
                 พนักงาน
               </q-item-section>
             </q-item>
@@ -134,9 +132,14 @@ methods:{
         },
 
     async Hotelpage() {
-         this.$router.push({name: "hotel"})
-
-        },
+        this.$router.push('/hotel')
+    },
+    async shoppage() {
+        this.$router.push({name : "shop"})
+    },
+    async personelpage() {
+        this.$router.push({name : "personels"})
+    },
     load:async function(){
 }
 },

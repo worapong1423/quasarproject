@@ -9,69 +9,37 @@
           <q-item-label caption>วันที่ 02 ก.พ. 2562</q-item-label>
         </q-item-section>
       </q-item>
- 
+
       <div style="padding:2%;">
         <q-markup-table>
         <thead>
           <tr>
-            <th class="text-left">รายการ</th>
+            <q-th class="text-left">รายการ</q-th>
             <th class="text-right">จำนวน</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr >
             <td class="text-left">ผ้าปูที่นอน3.5ฟุต</td>
             <td class="text-right">2</td>
           </tr>
-          <tr>
+          <tr >
             <td class="text-left">Ice cream sandwich</td>
             <td class="text-right">237</td>
           </tr>
-          <tr>
-            <td class="text-left">Eclair</td>
-            <td class="text-right">262</td>
-          </tr>
-          <tr>
-            <td class="text-left">Cupcake</td>
-            <td class="text-right">305</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
-          <tr>
-            <td class="text-left">Gingerbread</td>
-            <td class="text-right">356</td>
-          </tr>
         </tbody>
       </q-markup-table>
-        
-        <q-btn type="submit" style="width:100%;" color="primary" label="เสร็จสิ้นการดำเนินการ" @click="next()" />
+
+        <q-btn type="submit" style="width:100%;" color="primary" label="เสร็จสิ้นการดำเนินการ" @click="nexts()" />
       </div>
 
-      
+
     </q-card>
     </div>
 </template>
 
     <script>
-    import { get,sync,call } from "vuex-pathify"; 
+    import { get,sync,call } from "vuex-pathify";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
@@ -87,14 +55,14 @@ props:{
     return {
 
         };
-    }, 
+    },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
      async mounted() {
     /**** Call loading methods*/
-            this.load(); 
+            this.load();
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) { 
+     async beforeRouteEnter(to, from, next) {
         next()
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
@@ -104,6 +72,10 @@ props:{
     /*-------------------------Methods------------------------------------------*/
 methods:{
     /******* Methods default run ******/
+    async nexts() {
+        this.$router.push({name : "statusthree"})
+
+    },
     load:async function(){
 }
 },
