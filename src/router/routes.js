@@ -74,6 +74,16 @@ const routes = [
         name: 'personeldetail' ,
         component: ()=> import('pages/personel/personeldetail.vue')
       },
+      {
+        path: 'personeladd',
+        name: 'personeladd' ,
+        component: ()=> import('pages/personel/personeladdone.vue')
+      },
+      {
+        path: 'personeladdtwo',
+        name: 'personeladdtwo' ,
+        component: ()=> import('pages/personel/personeladdtwo.vue')
+      },
 
     ]
   },

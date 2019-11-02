@@ -1,28 +1,56 @@
 <!----------Make By YourName---------------->
 <template>
-  <div class="q-pa-md">
-    <q-layout>
-      <q-page-container>
-        <q-list bordered separator>
+  <div class="grid-container">
+    <div class="item1">
+      <div class="text-h5">
+        เลือกสถานะพนักงาน
+      </div><br><br>
+      <div @click="openadd()">
+        <q-img
+          src="../statics/car.png"
+          style="height: 144px; max-width: 144px"
+        /><br>
+        <div class="text-subtitle1">
+          สถานะ : พนักงานส่งของ
+        </div><br><br>
+      </div>
+      <div @click="openadd()">
+        <q-img
+          src="../statics/washing-machine001.png"
+          style="height: 144px; max-width: 144px"
+        /><br>
+        <div class="text-subtitle1">
+          สถานะ : พนักงานทั่วไป
+        </div>
+      </div>
+    </div><br>
 
-          <q-item clickable v-ripple>
-            <q-item-section @click="openlist()">
-              <q-item-label lines="1">นายทองดี ดีดี</q-item-label>
-              <q-item-label caption lines="2">สถานะ : พนักงานส่งของ</q-item-label>
-            </q-item-section>
-          </q-item>
 
-        </q-list>
-
-
-        <q-page-sticky position="bottom-right" :offset="[18, 18]">
-          <q-btn @click="openadd()" fab icon="add" color="primary"  />
-        </q-page-sticky>
-
-      </q-page-container>
-    </q-layout>
   </div>
 </template>
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto ;
+    grid-gap: 10px;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .grid-container > div {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .item1 {
+    grid-column: 1 ;
+  }
+
+  .item2 {
+    grid-column: 1 ;
+  }
+
+</style>
 
 <script>
     import { get,sync,call } from "vuex-pathify";
@@ -56,11 +84,8 @@
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
-            async openlist() {
-                this.$router.push({name : "personeldetail" })
-            },
             async openadd() {
-                this.$router.push({name : "personeladd" })
+                this.$router.push({name : "personeladdtwo" })
             },
             /******* Methods default run ******/
             load:async function(){
