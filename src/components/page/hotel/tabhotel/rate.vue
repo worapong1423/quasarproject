@@ -43,7 +43,7 @@
       </tbody>
     </q-markup-table><br>
     <div>
-      <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="updateFrom()">บันทึก</q-btn>
+      <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="update()">บันทึก</q-btn>
       <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
     </div>
   </div>
@@ -64,7 +64,7 @@
         </tbody>
       </q-markup-table><br>
       <div>
-        <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" @click="submitFrom()">บันทึก</q-btn>
+        <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" @click="submit()">บันทึก</q-btn>
         <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
       </div>
     </div>
@@ -111,7 +111,7 @@
             ...call('rate/*'),
             /******* Methods default run ******/
 
-            async updateFrom() {
+            async update() {
                 let id =this.$route.params.id;
                 console.log(id)
                 let check = await this.update({hotelId : id,form: {
@@ -121,7 +121,7 @@
 
             },
 
-            async submitFrom() {
+            async submit() {
                 let id =this.$route.params.id;
                 let check = await this.create({hotelId : id,form: this.product});
                 if(check){

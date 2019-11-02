@@ -55,7 +55,7 @@
           <q-input outlined v-model="hotelform.taxid" label="เลขประจำตัวผู้เสียภาษี" />
         </div>
       </q-list>
-      <q-btn v-on:click="ilke=false" style="width:100%;" color="primary" @click="updateFrom()">บันทึก
+      <q-btn v-on:click="ilke=false" style="width:100%;" color="primary" @click="update()">บันทึก
       </q-btn>
     </div>
   </div>
@@ -96,7 +96,7 @@ props:{
     /*-------------------------Methods------------------------------------------*/
 methods:{
     ...call('hotel/*'),
-    async updateFrom() {
+    async update() {
         let id =this.$route.params.id;
         let check = await this.updateData(this.hoteldetail);
         if (check) {

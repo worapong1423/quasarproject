@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
     <div style="padding:5%;">
-      <form @submit.prevent="submitFrom()">
+      <form @submit.prevent="submit()">
         <q-input outlined v-model="hotelform.name" label="โรงเเรม" /><br>
         <q-input outlined v-model="hotelform.address" label="ที่อยู่" /><br>
         <q-input outlined v-model="hotelform.district" label="อำเภอ" /><br>
@@ -57,7 +57,7 @@ methods:{
 
 
         },
-        async submitFrom() {
+        async submit() {
           let check = await this.create(this.hotelform);
           if(check){
               alert('Create Success');

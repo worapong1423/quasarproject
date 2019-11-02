@@ -128,7 +128,7 @@ methods:{
     /******* Methods default run ******/
     async logoutform() {
            await this.userLogout();
-           await this.$router.replace('/')
+           await this.$router.replace({name : "login"});
         },
 
     async Hotelpage() {

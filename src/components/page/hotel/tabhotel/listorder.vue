@@ -4,11 +4,10 @@
     <q-layout>
 
       <q-page-container>
-        <pre>{{hotelData}}</pre>
+        <!--<pre>{{orderData}}</pre>-->
       </q-page-container>
-
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
-            <q-btn @click="addorder()" fab icon="add" color="primary"  />
+        <q-btn @click="addorder()" fab icon="add" color="primary"  />
       </q-page-sticky>
 
     </q-layout>
