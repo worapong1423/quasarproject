@@ -59,7 +59,7 @@
           <p><q-input bg-color="white"  required square outlined label="ชื่อผู้ใช้" /></p>
           <p><q-input bg-color="white"  required square outlined label="รหัสผ่าน" /></p>
           <q-btn v-on:click="edits=false"  type="submit"  color="primary" label="บันทึก" />
-          <q-btn  type="submit"  color="red" label="ลบ" />
+          <q-btn  type="submit"  color="red" label="ลบ" @click="deletes()"/>
       </div>
 
     </div>
@@ -122,6 +122,10 @@
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
+
+            async deletes() {
+                this.$router.push({name : "personels" })
+            },
             /******* Methods default run ******/
             load:async function(){
             }
