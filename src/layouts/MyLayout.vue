@@ -63,7 +63,7 @@
                 <q-icon name="description" />
               </q-item-section>
 
-              <q-item-section>
+              <q-item-section @click="billpage()">
                 ใบเสร็จ
               </q-item-section>
             </q-item>
@@ -99,8 +99,8 @@ export default {
   /*-------------------------Set Component---------------------------------------*/
 props:{
   hrname : {
-    type : String,
-    default : '',
+      type : String,
+      default : '',
   }
 },
     /*-------------------------DataVarible---------------------------------------*/
@@ -139,6 +139,9 @@ methods:{
     },
     async personelpage() {
         this.$router.push({name : "personels"})
+    },
+    async billpage() {
+        this.$router.push({name : "bill"})
     },
     load:async function(){
 }

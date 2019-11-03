@@ -1,6 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
   <div class="q-pa-md">
+
     <q-layout>
       <q-page-container>
         <div v-for="hotel,index in hotel" :key="index">
@@ -38,6 +39,7 @@
         props: {},
         /*-------------------------DataVarible---------------------------------------*/
         data  : () => ({
+
 
         }),
         /*-------------------------Run Methods when Start this Page------------------------------------------*/

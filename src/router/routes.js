@@ -85,6 +85,18 @@ const routes = [
         component: ()=> import('pages/personel/personeladdtwo.vue')
       },
 
+      {
+        path: 'bill',
+        name: 'bill' ,
+        component: ()=> import('pages/bill/billmain.vue')
+      },
+      {
+        path: 'orderbill',
+        name: 'orderbill' ,
+        component: ()=> import('pages/bill/orderbill.vue')
+      },
+
+
     ]
   },
   {
