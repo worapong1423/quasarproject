@@ -13,50 +13,11 @@ const routes = [
        component: () => import('pages/hotel/test.vue'),
       },
       {
-        path: 'addhotel',
-        name: 'addhotel',
-        component: () => import('pages/hotel/hoteladd.vue'),
-      },
-      {
         path: ':id',
         name: 'layouttab',
         component: () => import('pages/hotel/tabhotel/layouttab.vue'),
       },
-      {
-        path: 'statusone',
-        name: 'statusone',
-        component: () => import('pages/hotel/status/statusone.vue'),
-      },
-      {
-        path: 'statusonesign',
-        name: 'statusonesign',
-        component: () => import('pages/hotel/status/statusonesign.vue')
-      },
-      {
-        path: 'statustwo',
-        name: 'statustwo',
-        component: () => import('pages/hotel/status/statustwo.vue')
-      },
-      {
-        path: 'statusthree',
-        name: 'statusthree',
-        component: () => import('pages/hotel/status/statusthree.vue')
-      },
-      {
-        path: 'statusfour',
-        name: 'statusfour',
-        component: () => import('pages/hotel/status/statusfour.vue')
-      },
-      {
-        path: 'statustwosign',
-        name: 'statustwosign',
-        component: () => import('pages/hotel/status/statustwosign.vue')
-      },
-      {
-        path: 'statusfinal',
-        name: 'statusfinal',
-        component: () => import('pages/hotel/status/statusfinal.vue')
-      },
+
 
       {
         path: 'shop',
@@ -74,6 +35,73 @@ const routes = [
         name: 'personeldetail' ,
         component: ()=> import('pages/personel/personeldetail.vue')
       },
+
+
+      {
+        path: 'bill',
+        name: 'bill' ,
+        component: ()=> import('pages/bill/billmain.vue')
+      },
+
+
+    ]
+  },
+
+  {
+    path: '/hotelb',
+    name: 'hotelb',
+    component: () => import('layouts/MyLayoutback.vue'),
+    children: [
+      {
+        path: 'addhotel',
+        name: 'addhotel',
+        component: () => import('pages/hotel/hoteladd.vue'),
+      },
+
+      {
+        path: 'statusonesign',
+        name: 'statusonesign',
+        component: () => import('pages/hotel/status/statusonesign.vue')
+      },
+      {
+        path: 'statustwosign',
+        name: 'statustwosign',
+        component: () => import('pages/hotel/status/statustwosign.vue')
+      },
+    ]
+  },
+
+  {
+    path: '/hoteln',
+    name: 'hotelsn',
+    component: () => import('layouts/MyLayoutnull.vue'),
+    children: [
+      {
+        path: 'statusone',
+        name: 'statusone',
+        component: () => import('pages/hotel/status/statusone.vue'),
+      },
+      {
+        path: 'statustwo',
+        name: 'statustwo',
+        component: () => import('pages/hotel/status/statustwo.vue')
+      },
+      {
+        path: 'statusthree',
+        name: 'statusthree',
+        component: () => import('pages/hotel/status/statusthree.vue')
+      },
+      {
+        path: 'statusfour',
+        name: 'statusfour',
+        component: () => import('pages/hotel/status/statusfour.vue')
+      },
+      {
+        path: 'statusfinal',
+        name: 'statusfinal',
+        component: () => import('pages/hotel/status/statusfinal.vue')
+      },
+
       {
         path: 'personeladd',
         name: 'personeladd' ,
@@ -86,19 +114,13 @@ const routes = [
       },
 
       {
-        path: 'bill',
-        name: 'bill' ,
-        component: ()=> import('pages/bill/billmain.vue')
-      },
-      {
         path: 'orderbill',
         name: 'orderbill' ,
         component: ()=> import('pages/bill/orderbill.vue')
       },
-
-
     ]
   },
+
   {
     path: '/',
     name:'login',
