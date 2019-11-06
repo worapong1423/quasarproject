@@ -10,7 +10,7 @@ const routes = [
       },
       { path: 'test',
         name: 'test',
-       component: () => import('pages/hotel/test.vue'),
+        component: () => import('pages/hotel/test.vue'),
       },
       {
         path: ':id',
@@ -30,11 +30,7 @@ const routes = [
         name: 'personels' ,
         component: ()=> import('pages/personel/personelmain.vue')
       },
-      {
-        path: 'detail',
-        name: 'personeldetail' ,
-        component: ()=> import('pages/personel/personeldetail.vue')
-      },
+
 
 
       {
@@ -67,6 +63,29 @@ const routes = [
         path: 'statustwosign',
         name: 'statustwosign',
         component: () => import('pages/hotel/status/statustwosign.vue')
+      },
+
+      {
+        path: 'orderbill',
+        name: 'orderbill' ,
+        component: ()=> import('pages/bill/orderbill.vue')
+      },
+
+      {
+        path: 'detail',
+        name: 'personeldetail' ,
+        component: ()=> import('pages/personel/personeldetail.vue')
+      },
+
+      {
+        path: 'personeladd',
+        name: 'personeladd' ,
+        component: ()=> import('pages/personel/personeladdone.vue')
+      },
+      {
+        path: 'personeladdtwo',
+        name: 'personeladdtwo' ,
+        component: ()=> import('pages/personel/personeladdtwo.vue')
       },
     ]
   },
@@ -102,22 +121,9 @@ const routes = [
         component: () => import('pages/hotel/status/statusfinal.vue')
       },
 
-      {
-        path: 'personeladd',
-        name: 'personeladd' ,
-        component: ()=> import('pages/personel/personeladdone.vue')
-      },
-      {
-        path: 'personeladdtwo',
-        name: 'personeladdtwo' ,
-        component: ()=> import('pages/personel/personeladdtwo.vue')
-      },
 
-      {
-        path: 'orderbill',
-        name: 'orderbill' ,
-        component: ()=> import('pages/bill/orderbill.vue')
-      },
+
+
     ]
   },
 

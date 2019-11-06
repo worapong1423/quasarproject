@@ -26,7 +26,7 @@
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
         async mounted() {
             /**** Call loading methods*/
-            this.load();
+            await this.load();
         },
         /*-------------------------Run Methods when Start Routed------------------------------------------*/
         async beforeRouteEnter(to, from, next) {
@@ -34,13 +34,15 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
-
+            ...sync('app/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
+
             /******* Methods default run ******/
             load:async function(){
-            }
+                this.menuName = "ใบเสร็จรับเงิน"
+            },
         },
     }
 </script>

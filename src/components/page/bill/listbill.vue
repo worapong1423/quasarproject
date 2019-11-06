@@ -55,7 +55,7 @@
         /*-------------------------Methods------------------------------------------*/
         methods:{
             async orderbill() {
-                this.$router.push({name : "orderbill"})
+                this.$router.replace({name : "orderbill"})
             },
             /******* Methods default run ******/
             load:async function(){

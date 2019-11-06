@@ -35,15 +35,19 @@
         /*-------------------------Run Methods when Start Routed------------------------------------------*/
         async beforeRouteEnter(to, from, next) {
             next()
+
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
-        computed: {
+        computed:{
+            ...sync('app/*')
         },
         /*-------------------------Methods------------------------------------------*/
-        methods: {
+        methods:{
+
             /******* Methods default run ******/
-            load: async function () {
-            }
+            load:async function(){
+                this.menuName = "ร้านค้า"
+            },
         },
     }
 </script>

@@ -76,7 +76,7 @@
         },
         /*-------------------------Run Methods when Start Routed------------------------------------------*/
         async beforeRouteEnter(to, from, next) {
-            next()
+
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
@@ -85,7 +85,7 @@
         /*-------------------------Methods------------------------------------------*/
         methods:{
             async openadd() {
-                this.$router.push({name : "personeladdtwo" })
+                this.$router.replace({name : "personeladdtwo" })
             },
             /******* Methods default run ******/
             load:async function(){

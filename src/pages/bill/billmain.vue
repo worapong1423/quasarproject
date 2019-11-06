@@ -34,13 +34,15 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
-
+            ...sync('app/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
+
             /******* Methods default run ******/
             load:async function(){
-            }
+                this.menuName = "ใบเสร็จรับเงิน"
+            },
         },
     }
 </script>
