@@ -48,10 +48,7 @@
         methods:{
             ...call('login/*'),
             /******* Methods default run ******/
-            async logoutform() {
-                await this.userLogout();
-                await this.$router.replace({name : "login"});
-            },
+
             /******* Methods default run ******/
             load:async function(){
             }
