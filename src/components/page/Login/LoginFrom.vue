@@ -6,17 +6,22 @@
 
     <div class="grid-container">
       <div class="item1">
+        <div>
+          <br>
         <q-img
           src="../statics/logo.png"
           style="height: 204px; max-width: 144px"
         />
-      </div>
-    </div><br>
+        </div><br>
+
+
     <form @submit.prevent="loginform()">
-        <q-input bg-color="white" v-model="user.email" required square outlined label="อีเมลล์" /><br>
-        <q-input bg-color="white" v-model="user.password"  type="password" required square outlined label="รหัสผ่าน" /><br>
-        <q-btn  type="submit" style="width:100%;" color="primary" label="เข้าสู่ระบบ" />
+      <p><q-input bg-color="white" v-model="user.email" outlined label="อีเมลล์" /></p>
+      <p><q-input bg-color="white" v-model="user.password"  type="password"  outlined label="รหัสผ่าน" /></p>
+      <q-btn  type="submit"  color="primary" label="เข้าสู่ระบบ" />
     </form>
+      </div>
+  </div>
 <br>
 
 
@@ -48,6 +53,9 @@
     font-size: 30px;
   }
   .item1 {
+    grid-column: 1 ;
+  }
+  .item2 {
     grid-column: 1 ;
   }
 </style>

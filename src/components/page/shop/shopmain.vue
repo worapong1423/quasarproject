@@ -47,7 +47,7 @@
           <q-input outlined v-model="text"  label="เบอร์ติดต่อ" />
           <q-input outlined v-model="text"  label="อีเมล" />
           <q-input outlined v-model="text"  label="เลขประจำตัวผู้เสียภาษี" />
-        </q-list>
+        </q-list><br>
 
         <q-btn v-on:click="edits=false" style="width:100%;" color="primary">บันทึก
         </q-btn>

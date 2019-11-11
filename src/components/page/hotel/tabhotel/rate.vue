@@ -5,7 +5,7 @@
       <q-markup-table>
         <thead>
           <th class="text-left">รายการ</th>
-          <th >บาท/ชิ้น</th>
+          <th class="text-right">บาท/ชิ้น</th>
         </thead>
         <tbody>
         <tr v-for="rate in rateList">
@@ -26,27 +26,32 @@
     </div>
 
     <div v-else-if="typerate">
-    <q-markup-table>
-      <thead>
-      <th class="text-left">รายการ</th>
-      <th class="text-right">บาท/ชิ้น</th>
-      </thead>
-      <tbody>
-      <tr v-for="rateedit in rateList">
-        <td class="text-left">
-          <q-input outlined v-model="rateedit.product_name" />
-        </td>
-        <td class="text-right">
-          <q-input outlined v-model="rateedit.product_price" />
-        </td>
-      </tr>
-      </tbody>
-    </q-markup-table><br>
-    <div>
-      <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="update()">บันทึก</q-btn>
-      <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
+      <q-markup-table>
+        <thead>
+        <th class="text-left">รายการ</th>
+        <th >บาท/ชิ้น</th>
+        <th class="text-right"></th>
+        </thead>
+
+        <tbody >
+        <tr v-for="rateedit in rateList">
+          <td class="text-left">
+            <q-input outlined v-model="rateedit.product_name" />
+          </td>
+          <td >
+            <q-input outlined v-model="rateedit.product_price"  />
+          </td>
+          <td class="text-right">
+            <q-btn size="12px" flat dense round icon="delete" />
+          </td>
+        </tr>
+        </tbody>
+      </q-markup-table><br>
+      <div>
+        <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="update()">บันทึก</q-btn>
+        <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
+      </div>
     </div>
-  </div>
 
     <div v-else-if="typeadd">
       <q-markup-table>

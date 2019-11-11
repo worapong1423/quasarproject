@@ -66,7 +66,7 @@
             /******* Methods default run ******/
 
             async back(){
-                $router.go(-1)
+                window.history.back()
             },
             load:async function(){
             }
