@@ -4,17 +4,24 @@
     <q-layout>
 
       <q-page-container>
-        <!--<pre>{{orderData}}</pre>-->
-        <q-item-section top side>
-          <div class="text-grey-8 q-gutter-xs">
-            <q-btn size="12px" flat dense round icon="delete" @click="destroyData(hotel.id)"/>
-          </div>
-        </q-item-section>
-      </q-page-container>
-      <q-page-sticky position="bottom-right" :offset="[18, 18]">
-        <q-btn @click="addorder()" fab icon="add" color="primary"  />
-      </q-page-sticky>
+        <div v-for="order,index in orderData" :key="index">
+          <q-list bordered separator>
+            <q-item clickable v-ripple>
+              <q-item-section @click="toOrder()">{{(index+1)}}. {{order.name}}</q-item-section>
+              <q-item-section top side>
+                <div class="text-grey-8 q-gutter-xs">
+                  <q-btn size="12px" flat dense round icon="delete" @click=""/>
+                </div>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </div>
 
+        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+          <q-btn @click="addorder()" fab icon="add" color="primary"/>
+        </q-page-sticky>
+
+      </q-page-container>
     </q-layout>
   </div>
 </template>
@@ -48,11 +55,12 @@ props:{
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed:{
+        ...sync('order/*')
 
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
-
+        ...call('order/*'),
     /******* Methods default run ******/
 
 
@@ -60,9 +68,13 @@ methods:{
           this.$router.push({name : "statusone"})
         },
 
+    async toOrder() {
+        this.$router.push({name : "statustwo"})
+    },
+
     load:async function(){
-      let id =this.$route.params.id;
-      //await this.readOne(id);
+        let id =this.$route.params.id;
+        await this.readbyID(id);
 }
 },
     }

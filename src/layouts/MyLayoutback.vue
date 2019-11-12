@@ -42,11 +42,10 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
-            ...sync('login/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
-            ...call('login/*'),
+
             /******* Methods default run ******/
 
             /******* Methods default run ******/

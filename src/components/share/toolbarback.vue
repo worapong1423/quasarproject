@@ -7,7 +7,7 @@
             flat
             dense
             round
-            @click="back"
+            @click="goBack()"
             icon="arrow_back_ios"
           />
         </div>
@@ -56,17 +56,17 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
-            ...sync('login/*'),
+
             ...sync('app/*'),
-            ...sync('back/*')
+
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
-            ...call('login/*'),
+
             /******* Methods default run ******/
 
-            async back(){
-                window.history.back()
+            async goBack(){
+                this.router.go(-1)
             },
             load:async function(){
             }

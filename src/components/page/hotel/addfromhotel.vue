@@ -62,7 +62,7 @@ methods:{
           if(check){
               alert('Create Success');
               this.hotelform = {};
-              this.$router.replace({name : "hotel"})
+              this.$router.replace('/hotel')
               await this.read();
           }else{
                 alert('Create Error');

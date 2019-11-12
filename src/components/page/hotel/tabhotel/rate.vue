@@ -9,8 +9,8 @@
         </thead>
         <tbody>
         <tr v-for="rate in rateList">
-          <td class="text-left">{{rate.product_name}}</td>
-          <td class="text-right">{{rate.product_price}}</td>
+          <td class="text-left">{{rate.name}}</td>
+          <td class="text-right">{{rate.price}}</td>
         </tr>
         </tbody>
       </q-markup-table>
@@ -36,13 +36,13 @@
         <tbody >
         <tr v-for="rateedit in rateList">
           <td class="text-left">
-            <q-input outlined v-model="rateedit.product_name" />
+            <q-input outlined v-model="rateedit.name" />
           </td>
           <td >
-            <q-input outlined v-model="rateedit.product_price"  />
+            <q-input outlined v-model="rateedit.price"  />
           </td>
           <td class="text-right">
-            <q-btn size="12px" flat dense round icon="delete" />
+            <q-btn size="12px" flat dense round icon="delete" @click="destroyData(rateedit.id)" />
           </td>
         </tr>
         </tbody>
@@ -61,10 +61,10 @@
         </thead>
         <tbody>
         <td class="text-left">
-          <q-input outlined v-model="product.product_name" />
+          <q-input outlined v-model="product.name" />
         </td>
         <td class="text-right">
-          <q-input outlined v-model="product.product_price" />
+          <q-input outlined v-model="product.price" />
         </td>
         </tbody>
       </q-markup-table><br>

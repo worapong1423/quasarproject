@@ -2,9 +2,7 @@ import axios from '../axios'
 
 import { make } from 'vuex-pathify'
 const state = {
-  orderData:{},
-  hotel:[],
-  hotelform:{},
+  orderData :{},
 }
 const getters = {
 
@@ -14,9 +12,18 @@ const mutations = make.mutations(state)
 
 const actions = {
 
+  async readbyID(context,id){
+    let x = await axios.get(`/api/hotel/${id}/order`)
+      .then(async (r) => {
+        state.orderData = r.data
+        console.log(r.data);
+      }).catch((e) => {
+
+      });
+  },
 
     create : async function(context,params){
-      let x = await axios.post(`/api/hotel`, params)
+      let x = await axios.post(`/api/`, params)
       .then((r) => {
          return true;
       }).catch((e) => {
@@ -26,7 +33,7 @@ const actions = {
      },
 
   async update(context, params) {
-    let load = await axios.put(`/api/order/${params.id}`, params)
+    let load = await axios.put(`/api/order/`, params)
       .then((r) => {
       alert('Update Data Success');
       return true;
@@ -40,7 +47,7 @@ const actions = {
   async destroyData(context,id ){
     let confirms = confirm('Do you want to delete this data ?');
     if(confirms){
-        let x = await axios.delete(`/api/order/${id}`)
+        let x = await axios.delete(`/api/order/`)
     .then(async (r) => {
         alert('Delete Success');
         await actions.read();
@@ -53,15 +60,7 @@ const actions = {
 
   },
 
-  async readbyID(context,id){
-    let x = await axios.get(`/api/order/${id}`)
-    .then(async (r) => {
-      state.hotelData = r.data
-      console.log(r.data);
-    }).catch((e) => {
 
-     });
-  }
 
   }
 

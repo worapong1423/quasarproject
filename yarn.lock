@@ -3785,6 +3785,11 @@ he@1.2.x, he@^1.1.0, he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
+headful@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/headful/-/headful-1.0.3.tgz#420936f6184358a0613b5f73f1c5b5c91a251895"
+  integrity sha512-vF9Vfddn1QWmziliht2mji6ayI78+hUuSC+Kt0GEqLw/51zWgi1KF7oLtIQf3nlkg8sQQOlznkkIaF4W9lIt9w==
+
 hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
@@ -4503,6 +4508,19 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+
+jasmine-core@~3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-3.5.0.tgz#132c23e645af96d85c8bca13c8758b18429fc1e4"
+  integrity sha512-nCeAiw37MIMA9w9IXso7bRaLl+c/ef3wnxsoSAlYrzS+Ot0zTG6nU8G/cIfGkqpkjX2wNaIW9RFG0TwIFnG6bA==
+
+jasmine@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/jasmine/-/jasmine-3.5.0.tgz#7101eabfd043a1fc82ac24e0ab6ec56081357f9e"
+  integrity sha512-DYypSryORqzsGoMazemIHUfMkXM7I7easFaxAvNM3Mr6Xz3Fy36TupTrAOxZWN8MVKEU5xECv22J4tUQf3uBzQ==
+  dependencies:
+    glob "^7.1.4"
+    jasmine-core "~3.5.0"
 
 javascript-stringify@^2.0.0:
   version "2.0.0"
@@ -8035,6 +8053,13 @@ vue-class-component@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.1.0.tgz#b33efcb10e17236d684f70b1e96f1946ec793e87"
   integrity sha512-G9152NzUkz0i0xTfhk0Afc8vzdXxDR1pfN4dTwE72cskkgJtdXfrKBkMfGvDuxUh35U500g5Ve4xL8PEGdWeHg==
+
+vue-headful@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/vue-headful/-/vue-headful-2.0.1.tgz#43876d62d5c21804bbde72f8a89b55cac1026d63"
+  integrity sha512-h2G/jXCi2hAx6O3gwWN8uTj1eQlSKNHgvkCVZcokZneGczWCRghAUCFYrOvZQM+F+SyFB3YXqoI62rE0Sc8QsA==
+  dependencies:
+    headful "^1.0.3"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
