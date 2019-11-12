@@ -1,8 +1,8 @@
 <!----------Make By YourName---------------->
- <template>
-<div>
+<template>
+  <div>
     <addfrom/>
-    </div>
+  </div>
 </template>
 
     <script>
@@ -12,7 +12,7 @@ export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        addfrom,
+        addfrom
 
     },
   /*-------------------------Set Component---------------------------------------*/

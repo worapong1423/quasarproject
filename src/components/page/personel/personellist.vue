@@ -57,10 +57,10 @@
         /*-------------------------Methods------------------------------------------*/
         methods:{
             async openlist() {
-                this.$router.replace({name : "personeldetail" })
+                this.$router.push({name : "personeldetail" })
             },
             async openadd() {
-                this.$router.replace({name : "personeladd" })
+                this.$router.push({name : "personeladd" })
             },
             /******* Methods default run ******/
             load:async function(){

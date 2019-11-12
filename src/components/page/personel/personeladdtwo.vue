@@ -94,7 +94,7 @@
         /*-------------------------Methods------------------------------------------*/
         methods:{
             async submit() {
-                this.$router.replace({name : "personels" })
+                this.$router.push({name : "personels" })
             },
             /******* Methods default run ******/
             load:async function(){

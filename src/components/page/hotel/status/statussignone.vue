@@ -1,6 +1,9 @@
 <template>
+<div style="padding: 2%">
   <div id="app">
     <div class="container">
+      <q-input outlined v-model="text" label="ชื่อผู้ส่ง" /><br>
+
       <div class="row">
         <div class="col-12 mt-2">
           <VueSignaturePad
@@ -12,15 +15,16 @@
         </div><br>
         <div class="fit row wrap justify-center items-center content-center">
         <div style="padding:2%" class=".col">
-          <q-btn color="primary" @click="undo" label="undo" />
+          <q-btn color="primary" @click="undo" label="ยกเลิก" />
         </div>
         <div style="padding:2%" class=".col">
-          <q-btn color="primary" @click="save" label="save" />
+          <q-btn color="primary" @click="save" label="บันทึก" />
         </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>

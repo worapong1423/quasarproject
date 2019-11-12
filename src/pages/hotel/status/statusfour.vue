@@ -2,17 +2,19 @@
 <template>
   <div>
     <statusfour/>
+  <statussigntwo/>
   </div>
 </template>
 
 <script>
     import { get,sync,call } from "vuex-pathify";
     import statusfour from "../../../components/page/hotel/status/statusfour";
+    import statussigntwo from "../../../components/page/hotel/status/statussigntwo";
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
         components: {
-            statusfour,
+            statusfour,statussigntwo
         },
         /*-------------------------Set Component---------------------------------------*/
         props:{

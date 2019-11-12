@@ -37,7 +37,6 @@
           </tbody>
         </q-markup-table><br>
 
-        <q-btn type="submit" style="width:100%;" color="primary" label="ยืนยัน" @click="nexts()" />
       </div>
 
 

@@ -2,17 +2,19 @@
  <template>
 <div>
     <statusone/>
+  <statussignone/>
     </div>
 </template>
 
     <script>
     import { get,sync,call } from "vuex-pathify";
     import statusone from "../../../components/page/hotel/status/statussone";
+    import statussignone from "../../../components/page/hotel/status/statussignone";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        statusone
+        statusone,statussignone
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{

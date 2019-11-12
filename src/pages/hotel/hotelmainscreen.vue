@@ -1,7 +1,6 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-
   <listhotel/>
 </div>
 </template>
