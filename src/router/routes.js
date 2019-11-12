@@ -52,16 +52,39 @@ const routes = [
         name: 'addhotel',
         component: () => import('pages/hotel/hoteladd.vue'),
       },
-
+      {
+        path: 'statusone',
+        name: 'statusone',
+        component: () => import('pages/hotel/status/statusone.vue'),
+      },
       {
         path: 'statusonesign',
         name: 'statusonesign',
         component: () => import('pages/hotel/status/statusonesign.vue')
+      },{
+        path: 'statustwo',
+        name: 'statustwo',
+        component: () => import('pages/hotel/status/statustwo.vue')
+      },
+      {
+        path: 'statusthree',
+        name: 'statusthree',
+        component: () => import('pages/hotel/status/statusthree.vue')
+      },
+      {
+        path: 'statusfour',
+        name: 'statusfour',
+        component: () => import('pages/hotel/status/statusfour.vue')
       },
       {
         path: 'statustwosign',
         name: 'statustwosign',
         component: () => import('pages/hotel/status/statustwosign.vue')
+      },
+      {
+        path: 'statusfinal',
+        name: 'statusfinal',
+        component: () => import('pages/hotel/status/statusfinal.vue')
       },
 
       {
@@ -93,37 +116,6 @@ const routes = [
     path: '/hoteln',
     name: 'hotelsn',
     component: () => import('layouts/MyLayoutnull.vue'),
-    children: [
-      {
-        path: 'statusone',
-        name: 'statusone',
-        component: () => import('pages/hotel/status/statusone.vue'),
-      },
-      {
-        path: 'statustwo',
-        name: 'statustwo',
-        component: () => import('pages/hotel/status/statustwo.vue')
-      },
-      {
-        path: 'statusthree',
-        name: 'statusthree',
-        component: () => import('pages/hotel/status/statusthree.vue')
-      },
-      {
-        path: 'statusfour',
-        name: 'statusfour',
-        component: () => import('pages/hotel/status/statusfour.vue')
-      },
-      {
-        path: 'statusfinal',
-        name: 'statusfinal',
-        component: () => import('pages/hotel/status/statusfinal.vue')
-      },
-
-
-
-
-    ]
   },
 
   {
