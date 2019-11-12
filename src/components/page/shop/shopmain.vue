@@ -5,51 +5,51 @@
       <q-list bordered separator >
         <q-item >
           <q-item-section>  ที่อยู่ : </q-item-section>
-          <q-item-section ></q-item-section>
+          <q-item-section >{{shopform.address}}</q-item-section>
         </q-item>
         <q-item >
           <q-item-section>อำเภอ : </q-item-section>
-          <q-item-section></q-item-section>
+          <q-item-section>{{shopform.district}}</q-item-section>
         </q-item>
         <q-item >
           <q-item-section>จังหวัด : </q-item-section>
-          <q-item-section></q-item-section>
+          <q-item-section>{{shopform.province}}</q-item-section>
         </q-item>
         <q-item >
           <q-item-section>รหัสไปรษณีย : </q-item-section>
-          <q-item-section></q-item-section>
+          <q-item-section>{{shopform.zipcode}}</q-item-section>
         </q-item>
         <q-item >
           <q-item-section>เบอร์ : </q-item-section>
-          <q-item-section></q-item-section>
+          <q-item-section>{{shopform.tel}}</q-item-section>
         </q-item>
         <q-item >
           <q-item-section>อีเมล : </q-item-section>
-          <q-item-section></q-item-section>
+          <q-item-section>{{shopform.email}}</q-item-section>
         </q-item>
         <q-item >
           <q-item-section>เลขประจำตัวผู้เสียภาษี : </q-item-section>
-          <q-item-section></q-item-section>
+          <q-item-section>{{shopform.taxid}}</q-item-section>
         </q-item>
       </q-list>
 
       <q-page-sticky  position="bottom-right" :offset="[18, 18]">
-        <q-btn v-on:click="edits=true" fab icon="edit" color="primary"  />
+        <q-btn v-on:click="edits=true" fab icon="edit" color="primary" @click="shopedit = shopform"  />
       </q-page-sticky>
     </div>
 
       <div v-else-if="edits" style="padding:5%;">
         <q-list bordered separator >
-          <q-input outlined v-model="text"  label="ที่อยู่" />
-          <q-input outlined v-model="text"  label="อำเภอ" />
-          <q-input outlined v-model="text"  label="จังหวัด" />
-          <q-input outlined v-model="text"  label="รหัสไปรษณีย" />
-          <q-input outlined v-model="text"  label="เบอร์ติดต่อ" />
-          <q-input outlined v-model="text"  label="อีเมล" />
-          <q-input outlined v-model="text"  label="เลขประจำตัวผู้เสียภาษี" />
+          <q-input outlined v-model="shopedit.address"  label="ที่อยู่" />
+          <q-input outlined v-model="shopedit.district"  label="อำเภอ" />
+          <q-input outlined v-model="shopedit.province"  label="จังหวัด" />
+          <q-input outlined v-model="shopedit.zipcode"  label="รหัสไปรษณีย" />
+          <q-input outlined v-model="shopedit.tel"  label="เบอร์ติดต่อ" />
+          <q-input outlined v-model="shopedit.email"  label="อีเมล" />
+          <q-input outlined v-model="shopedit.taxid"  label="เลขประจำตัวผู้เสียภาษี" />
         </q-list><br>
 
-        <q-btn v-on:click="edits=false" style="width:100%;" color="primary">บันทึก
+        <q-btn v-on:click="edits=false" style="width:100%;" color="primary" @click="update()">บันทึก
         </q-btn>
 
       </div>
@@ -82,15 +82,26 @@
         },
         /*-------------------------Run Methods when Start Routed------------------------------------------*/
         async beforeRouteEnter(to, from, next) {
-            next()
+            //next()
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed: {
+            ...sync('shop/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods: {
+            ...call('shop/*'),
             /******* Methods default run ******/
+            async update() {
+                let check = await this.updateData(this.shopedit);
+                if (check) {
+                    this.shopedit = {}
+                } else {
+
+                }
+            },
             load: async function () {
+                await this.readOne('1');
             }
         },
     }
