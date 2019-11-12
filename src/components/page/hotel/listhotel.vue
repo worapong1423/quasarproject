@@ -1,6 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
   <div class="q-pa-md">
+
     <q-layout>
       <q-page-container>
         <div v-for="hotel,index in hotel" :key="index">
@@ -9,9 +10,7 @@
               <q-item-section @click="openpage(hotel.id)">{{(index+1)}}. {{hotel.name}}</q-item-section>
               <q-item-section top side>
                 <div class="text-grey-8 q-gutter-xs">
-
                   <q-btn size="12px" flat dense round icon="delete" @click="destroyData(hotel.id)"/>
-
                 </div>
               </q-item-section>
             </q-item>
@@ -38,6 +37,7 @@
         props: {},
         /*-------------------------DataVarible---------------------------------------*/
         data  : () => ({
+
 
         }),
         /*-------------------------Run Methods when Start this Page------------------------------------------*/

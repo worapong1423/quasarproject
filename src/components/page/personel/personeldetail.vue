@@ -2,24 +2,35 @@
 <template>
   <div class="grid-container">
     <div v-if="!edits">
+      <!-----------ส่งค่าให้รูปเปลี่ยนสถานะเอานะ---------->
       <div class="item1">
         <div>
           <q-img
-          src="../statics/car.png"
-          style="height: 144px; max-width: 144px"
+            src="../statics/car.png"
+            style="height: 144px; max-width: 144px"
           /><br>
           <div class="text-h6">
-          สถานะ : พนักงานส่งของ
+            สถานะ : พนักงานส่งของ
           </div>
         </div>
+        <!----------สถานะพนักงานทั่วไป
+        <div>
+          <q-img
+            src="../statics/washing-machine001.png"
+            style="height: 144px; max-width: 144px"
+          /><br>
+          <div class="text-subtitle1">
+            สถานะ : พนักงานทั่วไป
+          </div>
+        </div>------------->
       </div><br>
 
       <div class="item2">
         <div class="text-body1">
           <div class="text-left">
-            ชื่อ : นายทองดี ดีดี <br>
-            ชื่อผู้ใช้ : tongde <br>
-            รหัสผ่าน :
+            <p>ชื่อ : นายทองดี ดีดี </p>
+            <p>ชื่อผู้ใช้ : tongde </p>
+            รหัสผ่าน : 12345678
           </div>
         </div>
       </div>
@@ -44,11 +55,11 @@
       </div><br>
 
       <div>
-          <q-input bg-color="white"  required square outlined label="ชื่อ" /><br>
-          <q-input bg-color="white"  required square outlined label="ชื่อผู้ใช้" /><br>
-          <q-input bg-color="white"  required square outlined label="รหัสผ่าน" /><br>
+          <p><q-input bg-color="white"  required square outlined label="ชื่อ" /></p>
+          <p><q-input bg-color="white"  required square outlined label="ชื่อผู้ใช้" /></p>
+          <p><q-input bg-color="white"  required square outlined label="รหัสผ่าน" /></p>
           <q-btn v-on:click="edits=false"  type="submit"  color="primary" label="บันทึก" />
-          <q-btn  type="submit"  color="red" label="ลบ" />
+          <q-btn  type="submit"  color="red" label="ลบ" @click="deletes()"/>
       </div>
 
     </div>
@@ -111,6 +122,10 @@
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
+
+            async deletes() {
+                this.$router.replace({name : "personels" })
+            },
             /******* Methods default run ******/
             load:async function(){
             }

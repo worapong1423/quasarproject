@@ -1,33 +1,32 @@
 <!----------Make By YourName---------------->
 <template>
   <div>
-    <statusfour/>
+    <orderbill/>
   </div>
 </template>
 
 <script>
     import { get,sync,call } from "vuex-pathify";
-    import statusfour from "../../../components/page/hotel/status/statusfour";
+    import orderbill from "../../components/page/bill/orderbill";
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
         components: {
-            statusfour,
+            orderbill,
+
         },
         /*-------------------------Set Component---------------------------------------*/
         props:{
-
         },
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
-
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
         async mounted() {
             /**** Call loading methods*/
-            this.load();
+            await this.load();
         },
         /*-------------------------Run Methods when Start Routed------------------------------------------*/
         async beforeRouteEnter(to, from, next) {
@@ -42,7 +41,7 @@
 
             /******* Methods default run ******/
             load:async function(){
-                this.menuName = "ส่งคืนออเดอร์"
+                this.menuName = "ใบเสร็จรับเงิน"
             },
         },
     }

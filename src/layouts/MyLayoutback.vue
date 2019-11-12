@@ -1,27 +1,34 @@
-<!----------Make By YourName---------------->
 <template>
-  <div>
-    <statusfour/>
-  </div>
+  <q-layout view="lHh Lpr lFf">
+    <toolbar></toolbar>
+
+  </q-layout>
 </template>
+
 
 <script>
     import { get,sync,call } from "vuex-pathify";
-    import statusfour from "../../../components/page/hotel/status/statusfour";
+    import toolbar from "../components/share/toolbarback";
+
     export default {
-        name: 'Root',
+        name: 'MyLayout',
+
         /*-------------------------Load Component---------------------------------------*/
-        components: {
-            statusfour,
+        components: { toolbar
         },
         /*-------------------------Set Component---------------------------------------*/
         props:{
+            titles : {
+                type : String ,
+            } ,
 
         },
         /*-------------------------DataVarible---------------------------------------*/
         data() {
+
             return {
 
+                leftDrawerOpen: false
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -35,15 +42,17 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
-            ...sync('app/*')
+            ...sync('login/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
+            ...call('login/*'),
+            /******* Methods default run ******/
 
             /******* Methods default run ******/
             load:async function(){
-                this.menuName = "ส่งคืนออเดอร์"
-            },
+            }
         },
     }
+
 </script>

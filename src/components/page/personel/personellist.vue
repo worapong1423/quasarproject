@@ -16,7 +16,7 @@
 
 
         <q-page-sticky position="bottom-right" :offset="[18, 18]">
-          <q-btn fab icon="add" color="primary"  />
+          <q-btn @click="openadd()" fab icon="add" color="primary"  />
         </q-page-sticky>
 
       </q-page-container>
@@ -57,7 +57,10 @@
         /*-------------------------Methods------------------------------------------*/
         methods:{
             async openlist() {
-                this.$router.push({name : "personeldetail" })
+                this.$router.replace({name : "personeldetail" })
+            },
+            async openadd() {
+                this.$router.replace({name : "personeladd" })
             },
             /******* Methods default run ******/
             load:async function(){

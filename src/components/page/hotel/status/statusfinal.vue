@@ -15,23 +15,23 @@
           <thead>
           <th class="text-left">รายการ</th>
           <th class="text-right">
-          <th class="text-left">รับ</th>
-          <th class="text-right">ส่ง</th>
+            <th class="text-left">รับ</th>
+            <th class="text-right">ส่ง</th>
           </th>
           </thead>
           <tbody>
           <tr>
             <td class="text-left">ผ้าปูที่นอน3.5ฟุต</td>
             <td  class="text-right">
-            <td class="text-left">2</td>
-            <td class="text-right">2</td>
+              <td class="text-left">2</td>
+              <td class="text-right">2</td>
             </td>
           </tr>
           <tr>
             <td class="text-left">ผ้าปูที่นอน5-6ฟุต</td>
             <td  class="text-right">
-            <td class="text-left">3</td>
-            <td class="text-right">3</td>
+              <td class="text-left">3</td>
+              <td class="text-right">3</td>
             </td>
           </tr>
           </tbody>

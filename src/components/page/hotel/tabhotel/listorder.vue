@@ -5,6 +5,11 @@
 
       <q-page-container>
         <!--<pre>{{orderData}}</pre>-->
+        <q-item-section top side>
+          <div class="text-grey-8 q-gutter-xs">
+            <q-btn size="12px" flat dense round icon="delete" @click="destroyData(hotel.id)"/>
+          </div>
+        </q-item-section>
       </q-page-container>
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
         <q-btn @click="addorder()" fab icon="add" color="primary"  />

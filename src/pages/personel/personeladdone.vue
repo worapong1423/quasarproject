@@ -1,18 +1,18 @@
 <!----------Make By YourName---------------->
 <template>
   <div>
-    <statusfour/>
+    <personeladd/>
   </div>
 </template>
 
 <script>
     import { get,sync,call } from "vuex-pathify";
-    import statusfour from "../../../components/page/hotel/status/statusfour";
+    import personeladd from "../../components/page/personel/personeladdone";
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
         components: {
-            statusfour,
+            personeladd
         },
         /*-------------------------Set Component---------------------------------------*/
         props:{
@@ -42,7 +42,7 @@
 
             /******* Methods default run ******/
             load:async function(){
-                this.menuName = "ส่งคืนออเดอร์"
+                this.menuName = "เพิ่มพนักงาน"
             },
         },
     }

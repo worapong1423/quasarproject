@@ -65,18 +65,15 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed: {
-
+            ...sync('app/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods: {
-
+            load:async function(){
+                this.menuName = "โรงแรม"
+            },
             /******* Methods default run ******/
 
-
-
-
-            load: async function () {
-            }
         },
     }
 </script>

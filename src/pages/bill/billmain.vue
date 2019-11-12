@@ -1,27 +1,26 @@
 <!----------Make By YourName---------------->
 <template>
   <div>
-    <statusfour/>
+    <listbill/>
   </div>
 </template>
 
 <script>
     import { get,sync,call } from "vuex-pathify";
-    import statusfour from "../../../components/page/hotel/status/statusfour";
+    import listbill from "../../components/page/bill/listbill";
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
         components: {
-            statusfour,
+            listbill,
+
         },
         /*-------------------------Set Component---------------------------------------*/
         props:{
-
         },
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
-
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -42,7 +41,7 @@
 
             /******* Methods default run ******/
             load:async function(){
-                this.menuName = "ส่งคืนออเดอร์"
+                this.menuName = "ใบเสร็จรับเงิน"
             },
         },
     }

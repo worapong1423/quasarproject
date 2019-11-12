@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
   <div>
-    <div v-if="!ilke" style="padding:5%;">
+    <div v-if="!ilke" style="padding:2%;">
         <q-list bordered separator>
             <q-item >
             <q-item-section>โรงเเรม : </q-item-section>
