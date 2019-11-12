@@ -85,7 +85,7 @@
         /*-------------------------Methods------------------------------------------*/
         methods:{
             async openadd() {
-                this.$router.replace({name : "personeladdtwo" })
+                this.$router.push({name : "personeladdtwo" })
             },
             /******* Methods default run ******/
             load:async function(){

@@ -38,7 +38,7 @@
         </tbody>
         </q-markup-table>
 
-        <q-btn type="submit" style="width:100%;" color="primary" label="ยืนยัน" @click="sign()" />
+
       </div>
 
 
