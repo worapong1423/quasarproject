@@ -128,7 +128,7 @@
                 await this.$router.replace({name : "login"});
             },
             async Hotelpage() {
-                this.$router.push('/laundry')
+                this.$router.push({name : "hotel"})
             },
             async shoppage() {
                 this.$router.push({name : "shop"})

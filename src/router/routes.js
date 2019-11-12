@@ -1,39 +1,58 @@
 const routes = [
   {
-    path: '/laundry',
-    name:'layout',
+    path: '/hotel',
+    name:'layouthotel',
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '',
         name: 'hotel',
         component: () => import('pages/hotel/hotelmainscreen.vue'),
       },
-
-
-      {
-        path: 'shop',
-        name: 'shop',
-        component: ()=> import('pages/shop/shopmain.vue')
-      },
-
-      {
-        path: 'personels',
-        name: 'personels' ,
-        component: ()=> import('pages/personel/personelmain.vue')
-      },
-
-      {
-        path: 'bill',
-        name: 'bill' ,
-        component: ()=> import('pages/bill/billmain.vue')
-      },
-
     ]
   },
 
   {
-    path: '/laundry',
-    name: 'layoutback',
+    path: '/personels',
+    name:'layoutpersonels',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'personels' ,
+        component: ()=> import('pages/personel/personelmain.vue')
+      },
+    ]
+  },
+
+  {
+    path: '/bill',
+    name:'layoutperbill',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'bill' ,
+        component: ()=> import('pages/bill/billmain.vue')
+      },
+    ]
+  },
+
+  {
+    path: '/shop',
+    name:'layoutshop',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'shop',
+        component: ()=> import('pages/shop/shopmain.vue')
+      },
+    ]
+  },
+
+  {
+    path: '/hotel',
+    name: 'layoutbackhotel',
     component: () => import('layouts/MyLayoutback.vue'),
     children: [
       {
@@ -89,7 +108,14 @@ const routes = [
         component: () => import('pages/hotel/status/statusfinal.vue'),
         meta: {back: 'layouttab'}
       },
+    ]
+  },
 
+  {
+    path: '/personels',
+    name: 'layoutbackpersonels',
+    component: () => import('layouts/MyLayoutback.vue'),
+    children: [
       {
         path: 'detail',
         name: 'personeldetail' ,
@@ -97,18 +123,25 @@ const routes = [
         meta: {back: 'personels'}
       },
       {
-        path: 'personeladd',
+        path: 'add',
         name: 'personeladd' ,
         component: ()=> import('pages/personel/personeladdone.vue'),
         meta: {back: 'personels'}
       },
       {
-        path: 'personeladdtwo',
+        path: 'add2',
         name: 'personeladdtwo' ,
         component: ()=> import('pages/personel/personeladdtwo.vue'),
         meta: {back: 'personeladd'}
       },
+    ]
+  },
 
+  {
+    path: '/bill',
+    name: 'layoutbackbill',
+    component: () => import('layouts/MyLayoutback.vue'),
+    children: [
       {
         path: 'orderbill',
         name: 'orderbill' ,

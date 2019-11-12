@@ -97,7 +97,7 @@ methods:{
      async loginform() {
           let check = await this.login();
           if(check){
-              this.$router.replace('/laundry')
+              this.$router.replace('/hotel')
 
           }else{
                 alert('login error');
