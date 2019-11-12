@@ -1,6 +1,6 @@
 import axios from '../axios'
 
-import { make } from 'vuex-pathify'
+import {dispatch, make} from 'vuex-pathify'
 const state = {
   rateList :[],
   rateedit :{},
@@ -42,17 +42,22 @@ const actions = {
         alert('Error Update');
         return false;
       });
+
+    await dispatch("rate/readbyID",hotelId)
     return load
   },
-  async destroyData(context,{hotelId} ){
+  async destroyData(context,{hotelId,id} ){
     let confirms = confirm('Do you want to delete this data ?');
     if(confirms){
-      let x = await axios.delete(`/api/hotel/${hotelId}/rate/0`)
+      let x = await axios.delete(`/api/hotel/${hotelId}/rate/${id}`)
         .then(async (r) => {
           alert('Delete Success');
         }).catch((e) => {
           alert('Delete Error');
         });
+
+      await dispatch("rate/readbyID",hotelId)
+
     }
 
 

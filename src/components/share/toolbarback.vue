@@ -66,7 +66,7 @@
             /******* Methods default run ******/
 
             async goBack(){
-                this.router.go(-1)
+                window.history.go(-1)
             },
             load:async function(){
             }

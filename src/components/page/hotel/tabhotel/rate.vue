@@ -42,13 +42,13 @@
             <q-input outlined v-model="rateedit.price"  />
           </td>
           <td class="text-right">
-            <q-btn size="12px" flat dense round icon="delete" @click="destroyData(rateedit.id)" />
+            <q-btn size="12px" flat dense round icon="delete" @click="destroyData({hotelId : $route.params.id , id : rateedit.id})" />
           </td>
         </tr>
         </tbody>
       </q-markup-table><br>
       <div>
-        <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="update()">บันทึก</q-btn>
+        <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="save()">บันทึก</q-btn>
         <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
       </div>
     </div>
@@ -116,7 +116,7 @@
             ...call('rate/*'),
             /******* Methods default run ******/
 
-            async update() {
+            async save() {
                 let id =this.$route.params.id;
                 console.log(id)
                 let check = await this.update({hotelId : id,form: {
