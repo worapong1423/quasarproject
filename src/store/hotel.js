@@ -68,7 +68,7 @@ async readOne(context,id){
     console.log(r.data);
   }).catch((e) => {
 
-   });
+});
 }
 
 

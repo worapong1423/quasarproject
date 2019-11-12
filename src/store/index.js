@@ -9,6 +9,7 @@ import login from './login'
 import hotel from './hotel'
 import order from './order'
 import rate from './rate'
+import shop from './shop'
 Vue.use(Vuex)
 
 /*
@@ -21,7 +22,7 @@ export default function (/* { ssrContext } */) {
     plugins: [pathify.plugin],
     modules: {
       // example
-      list,login,hotel,order,rate,app
+      list,login,hotel,order,rate,app,shop
     },
 
     // enable strict mode (adds overhead!)
