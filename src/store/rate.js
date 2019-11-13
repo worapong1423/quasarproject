@@ -24,7 +24,7 @@ const actions = {
 
       });
   },
-  create : async function(context,{hotelId,form}){
+  createrateData : async function(context,{hotelId,form}){
     let x = await axios.post(`/api/hotel/${hotelId}/rate`, form)
       .then((r) => {
         return true;
@@ -34,7 +34,7 @@ const actions = {
     return x;
   },
 
-  async update(context, {hotelId,form}) {
+  async updaterateData(context, {hotelId,form}) {
     let load = await axios.put(`/api/hotel/${hotelId}/rate/0`, form)
       .then((r) => {
         return true;
@@ -46,7 +46,7 @@ const actions = {
     await dispatch("rate/readratebyID",hotelId)
     return load
   },
-  async destroyData(context,{hotelId,id} ){
+  async destroyrateData(context,{hotelId,id} ){
     let confirms = confirm('Do you want to delete this data ?');
     if(confirms){
       let x = await axios.delete(`/api/hotel/${hotelId}/rate/${id}`)

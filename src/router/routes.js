@@ -68,7 +68,7 @@ const routes = [
         meta: {back: 'hotel'}
       },
       {
-        path: 'statusone',
+        path: ':id/statusone',
         name: 'statusone',
         component: () => import('pages/hotel/status/statusone.vue'),
         meta: {back: 'layouttab'}

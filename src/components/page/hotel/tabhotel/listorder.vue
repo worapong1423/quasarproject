@@ -74,7 +74,7 @@ methods:{
 
     load:async function(){
         let id =this.$route.params.id;
-        await this.readbyID(id);
+        await this.readorderbyID(id);
 }
 },
     }

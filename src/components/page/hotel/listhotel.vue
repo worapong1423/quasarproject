@@ -10,7 +10,7 @@
               <q-item-section @click="openpage(hotel.id)">{{(index+1)}}. {{hotel.name}}</q-item-section>
               <q-item-section top side>
                 <div class="text-grey-8 q-gutter-xs">
-                  <q-btn size="12px" flat dense round icon="delete" @click="destroyData(hotel.id)"/>
+                  <q-btn size="12px" flat dense round icon="delete" @click="destroyhotelData(hotel.id)"/>
                 </div>
               </q-item-section>
             </q-item>
@@ -69,7 +69,7 @@
             },
 
             load: async function () {
-                await this.read();
+                await this.readhoteldata();
             }
         },
     }

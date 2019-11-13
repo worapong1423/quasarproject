@@ -58,12 +58,12 @@ methods:{
 
         },
         async submit() {
-          let check = await this.create(this.hotelform);
+          let check = await this.createhotelData(this.hotelform);
           if(check){
               alert('Create Success');
               this.hotelform = {};
               this.$router.replace('/hotel')
-              await this.read();
+              await this.readhoteldata();
           }else{
                 alert('Create Error');
 

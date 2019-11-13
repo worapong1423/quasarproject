@@ -2,7 +2,7 @@
 <div style="padding: 2%">
   <div id="app">
     <div class="container">
-      <q-input outlined v-model="customer_receive_name" label="ชื่อผู้ส่ง" /><br>
+
 
       <div class="row">
         <div class="col-12 mt-2">

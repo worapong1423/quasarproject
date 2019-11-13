@@ -6,7 +6,6 @@
     style="height: auto; width:auto;"
   >
     <statusone/>
-    <statussignone/>
   </q-scroll-area>
     </div>
 </template>

@@ -13,7 +13,7 @@ const getters = {
 const mutations = make.mutations(state)
 
 const actions = {
-async read() {
+async readhoteldata() {
 let load = await axios.get('/api/hotel')
   .then((r) => {
     state.hotel = r.data
@@ -25,7 +25,7 @@ let load = await axios.get('/api/hotel')
     return load;
   },
 
-  create : async function(context,params){
+  createhotelData : async function(context,params){
     let x = await axios.post(`/api/hotel`, params)
     .then((r) => {
        return true;
@@ -35,7 +35,7 @@ let load = await axios.get('/api/hotel')
      return x;
    },
 
-async updateData(context, params) {
+async updatehotelData(context, params) {
   let load = await axios.put(`/api/hotel/${params.id}`, params)
     .then((r) => {
     alert('Update Data Success');
@@ -47,13 +47,13 @@ async updateData(context, params) {
     return load
 },
 
-async destroyData(context,id ){
+async destroyhotelData(context,id ){
   let confirms = confirm('Do you want to delete this data ?');
   if(confirms){
       let x = await axios.delete(`/api/hotel/${id}`)
   .then(async (r) => {
       alert('Delete Success');
-      await actions.read();
+      await actions.readhoteldata();
   }).catch((e) => {
       alert('Delete Error');
    });
