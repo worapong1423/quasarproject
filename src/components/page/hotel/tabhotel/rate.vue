@@ -42,7 +42,7 @@
             <q-input outlined v-model="rateedit.price"  />
           </td>
           <td class="text-right">
-            <q-btn size="12px" flat dense round icon="delete" @click="destroyData({hotelId : $route.params.id , id : rateedit.id})" />
+            <q-btn v-on:click="typerate=false" size="12px" flat dense round icon="delete" @click="destroyData({hotelId : $route.params.id , id : rateedit.id})" />
           </td>
         </tr>
         </tbody>
@@ -136,13 +136,13 @@
                     alert('Create Error');
 
                 }
-                await this.readbyID(id);
+                await this.readratebyID(id);
 
             },
 
             load:async function(){
                 let id =this.$route.params.id;
-                await this.readbyID(id);
+                await this.readratebyID(id);
             }
         },
     }

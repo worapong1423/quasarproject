@@ -110,7 +110,7 @@ methods:{
     /******* Methods default run ******/
     load:async function(){
         let id =this.$route.params.id;
-        await this.readOne(id);
+        await this.readhotelbyId(id);
 
 
 }

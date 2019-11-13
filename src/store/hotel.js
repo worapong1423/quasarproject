@@ -61,7 +61,7 @@ async destroyData(context,id ){
 
 
 },
-async readOne(context,id){
+async readhotelbyId(context,id){
   let x = await axios.get(`/api/hotel/${id}`)
   .then(async (r) => {
     state.hoteldetail = r.data

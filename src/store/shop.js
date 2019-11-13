@@ -46,7 +46,7 @@ const actions = {
       });
     return load
   },
-  async readOne(context,id){
+  async readShop(context,id){
     let x = await axios.get(`/api/shop/${id}`)
       .then(async (r) => {
         state.shopform = r.data

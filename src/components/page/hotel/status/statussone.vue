@@ -4,9 +4,8 @@
     <q-card class="my-card">
       <q-item>
         <q-item-section>
-          <q-item-label>รายการที่  : HT0005</q-item-label>
-          <q-item-label>โรงเเรม อินเตอร์เนชั่นแนลเฮาล์</q-item-label>
-          <q-item-label caption>วันที่ 02 ก.พ. 2562</q-item-label>
+          <q-item-label>{{hoteldetail.name}}</q-item-label>
+          <q-item-label caption></q-item-label>
         </q-item-section>
       </q-item>
 
@@ -19,22 +18,15 @@
         </tr>
         </thead>
         <tbody >
-        <tr  >
-          <td  class="text-left" style="padding:12px 12px;">
-            ผ้าปูที่นอน3.5ฟุต
-          </td>
-          <td class="text-right" style="padding:12px 12px;">
-            <q-input outlined v-model="ph" placeholder="" color="white" />
-          </td>
-        </tr>
-        <tr  >
+        <tr v-for="rate in rateList" >
           <td class="text-left" style="padding:12px 12px;">
-            ผ้าปูที่นอน5-6ฟุต
+              {{rate.name}}
           </td>
           <td class="text-right" style="padding:12px 12px;">
-            <q-input outlined v-model="ph" placeholder="" color="white" />
+            <q-input outlined v-model="orderData.amountin" placeholder="" color="white" />
           </td>
         </tr>
+        <q-btn  style="width:100%;" color="primary" @click="submit()">บันทึก</q-btn>
         </tbody>
         </q-markup-table>
 
@@ -67,6 +59,7 @@
 </style>
   <script>
   import { get,sync,call } from "vuex-pathify";
+  import moment from "moment";
 export default {
   name: 'Root',
   /*-------------------------Load Component---------------------------------------*/
@@ -94,17 +87,40 @@ props:{
   },
   /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
   computed:{
+      ...sync('hotel/*'),
+      ...sync('order/*'),
+      ...sync('rate/*'),
 
 },
   /*-------------------------Methods------------------------------------------*/
 methods:{
+    ...call('hotel/*'),
+    ...call('order/*'),
+    ...call('rate/*'),
+
   /******* Methods default run ******/
   async sign() {
           this.$router.push({name : "statusonesign"})
 
         },
+    async submit() {
+        let id =this.$route.params.id;
+        let check = await this.create({hotelId : id,form: this.orderData});
+        if(check){
+            alert('Create Success');
+            this.ordedrData = {};
+        }else{
+            alert('Create Error');
+
+        }
+
+
+    },
 
   load:async function(){
+      let id =this.$route.params.id;
+      await this.readratebyID(id);
+      await this.readhotelbyId(id);
 }
 },
   }

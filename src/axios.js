@@ -1,6 +1,6 @@
 import Axios from "axios"
 
-const VUE_APP_API_URL = "http://192.168.1.134:8000";
+const VUE_APP_API_URL = "http://192.168.1.144:8000";
 
 
 const axios = Axios.create({

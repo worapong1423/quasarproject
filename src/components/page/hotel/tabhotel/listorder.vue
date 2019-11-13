@@ -7,7 +7,7 @@
         <div v-for="order,index in orderData" :key="index">
           <q-list bordered separator>
             <q-item clickable v-ripple>
-              <q-item-section @click="toOrder()">{{(index+1)}}. {{order.name}}</q-item-section>
+              <q-item-section @click="toOrder()">{{(index+1)}}. {{order.created_at}}</q-item-section>
               <q-item-section top side>
                 <div class="text-grey-8 q-gutter-xs">
                   <q-btn size="12px" flat dense round icon="delete" @click=""/>

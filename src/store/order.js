@@ -22,8 +22,8 @@ const actions = {
       });
   },
 
-    create : async function(context,params){
-      let x = await axios.post(`/api/`, params)
+    create : async function(context,{hotelId,form}){
+      let x = await axios.post(`/api/hotel/${hotelId}/order`, form)
       .then((r) => {
          return true;
       }).catch((e) => {

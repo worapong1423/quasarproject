@@ -15,7 +15,7 @@ const getters = {
 const mutations = make.mutations(state)
 
 const actions = {
-  async readbyID(context,id){
+  async readratebyID(context,id){
     let x = await axios.get(`/api/hotel/${id}/rate`)
       .then(async (r) => {
         state.rateList = r.data
@@ -43,7 +43,7 @@ const actions = {
         return false;
       });
 
-    await dispatch("rate/readbyID",hotelId)
+    await dispatch("rate/readratebyID",hotelId)
     return load
   },
   async destroyData(context,{hotelId,id} ){
@@ -56,7 +56,7 @@ const actions = {
           alert('Delete Error');
         });
 
-      await dispatch("rate/readbyID",hotelId)
+      await dispatch("rate/readratebyID",hotelId)
 
     }
 

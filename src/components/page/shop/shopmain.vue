@@ -101,7 +101,7 @@
                 }
             },
             load: async function () {
-                await this.readOne('1');
+                await this.readShop('1');
             }
         },
     }

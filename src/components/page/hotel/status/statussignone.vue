@@ -2,7 +2,7 @@
 <div style="padding: 2%">
   <div id="app">
     <div class="container">
-      <q-input outlined v-model="text" label="ชื่อผู้ส่ง" /><br>
+      <q-input outlined v-model="customer_receive_name" label="ชื่อผู้ส่ง" /><br>
 
       <div class="row">
         <div class="col-12 mt-2">
@@ -27,23 +27,7 @@
 </div>
 </template>
 
-<script>
-export default {
-  name: 'App',
-  methods: {
-    undo() {
-      this.$refs.signaturePad.undoSignature();
-    },
-    async save() {
-      const { isEmpty, data } = this.$refs.signaturePad.saveSignature();
-      alert('Open DevTools see the save data.');
-      console.log(isEmpty);
-      console.log(data);
-      this.$router.push({name : "statustwo"});
-    },
-  }
-};
-</script>
+
 
 <style>
 #signature {
@@ -55,3 +39,50 @@ export default {
   background-clip: content-box, border-box;
 }
 </style>
+
+<script>
+    import { get,sync,call } from "vuex-pathify";
+    export default {
+        name: 'Root',
+        /*-------------------------Load Component---------------------------------------*/
+        components: {
+
+        },
+        /*-------------------------Set Component---------------------------------------*/
+        props:{
+
+        },
+        /*-------------------------DataVarible---------------------------------------*/
+        data() {
+            return {
+
+            };
+        },
+        /*-------------------------Run Methods when Start this Page------------------------------------------*/
+        async mounted() {
+            /**** Call loading methods*/
+            this.load();
+        },
+        /*-------------------------Run Methods when Start Routed------------------------------------------*/
+        async beforeRouteEnter(to, from, next) {
+            next()
+        },
+        /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
+        computed:{
+          ...sync('')
+        },
+        /*-------------------------Methods------------------------------------------*/
+        methods: {
+            ...call(''),
+            undo() {
+                this.$refs.signaturePad.undoSignature();
+            },
+            async save() {
+                const { isEmpty, data } = this.$refs.signaturePad.saveSignature();
+                alert('Open DevTools see the save data.');
+                console.log(isEmpty);
+                console.log(data);
+                this.$router.push({name : "statustwo"});
+            },
+        }
+    }
