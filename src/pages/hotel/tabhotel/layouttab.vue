@@ -2,7 +2,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <div class="q-gutter-y-md" style="max-width: 600px">
-      <q-card>
+      <div>
         <q-tabs
           v-model="tab"
           dense
@@ -16,19 +16,21 @@
         <q-separator/>
 
         <q-tab-panels v-model="tab" animated>
-          <q-tab-panel name="order">
+          <q-tab-panel name="order" style="padding: 100%">
             <addlist/>
           </q-tab-panel>
 
-          <q-tab-panel name="rate">
-            <rate/>
+          <q-tab-panel name="rate" >
+            <rate />
           </q-tab-panel>
 
           <q-tab-panel name="detail">
             <detail/>
           </q-tab-panel>
         </q-tab-panels>
-      </q-card>
+      </div>
+
+
     </div>
   </q-layout>
 </template>
@@ -36,8 +38,8 @@
 <script>
     import {get, sync, call} from "vuex-pathify";
     import addlist from "../../../components/page/hotel/tabhotel/listorder";
-    import detail from "../../../components/page/hotel/tabhotel/detail"
-    import rate from "../../../components/page/hotel/tabhotel/rate"
+    import detail from "../../../components/page/hotel/tabhotel/detail";
+    import rate from "../../../components/page/hotel/tabhotel/rate";
 
     export default {
         name: 'Root',

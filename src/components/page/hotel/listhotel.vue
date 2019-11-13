@@ -4,13 +4,13 @@
 
     <q-layout>
       <q-page-container>
-        <div v-for="hotel,index in hotel" :key="index">
+        <div v-for="h,index in hotel" :key="index">
           <q-list bordered separator>
             <q-item clickable v-ripple>
-              <q-item-section @click="openpage(hotel.id)">{{(index+1)}}. {{hotel.name}}</q-item-section>
+              <q-item-section @click="openpage(h.id)">{{(index+1)}}. {{h.name}}</q-item-section>
               <q-item-section top side>
                 <div class="text-grey-8 q-gutter-xs">
-                  <q-btn size="12px" flat dense round icon="delete" @click="destroyhotelData(hotel.id)"/>
+                  <q-btn size="12px" flat dense round icon="delete" @click="destroyData(h.id)"/>
                 </div>
               </q-item-section>
             </q-item>
@@ -60,7 +60,8 @@
 
 
             async openpage(id) {
-                this.$router.push({name : "layouttab", params : { id : id}})
+                console.log(id)
+                this.$router.push({name : "layouttab", params : { 'id' : id}})
 
             },
             async addhotel() {
@@ -69,7 +70,8 @@
             },
 
             load: async function () {
-                await this.readhoteldata();
+                await this.read();
+                console.log(this.hotel);
             }
         },
     }

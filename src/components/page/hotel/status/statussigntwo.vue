@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app" style="padding: 2%">
     <div class="container">
       <q-input outlined v-model="text" label="ชื่อผู้ส่ง" /><br>
+
       <div class="row">
         <div class="col-12 mt-2">
           <VueSignaturePad
