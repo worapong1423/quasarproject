@@ -2,7 +2,7 @@ import axios from '../axios'
 
 import { make } from 'vuex-pathify'
 const state = {
-  orderData :{},
+  orderData : {},
 }
 const getters = {
 
@@ -12,7 +12,7 @@ const mutations = make.mutations(state)
 
 const actions = {
 
-  async readbyID(context,id){
+  async readorderbyID(context,id){
     let x = await axios.get(`/api/hotel/${id}/order`)
       .then(async (r) => {
         state.orderData = r.data
@@ -22,7 +22,7 @@ const actions = {
       });
   },
 
-    create : async function(context,{hotelId,form}){
+    createorderData : async function(context,{hotelId,form}){
       let x = await axios.post(`/api/hotel/${hotelId}/order`, form)
       .then((r) => {
          return true;
@@ -32,7 +32,7 @@ const actions = {
        return x;
      },
 
-  async update(context, params) {
+  async updateorderData(context, params) {
     let load = await axios.put(`/api/order/`, params)
       .then((r) => {
       alert('Update Data Success');
@@ -44,7 +44,7 @@ const actions = {
       return load
   },
 
-  async destroyData(context,id ){
+  async destroyorderData(context,id ){
     let confirms = confirm('Do you want to delete this data ?');
     if(confirms){
         let x = await axios.delete(`/api/order/`)

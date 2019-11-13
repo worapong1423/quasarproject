@@ -13,7 +13,7 @@ const getters = {
 const mutations = make.mutations(state)
 
 const actions = {
-  async read() {
+  async readshopData() {
     let load = await axios.get('/api/shop')
       .then((r) => {
         state.shopform = r.data
@@ -25,7 +25,7 @@ const actions = {
     return load;
   },
 
-  create : async function(context,params){
+  createshopdata : async function(context,params){
     let x = await axios.post(`/api/shop`, params)
       .then((r) => {
         return true;
@@ -35,7 +35,7 @@ const actions = {
     return x;
   },
 
-  async updateData(context, params) {
+  async updateshopData(context, params) {
     let load = await axios.put(`/api/shop/${params.id}`, params)
       .then((r) => {
         alert('Update Data Success');
@@ -46,7 +46,7 @@ const actions = {
       });
     return load
   },
-  async readShop(context,id){
+  async readshopdatabyID(context,id){
     let x = await axios.get(`/api/shop/${id}`)
       .then(async (r) => {
         state.shopform = r.data

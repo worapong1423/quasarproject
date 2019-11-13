@@ -93,7 +93,7 @@
             ...call('shop/*'),
             /******* Methods default run ******/
             async update() {
-                let check = await this.updateData(this.shopedit);
+                let check = await this.updateshopData(this.shopedit);
                 if (check) {
                     this.shopedit = {}
                 } else {
@@ -101,7 +101,7 @@
                 }
             },
             load: async function () {
-                await this.readShop('1');
+                await this.readshopdatabyID('1');
             }
         },
     }

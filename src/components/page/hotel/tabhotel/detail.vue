@@ -98,7 +98,7 @@ methods:{
     ...call('hotel/*'),
     async update() {
         let id =this.$route.params.id;
-        let check = await this.updateData(this.hoteldetail);
+        let check = await this.updatehotelData(this.hoteldetail);
         if (check) {
             this.hotelform = {}
         } else {

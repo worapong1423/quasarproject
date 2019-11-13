@@ -42,7 +42,7 @@
             <q-input outlined v-model="rateedit.price"  />
           </td>
           <td class="text-right">
-            <q-btn v-on:click="typerate=false" size="12px" flat dense round icon="delete" @click="destroyData({hotelId : $route.params.id , id : rateedit.id})" />
+            <q-btn v-on:click="typerate=false" size="12px" flat dense round icon="delete" @click="destroyrateData({hotelId : $route.params.id , id : rateedit.id})" />
           </td>
         </tr>
         </tbody>
@@ -119,7 +119,7 @@
             async save() {
                 let id =this.$route.params.id;
                 console.log(id)
-                let check = await this.update({hotelId : id,form: {
+                let check = await this.updaterateData({hotelId : id,form: {
                     rates : this.rateedit
                     }});
 
@@ -128,7 +128,7 @@
 
             async submit() {
                 let id =this.$route.params.id;
-                let check = await this.create({hotelId : id,form: this.product});
+                let check = await this.createrateData({hotelId : id,form: this.product});
                 if(check){
                     alert('Create Success');
                     this.product = {};
