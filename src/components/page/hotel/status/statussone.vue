@@ -1,7 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
   <div class="q-pa-md">
-    <q-card class="my-card">
+    <div >
       <q-item>
         <q-item-section>
           <q-item-label>{{hoteldetail.name}}</q-item-label>
@@ -9,7 +9,7 @@
         </q-item-section>
       </q-item>
 
-      <div style="padding:2%;">
+      <div>
         <q-markup-table separate-close-popup >
         <thead>
         <tr>
@@ -26,15 +26,16 @@
             <q-input outlined v-model="orderData.amountin" placeholder="" color="white" />
           </td>
         </tr>
-        <q-btn  style="width:100%;" color="primary" @click="submit()">บันทึก</q-btn>
         </tbody>
         </q-markup-table>
+
+        <q-btn  style="width:100%;" color="primary" @click="submit()">บันทึก</q-btn>
 
 
       </div>
 
 
-    </q-card>
+    </div>
   </div>
 </template>
 <style>

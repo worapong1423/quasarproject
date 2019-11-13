@@ -1,5 +1,6 @@
 <template>
-  <div class="q-pa-md grid-container">
+  <div class="grid-container">
+    <div class="item1">
     <q-markup-table flat bordered>
       <thead >
       <tr>
@@ -42,8 +43,9 @@
       </tr>
       </tbody>
     </q-markup-table>
+    </div>
 
-    <div class="item1" >
+    <div class="item2" >
       <q-btn icon="local_printshop white" v-on:click="typeadd=false" style="width:70%;" color="primary" >พิมพ์</q-btn>
     </div>
   </div>
@@ -73,7 +75,10 @@
     font-size: 30px;
   }
   .item1 {
-    grid-column: 1 ;
+    grid-column: 1/1 ;
+  }
+  .item2 {
+    grid-column: 1/2 ;
   }
 </style>
 <script>

@@ -1,9 +1,7 @@
 <!----------Make By YourName---------------->
 <template>
   <div class="q-pa-md">
-    <q-card class="my-card">
-
-      <div style="padding:2%;">
+    <div >
         <q-markup-table>
           <thead>
             <th class="text-left">รายการ</th>
@@ -38,7 +36,6 @@
       </div>
 
 
-    </q-card>
   </div>
 </template>
 

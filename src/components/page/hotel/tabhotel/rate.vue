@@ -1,6 +1,6 @@
 <!----------Make By YourName---------------->
 <template>
-  <div style="padding:5%;">
+  <div style="padding:2%;">
     <div v-if="!typerate&&!typeadd">
       <q-markup-table>
         <thead>
