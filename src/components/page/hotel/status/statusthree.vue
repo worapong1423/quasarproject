@@ -2,13 +2,6 @@
 <template>
   <div class="q-pa-md">
     <q-card class="my-card">
-      <q-item>
-        <q-item-section>
-          <q-item-label>รายการที่  : HT0005</q-item-label>
-          <q-item-label>โรงเเรม อินเตอร์เนชั่นแนลเฮาล์</q-item-label>
-          <q-item-label caption>วันที่ 02 ก.พ. 2562</q-item-label>
-        </q-item-section>
-      </q-item>
 
       <div style="padding:2%;">
         <q-markup-table>

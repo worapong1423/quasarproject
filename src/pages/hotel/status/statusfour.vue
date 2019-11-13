@@ -1,8 +1,13 @@
 <!----------Make By YourName---------------->
 <template>
   <div>
+    <q-scroll-area
+      :delay="1200"
+      style="height: auto; width:auto;"
+    >
     <statusfour/>
   <statussigntwo/>
+    </q-scroll-area>
   </div>
 </template>
 
