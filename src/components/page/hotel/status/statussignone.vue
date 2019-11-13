@@ -82,7 +82,7 @@
                 alert('Open DevTools see the save data.');
                 console.log(isEmpty);
                 console.log(data);
-                this.$router.push({name : "statustwo"});
+                this.$router.push({name : "statusthree"});
             },
         }
     }

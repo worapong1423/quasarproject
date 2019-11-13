@@ -80,7 +80,7 @@ const routes = [
       {
         path: '',
         name: 'shop',
-        component: ()=> import('pages/shop/shopmain.vue')
+        component: ()=> import('pages/shop/shopmain.vue'),
       },
     ]
   },
@@ -93,7 +93,7 @@ const routes = [
       {
         path: '',
         name: 'personels' ,
-        component: ()=> import('pages/personel/personelmain.vue')
+        component: ()=> import('pages/personel/personelmain.vue'),
       },
     ]
   },
@@ -132,7 +132,7 @@ const routes = [
       {
         path: '',
         name: 'bill' ,
-        component: ()=> import('pages/bill/billmain.vue')
+        component: ()=> import('pages/bill/billmain.vue'),
       },
     ]
   },
@@ -154,7 +154,7 @@ const routes = [
   {
     path: '/',
     name:'login',
-    component: () => import('pages/Login/LoginScreen.vue')
+    component: () => import('pages/Login/LoginScreen.vue'),
   },
 ]
 
@@ -163,7 +163,7 @@ const routes = [
 if (process.env.MODE !== 'ssr') {
   routes.push({
     path: '*',
-    component: () => import('pages/Error404.vue')
+    component: () => import('pages/Error404.vue'),
   })
 }
 
