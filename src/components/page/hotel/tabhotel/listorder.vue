@@ -2,7 +2,6 @@
 <template>
   <div class="q-pa-md">
     <q-layout>
-
       <q-page-container>
         <div v-for="order,index in orderData" :key="index">
           <q-list bordered separator>
@@ -26,56 +25,51 @@
   </div>
 </template>
 
-    <script>
-    import { get,sync,call } from "vuex-pathify";
+<script>
+    import {get, sync, call} from "vuex-pathify";
 
-export default {
-    name: 'Root',
-    /*-------------------------Load Component---------------------------------------*/
-    components: {
-    },
-  /*-------------------------Set Component---------------------------------------*/
-props:{
-
-},
-    /*-------------------------DataVarible---------------------------------------*/
-    data() {
-    return {
-
-        };
-    },
-    /*-------------------------Run Methods when Start this Page------------------------------------------*/
-     async mounted() {
-    /**** Call loading methods*/
-           await this.load();
-    },
-    /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) {
-        next()
-    },
-    /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
-    computed:{
-        ...sync('order/*')
-
-},
-    /*-------------------------Methods------------------------------------------*/
-methods:{
-        ...call('order/*'),
-    /******* Methods default run ******/
-
-
-    async addorder() {
-          this.$router.push({name : "statusone"})
+    export default {
+        name: 'Root',
+        /*-------------------------Load Component---------------------------------------*/
+        components: {},
+        /*-------------------------Set Component---------------------------------------*/
+        props: {},
+        /*-------------------------DataVarible---------------------------------------*/
+        data() {
+            return {};
         },
+        /*-------------------------Run Methods when Start this Page------------------------------------------*/
+        async mounted() {
+            /**** Call loading methods*/
+            await this.load();
+        },
+        /*-------------------------Run Methods when Start Routed------------------------------------------*/
+        async beforeRouteEnter(to, from, next) {
+            next()
+        },
+        /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
+        computed: {
+            ...sync('order/*')
 
-    async toOrder() {
-        this.$router.push({name : "statustwo"})
-    },
+        },
+        /*-------------------------Methods------------------------------------------*/
+        methods: {
+            ...call('order/*'),
+            /******* Methods default run ******/
 
-    load:async function(){
-        let id =this.$route.params.id;
-        await this.readorderbyID(id);
-}
-},
+
+            async addorder() {
+                this.$router.push({name: "statusone"})
+            },
+
+            async toOrder() {
+                this.$router.push({name: "statustwo"})
+            },
+
+            load: async function () {
+                let id = this.$route.params.id;
+                await this.readorderbyID(id);
+            }
+        },
     }
 </script>

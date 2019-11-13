@@ -16,7 +16,7 @@
         <q-separator/>
 
         <q-tab-panels v-model="tab" animated>
-          <q-tab-panel name="order" style="padding: 100%">
+          <q-tab-panel name="order" >
             <addlist/>
           </q-tab-panel>
 
