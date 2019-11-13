@@ -65,45 +65,45 @@ const routes = [
         path: ':id',
         name: 'layouttab',
         component: () => import('pages/hotel/tabhotel/layouttab.vue'),
-        meta: {back: 'hotel'}
+        meta: {back: 'hotel'},
       },
       {
-        path: 'statusone',
+        path: ':id/statusone',
         name: 'statusone',
         component: () => import('pages/hotel/status/statusone.vue'),
         meta: {back: 'layouttab'}
       },
       {
-        path: 'statusonesign',
+        path: ':id/statusonesign',
         name: 'statusonesign',
         component: () => import('pages/hotel/status/statusonesign.vue'),
         meta: {back: 'statusone'}
       },{
-        path: 'statustwo',
+        path: ':id/statustwo',
         name: 'statustwo',
         component: () => import('pages/hotel/status/statustwo.vue'),
         meta: {back: 'layouttab'}
       },
       {
-        path: 'statusthree',
+        path: ':id/statusthree',
         name: 'statusthree',
         component: () => import('pages/hotel/status/statusthree.vue'),
         meta: {back: 'layouttab'}
       },
       {
-        path: 'statusfour',
+        path: ':id/statusfour',
         name: 'statusfour',
         component: () => import('pages/hotel/status/statusfour.vue'),
         meta: {back: 'layouttab'}
       },
       {
-        path: 'statustwosign',
+        path: ':id/statustwosign',
         name: 'statustwosign',
         component: () => import('pages/hotel/status/statustwosign.vue'),
         meta: {back: 'statusfour'}
       },
       {
-        path: 'statusfinal',
+        path: ':id/statusfinal',
         name: 'statusfinal',
         component: () => import('pages/hotel/status/statusfinal.vue'),
         meta: {back: 'layouttab'}
