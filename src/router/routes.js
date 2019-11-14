@@ -7,70 +7,64 @@ const routes = [
       { path: '',
         name: 'hotel',
         component: () => import('pages/hotel/hotelmainscreen.vue'),
+        meta: {topic:false},
       },
-    ]
-  },
-
-  {
-    path: '/hotel',
-    name: 'layoutbackhotel',
-    component: () => import('layouts/MyLayoutback.vue'),
-    children: [
       {
         path: 'addhotel',
         name: 'addhotel',
         component: () => import('pages/hotel/hoteladd.vue'),
-        meta: {back: 'hotel'}
+        meta: {back: 'hotel',topic:true},
       },
       {
         path: ':id',
         name: 'layouttab',
         component: () => import('pages/hotel/tabhotel/layouttab.vue'),
-        meta: {back: 'hotel'},
+        meta: {back: 'hotel',topic:true},
       },
       {
         path: ':id/statusone',
         name: 'statusone',
         component: () => import('pages/hotel/status/statusone.vue'),
-        meta: {back: 'layouttab'},
+        meta: {back: 'layouttab',topic:true},
       },
       {
         path: ':id/statusonesign',
         name: 'statusonesign',
         component: () => import('pages/hotel/status/statusonesign.vue'),
-        meta: {back: 'statusone'},
+        meta: {back: 'statusone',topic:true},
       },{
         path: ':id/statustwo',
         name: 'statustwo',
         component: () => import('pages/hotel/status/statustwo.vue'),
-        meta: {back: 'layouttab'},
+        meta: {back: 'layouttab',topic:true},
       },
       {
         path: ':id/statusthree',
         name: 'statusthree',
         component: () => import('pages/hotel/status/statusthree.vue'),
-        meta: {back: 'layouttab'},
+        meta: {back: 'layouttab',topic:true},
       },
       {
         path: ':id/statusfour',
         name: 'statusfour',
         component: () => import('pages/hotel/status/statusfour.vue'),
-        meta: {back: 'layouttab'},
+        meta: {back: 'layouttab',topic:true},
       },
       {
         path: ':id/statustwosign',
         name: 'statustwosign',
         component: () => import('pages/hotel/status/statustwosign.vue'),
-        meta: {back: 'statusfour'},
+        meta: {back: 'statusfour',topic:true},
       },
       {
         path: ':id/statusfinal',
         name: 'statusfinal',
         component: () => import('pages/hotel/status/statusfinal.vue'),
-        meta: {back: 'layouttab'},
+        meta: {back: 'layouttab',topic:true},
       },
     ]
   },
+
 
   {
     path: '/shop',
@@ -81,6 +75,7 @@ const routes = [
         path: '',
         name: 'shop',
         component: ()=> import('pages/shop/shopmain.vue'),
+        meta: {topic:false},
       },
     ]
   },
@@ -94,32 +89,25 @@ const routes = [
         path: '',
         name: 'personels' ,
         component: ()=> import('pages/personel/personelmain.vue'),
+        meta: {topic:false},
       },
-    ]
-  },
-
-  {
-    path: '/personels',
-    name: 'layoutbackpersonels',
-    component: () => import('layouts/MyLayoutback.vue'),
-    children: [
       {
         path: 'detail',
         name: 'personeldetail' ,
         component: ()=> import('pages/personel/personeldetail.vue'),
-        meta: {back: 'personels'}
+        meta: {back: 'personels',topic:true}
       },
       {
         path: 'add',
         name: 'personeladd' ,
         component: ()=> import('pages/personel/personeladdone.vue'),
-        meta: {back: 'personels'}
+        meta: {back: 'personels',topic:true}
       },
       {
         path: 'add2',
         name: 'personeladdtwo' ,
         component: ()=> import('pages/personel/personeladdtwo.vue'),
-        meta: {back: 'personeladd'}
+        meta: {back: 'personeladd',topic:true}
       },
     ]
   },
@@ -133,23 +121,17 @@ const routes = [
         path: '',
         name: 'bill' ,
         component: ()=> import('pages/bill/billmain.vue'),
+        meta: {topic:false},
       },
-    ]
-  },
-
-  {
-    path: '/bill',
-    name: 'layoutbackbill',
-    component: () => import('layouts/MyLayoutback.vue'),
-    children: [
       {
         path: 'orderbill',
         name: 'orderbill' ,
         component: ()=> import('pages/bill/orderbill.vue'),
-        meta: {back: 'bill'}
+        meta: {back: 'bill',topic:true}
       },
     ]
   },
+
 
   {
     path: '/',

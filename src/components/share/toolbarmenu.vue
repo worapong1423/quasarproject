@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <div>
+        <div v-if="!typeheader">
           <q-btn
             flat
             dense
@@ -10,6 +10,16 @@
             @click="leftDrawerOpen = !leftDrawerOpen"
             icon="menu"
             aria-label="Menu"
+          />
+        </div>
+
+        <div v-else-if="typeheader">
+          <q-btn
+            flat
+            dense
+            round
+            @click="gotoback"
+            icon="arrow_back_ios"
           />
         </div>
 
@@ -102,7 +112,7 @@
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
-                leftDrawerOpen: false
+                leftDrawerOpen: false,
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -116,6 +126,9 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
+            typeheader: function () {
+                return this.$route.meta.topic;
+            },
             ...sync('login/*'),
             ...sync('app/*')
         },
@@ -123,6 +136,16 @@
         methods:{
             ...call('login/*'),
             /******* Methods default run ******/
+            async gotoback() {
+                var {back} = this.$route.meta;
+                if (back) {
+                    this.$router.replace({name: back});
+                } else {
+                    // When no one knows where to go
+                    this.$router.replace('/');
+                }
+            },
+
             async logoutform() {
                 await this.userLogout();
                 await this.$router.replace({name : "login"});
