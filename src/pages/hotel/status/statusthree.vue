@@ -1,18 +1,25 @@
 <!----------Make By YourName---------------->
 <template>
   <div>
+    <q-scroll-area
+      :delay="1200"
+      style="height: auto; width:auto;"
+    >
     <statusthree/>
+  <statussigntwo/>
+    </q-scroll-area>
   </div>
 </template>
 
 <script>
     import { get,sync,call } from "vuex-pathify";
     import statusthree from "../../../components/page/hotel/status/statusthree";
+    import statussigntwo from "../../../components/page/hotel/status/statussigntwo";
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
         components: {
-            statusthree,
+            statusthree,statussigntwo
         },
         /*-------------------------Set Component---------------------------------------*/
         props:{
@@ -42,7 +49,7 @@
 
             /******* Methods default run ******/
             load:async function(){
-                this.menuName = "ตรวจออเดอร์"
+                this.menuName = "ส่งคืนออเดอร์"
             },
         },
     }

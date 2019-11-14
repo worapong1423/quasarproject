@@ -1,42 +1,37 @@
 <!----------Make By YourName---------------->
 <template>
   <div class="q-pa-md">
-    <div >
+      <div>
         <q-markup-table>
           <thead>
-            <th class="text-left">รายการ</th>
-            <th class="text-right">
-              <th class="text-left">รับ</th>
-              <th class="text-right">ส่ง</th>
-            </th>
+          <th class="text-left">รายการ</th>
+          <th class="text-right"></th>
+          <th class="text-left">รับ</th>
+          <th class="text-right">ส่ง</th>
+
           </thead>
           <tbody>
           <tr>
             <td class="text-left">ผ้าปูที่นอน3.5ฟุต</td>
             <td  class="text-right">
-              <td class="text-left">2</td>
-              <td class="text-right">
-                <q-input outlined v-model="ph" placeholder="" />
-              </td>
+            <td class="text-left">2</td>
+            <td class="text-right">2</td>
             </td>
           </tr>
           <tr>
             <td class="text-left">ผ้าปูที่นอน5-6ฟุต</td>
             <td  class="text-right">
-            <td class="text-left">2</td>
-            <td class="text-right">
-              <q-input outlined v-model="ph" placeholder=""/>
-            </td>
+            <td class="text-left">3</td>
+            <td class="text-right">3</td>
             </td>
           </tr>
           </tbody>
         </q-markup-table><br>
 
-        <q-btn type="submit" style="width:100%;" color="primary" label="บันทึก" @click="nexts()" />
       </div>
 
 
-  </div>
+    </div>
 </template>
 
 <script>
@@ -73,7 +68,7 @@
         /*-------------------------Methods------------------------------------------*/
         methods:{
             async nexts() {
-                this.$router.push({name : "statusfour"})
+                this.$router.push({name : "statustwosign"})
 
             },
             /******* Methods default run ******/

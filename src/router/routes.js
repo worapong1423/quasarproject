@@ -28,11 +28,6 @@ const routes = [
         meta: {back: 'layouttab',topic:true},
       },
       {
-        path: ':id/statusonesign',
-        name: 'statusonesign',
-        component: () => import('pages/hotel/status/statusonesign.vue'),
-        meta: {back: 'statusone',topic:true},
-      },{
         path: ':id/statustwo',
         name: 'statustwo',
         component: () => import('pages/hotel/status/statustwo.vue'),
@@ -43,18 +38,6 @@ const routes = [
         name: 'statusthree',
         component: () => import('pages/hotel/status/statusthree.vue'),
         meta: {back: 'layouttab',topic:true},
-      },
-      {
-        path: ':id/statusfour',
-        name: 'statusfour',
-        component: () => import('pages/hotel/status/statusfour.vue'),
-        meta: {back: 'layouttab',topic:true},
-      },
-      {
-        path: ':id/statustwosign',
-        name: 'statustwosign',
-        component: () => import('pages/hotel/status/statustwosign.vue'),
-        meta: {back: 'statusfour',topic:true},
       },
       {
         path: ':id/statusfinal',

@@ -1,73 +1,84 @@
 <!----------Make By YourName---------------->
 <template>
-    <div class="q-pa-md">
-        <div>
+  <div class="q-pa-md">
+    <div >
         <q-markup-table>
-        <thead>
+          <thead>
+            <th class="text-left">รายการ</th>
+            <th class="text-right">
+              <th class="text-left">รับ</th>
+              <th class="text-right">ส่ง</th>
+            </th>
+          </thead>
+          <tbody>
           <tr>
-            <q-th class="text-left">รายการ</q-th>
-            <th class="text-right">จำนวน</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr >
             <td class="text-left">ผ้าปูที่นอน3.5ฟุต</td>
-            <td class="text-right">2</td>
+            <td  class="text-right">
+              <td class="text-left">2</td>
+              <td class="text-right">
+                <q-input outlined v-model="ph" placeholder="" />
+              </td>
+            </td>
           </tr>
-          <tr >
-            <td class="text-left">Ice cream sandwich</td>
-            <td class="text-right">237</td>
+          <tr>
+            <td class="text-left">ผ้าปูที่นอน5-6ฟุต</td>
+            <td  class="text-right">
+            <td class="text-left">2</td>
+            <td class="text-right">
+              <q-input outlined v-model="ph" placeholder=""/>
+            </td>
+            </td>
           </tr>
-        </tbody>
-      </q-markup-table>
+          </tbody>
+        </q-markup-table><br>
 
-        <q-btn type="submit" style="width:100%;" color="primary" label="เสร็จสิ้นการดำเนินการ" @click="nexts()" />
+        <q-btn type="submit" style="width:100%;" color="primary" label="บันทึก" @click="nexts()" />
       </div>
 
 
-    </div>
+  </div>
 </template>
 
-    <script>
+<script>
     import { get,sync,call } from "vuex-pathify";
-export default {
-    name: 'Root',
-    /*-------------------------Load Component---------------------------------------*/
-    components: {
+    export default {
+        name: 'Root',
+        /*-------------------------Load Component---------------------------------------*/
+        components: {
 
-    },
-  /*-------------------------Set Component---------------------------------------*/
-props:{
+        },
+        /*-------------------------Set Component---------------------------------------*/
+        props:{
 
-},
-    /*-------------------------DataVarible---------------------------------------*/
-    data() {
-    return {
+        },
+        /*-------------------------DataVarible---------------------------------------*/
+        data() {
+            return {
 
-        };
-    },
-    /*-------------------------Run Methods when Start this Page------------------------------------------*/
-     async mounted() {
-    /**** Call loading methods*/
+            };
+        },
+        /*-------------------------Run Methods when Start this Page------------------------------------------*/
+        async mounted() {
+            /**** Call loading methods*/
             this.load();
-    },
-    /*-------------------------Run Methods when Start Routed------------------------------------------*/
-     async beforeRouteEnter(to, from, next) {
-        next()
-    },
-    /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
-    computed:{
+        },
+        /*-------------------------Run Methods when Start Routed------------------------------------------*/
+        async beforeRouteEnter(to, from, next) {
+            next()
+        },
+        /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
+        computed:{
 
-},
-    /*-------------------------Methods------------------------------------------*/
-methods:{
-    /******* Methods default run ******/
-    async nexts() {
-        this.$router.push({name : "statusthree"})
+        },
+        /*-------------------------Methods------------------------------------------*/
+        methods:{
+            async nexts() {
+                this.$router.push({name : "statusthree"})
 
-    },
-    load:async function(){
-}
-},
+            },
+            /******* Methods default run ******/
+            load:async function(){
+            }
+        },
     }
 </script>
