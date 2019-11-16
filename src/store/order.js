@@ -31,6 +31,15 @@ const actions = {
        });
        return x;
      },
+  createorderdetailData : async function(context,{orderId,form}){
+    let ordercheck = await axios.post(`/api/order/${orderId}/orderdetail`, form.order_detail)
+      .then((r) => {
+        return true;
+      }).catch((e) => {
+        return false;
+      });
+    return x;
+  },
 
   async updateorderData(context, params) {
     let load = await axios.put(`/api/order/`, params)

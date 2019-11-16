@@ -23,18 +23,14 @@
               {{rate.$rate_name}}
             </td>
             <td class="text-right" style="padding:12px 12px;">
-              <q-input outlined v-model="rate.amountin"/>
+              <q-input type="number" outlined v-model.number="rate.amountin"/>
             </td>
           </tr>
-          <tr>
-            <td>
-              <q-input outlined v-model="form.customer_receive_name" label="ชื่อผู้ส่ง"/>
-              <br>
-            </td>
-          </tr>
-
           </tbody>
         </q-markup-table>
+        <br>
+        <q-input outlined v-model="form.customer_receive_name" label="ชื่อผู้ส่ง"/>
+        <br>
 
 
       </div>
@@ -48,7 +44,7 @@
               width="100%"
               height="500px"
               ref="signaturePad"
-            ></VueSignaturePad>
+            />
           </div>
           <br>
           <div class="fit row wrap justify-center items-center content-center">
@@ -71,12 +67,14 @@
     background-color: #2196F3;
     padding: 10px;
   }
+
   .grid-container > div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
   }
+
   .item1 {
     grid-column: 1 / 5;
   }
@@ -84,6 +82,7 @@
 <script>
     import {get, sync, call} from "vuex-pathify";
     import moment from "moment";
+
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
@@ -93,7 +92,7 @@
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
-                form : null
+                form: null
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -143,10 +142,19 @@
                 let check = await this.createorderData({hotelId: id, form: this.form});
                 if (check) {
                     alert('Create Success');
-                    this.form = null;
+                    //this.form = null;
                 } else {
                     alert('Create Error');
                 }
+                let check2 = await this.createorderdetailData({orderId: id, form: this.form});
+                if (check2) {
+                    alert('Create Success');
+
+                    //this.form = null;
+                } else {
+                    alert('Create Error');
+                }
+                this.form = null;
                 this.$router.push({name: "statustwo"});
             },
             load: async function () {
@@ -154,17 +162,20 @@
                 await this.readratebyID(id);
                 await this.readhotelbyId(id);
                 let orderDetail = [];
-                this.rateList.forEach((x)=>{
+                this.rateList.forEach((x) => {
                     orderDetail.push({
-                        amountin : 0,
-                        amountout : 0,
-                        rate : x.price,
-                        $rate_name : x.name,
+                        amountin: 0,
+                        amountout: 0,
+                        rate: x.price,
+                        $rate_name: x.name,
+                        product_id:x.id,
+                        order_id:this.$route.params.id,
+
                     })
                 })
                 this.form = {
-                    hotel_id : this.$route.params.id,
-                    order_detail  : orderDetail,
+                    hotel_id: this.$route.params.id,
+                    order_detail: orderDetail,
                 }
             }
         },
