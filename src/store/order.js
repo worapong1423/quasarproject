@@ -3,6 +3,8 @@ import axios from '../axios'
 import { make } from 'vuex-pathify'
 const state = {
   orderData : {},
+  orderdetailData : {},
+  ordersId :{},
 }
 const getters = {
 
@@ -21,13 +23,23 @@ const actions = {
 
       });
   },
+  async readorderdetailbyID(context,id){
+    let x = await axios.get(`/api/order/${id}/orderdetail`)
+      .then(async (r) => {
+        state.orderdetailData = r.data
+        console.log(r.data);
+      }).catch((e) => {
+
+      });
+  },
+
 
     createorderData : async function(context,{hotelId,form}){
       let x = await axios.post(`/api/hotel/${hotelId}/order`, form)
       .then((r) => {
-         return true;
+         return r;
       }).catch((e) => {
-         return false;
+         return e;
        });
        return x;
      },
@@ -38,7 +50,7 @@ const actions = {
       }).catch((e) => {
         return false;
       });
-    return x;
+    return ordercheck;
   },
 
   async updateorderData(context, params) {
@@ -59,7 +71,7 @@ const actions = {
         let x = await axios.delete(`/api/order/`)
     .then(async (r) => {
         alert('Delete Success');
-        await actions.read();
+        //await actions.read();
     }).catch((e) => {
         alert('Delete Error');
      });

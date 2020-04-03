@@ -44,7 +44,7 @@
               width="100%"
               height="500px"
               ref="signaturePad"
-            />
+            ></VueSignaturePad>
           </div>
           <br>
           <div class="fit row wrap justify-center items-center content-center">
@@ -119,48 +119,40 @@
             async sign() {
                 this.$router.push({name: "statusonesign"})
             },
-            async submit() {
-                let id = this.$route.params.id;
-                let check = await this.createorderData({hotelId: id, form: this.orderData});
-                if (check) {
-                    alert('Create Success');
-                    this.ordedrData = {};
-                } else {
-                    alert('Create Error');
-                }
-            },
+            async submit(id2) {
+                console.log(id2);
+                // this.form.order_id = this.id2;
+                let check2 = await this.createorderdetailData({orderId: id2,form: this.form });
+                },
+
             undo() {
                 this.$refs.signaturePad.undoSignature();
             },
             async save() {
                 const {data} = this.$refs.signaturePad.saveSignature();
-                alert('Open DevTools see the save data.');
-                console.log(data);
+                //console.log(data);
                 this.form.receive_sign = data;
-                console.log(this.form);
-                let id = this.$route.params.id;
-                let check = await this.createorderData({hotelId: id, form: this.form});
+                let idhotel = this.$route.params.id;
+                let check = false
+                await this.createorderData({hotelId: idhotel,form: this.form}).then(res=>{
+                  console.log("response order",res)
+                  this.submit(res.data.id);
+                  check = true
+                })
+                console.log(check)
                 if (check) {
                     alert('Create Success');
-                    //this.form = null;
+                    this.$router.push({name: "statustwo"});
                 } else {
                     alert('Create Error');
                 }
-                let check2 = await this.createorderdetailData({orderId: id, form: this.form});
-                if (check2) {
-                    alert('Create Success');
-
-                    //this.form = null;
-                } else {
-                    alert('Create Error');
-                }
-                this.form = null;
-                this.$router.push({name: "statustwo"});
             },
+
             load: async function () {
-                let id = this.$route.params.id;
-                await this.readratebyID(id);
-                await this.readhotelbyId(id);
+                let idhotel = this.$route.params.id;
+                await this.readratebyID(idhotel);
+                await this.readhotelbyId(idhotel);
+                await this.readorderbyID(idhotel)
                 let orderDetail = [];
                 this.rateList.forEach((x) => {
                     orderDetail.push({
@@ -169,13 +161,13 @@
                         rate: x.price,
                         $rate_name: x.name,
                         product_id:x.id,
-                        order_id:this.$route.params.id,
 
                     })
                 })
                 this.form = {
                     hotel_id: this.$route.params.id,
                     order_detail: orderDetail,
+                    //orderId : this.orderData.id ,
                 }
             }
         },
