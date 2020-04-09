@@ -12,6 +12,7 @@ import rate from './rate'
 import shop from './shop'
 Vue.use(Vuex)
 
+
 /*
  * If not building with SSR mode, you can
  * directly export the Store instantiation

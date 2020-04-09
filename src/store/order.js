@@ -5,6 +5,7 @@ const state = {
   orderData : {},
   orderdetailData : {},
   ordersId :{},
+  // detailData : null,
 }
 const getters = {
 
@@ -18,20 +19,18 @@ const actions = {
     let x = await axios.get(`/api/hotel/${id}/order`)
       .then(async (r) => {
         state.orderData = r.data
-        console.log(r.data);
       }).catch((e) => {
 
       });
   },
-  async readorderdetailbyID(context,id){
-    let x = await axios.get(`/api/order/${id}/orderdetail`)
-      .then(async (r) => {
-        state.orderdetailData = r.data
-        console.log(r.data);
-      }).catch((e) => {
+  // async readorderdetailbyID(context,id){
+  //   let x = await axios.get(`/api/order/${id}/orderdetail`)
+  //     .then(async (r) => {
+  //       state.orderdetailData = r.data
+  //     }).catch((e) => {
 
-      });
-  },
+  //     });
+  // },
 
 
     createorderData : async function(context,{hotelId,form}){
@@ -53,6 +52,17 @@ const actions = {
     return ordercheck;
   },
 
+  getOrderDetailData: async function(context,orderId) {
+    return axios.get(`/api/order/${orderId}/orderdetail`).then(
+        response => {
+            // state.detailData = response.data
+            return response.data
+        },
+        error => {
+            return error.response.data
+        }
+    )
+  },
   async updateorderData(context, params) {
     let load = await axios.put(`/api/order/`, params)
       .then((r) => {

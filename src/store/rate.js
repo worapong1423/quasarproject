@@ -19,7 +19,6 @@ const actions = {
     let x = await axios.get(`/api/hotel/${id}/rate`)
       .then(async (r) => {
         state.rateList = r.data
-        console.log(r.data);
       }).catch((e) => {
 
       });

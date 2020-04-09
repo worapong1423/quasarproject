@@ -3,13 +3,13 @@
   <div class="q-pa-md">
     <q-layout>
       <q-page-container>
-        <div v-for="order,index in orderData" :key="index">
+        <div v-for="(order,index) in orderData" :key="index">
           <q-list bordered separator>
             <q-item clickable v-ripple>
-              <q-item-section @click="toOrder()">{{(index+1)}}. {{order.created_at}}</q-item-section>
+              <q-item-section @click="toOrder(order.id)">{{(index+1)}}. {{dateFormat(order.created_at)}}</q-item-section>
               <q-item-section top side>
                 <div class="text-grey-8 q-gutter-xs">
-                  <q-btn size="12px" flat dense round icon="delete" @click=""/>
+                  <q-btn size="12px" flat dense round icon="delete" @click="deleteOrder()"/>
                 </div>
               </q-item-section>
             </q-item>
@@ -27,7 +27,7 @@
 
 <script>
     import {get, sync, call} from "vuex-pathify";
-
+    import moment from 'moment';
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
@@ -62,14 +62,20 @@
                 this.$router.push({name: "statusone"})
             },
 
-            async toOrder() {
-                this.$router.push({name: "statustwo"})
+            async toOrder(id) {
+                this.$router.push({name: "statustwo",query: { id: id }})
             },
-
+            deleteOrder(){
+              console.log("delete")
+            },
+            dateFormat(date){
+              moment.locale('th');
+              return moment(date).format("llll")
+            },
             load: async function () {
                 let id = this.$route.params.id;
                 await this.readorderbyID(id);
-            }
+            },
         },
     }
 </script>

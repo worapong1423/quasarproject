@@ -18,7 +18,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="rate in form.order_detail">
+          <tr v-for="(rate,index) in form ?form.order_detail:form.order_detail" :key="index">
             <td class="text-left" style="padding:12px 12px;">
               {{rate.$rate_name}}
             </td>

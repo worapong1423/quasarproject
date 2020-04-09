@@ -5,20 +5,18 @@
         <q-markup-table>
           <thead>
             <th class="text-left">รายการ</th>
-            <th class="text-right">
-              <th class="text-left">รับ</th>
-              <th class="text-right">ส่ง</th>
-            </th>
+            <th class="text-right"></th>
+            <th class="text-left">รับ</th>
+            <th class="text-right">ส่ง</th>
           </thead>
           <tbody>
-          <tr v-for="rate in form" >
+          <tr v-for="(rate,index) in form?form.order_detail:form.order_detail" :key="index" >
             <td class="text-left">{{rate.$rate_name}}</td>
-            <td  class="text-right">
+            <td  class="text-right"></td>
               <td class="text-left">{{rate.amountin}}</td>
               <td class="text-right">
                 <q-input outlined v-model.number="rate.amountout"  />
               </td>
-            </td>
           </tr>
           </tbody>
         </q-markup-table><br>
@@ -32,6 +30,7 @@
 
 <script>
     import { get,sync,call } from "vuex-pathify";
+    import _ from "lodash";
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
@@ -45,7 +44,8 @@
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
-
+              form:null ,
+              detailData:null
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -74,25 +74,35 @@
             /******* Methods default run ******/
             load:async function(){
                 let id = this.$route.params.id;
+                let orderId = this.$route.query.id
                 await this.readratebyID(id);
-                await this.readorderbyID(id)
+                // await this.readorderbyID(id)
+                // console.log(orderId)
+                this.detailData = await this.getOrderDetailData(orderId);
+                // console.log("data =====>",this.detailData);
                 let orderDetail = [];
-                this.rateList.forEach((x) => {
+                await this.rateList.forEach((x) => {
                     orderDetail.push({
                         amountin: 0,
                         amountout: 0,
                         rate: x.price,
                         $rate_name: x.name,
                         product_id:x.id,
-                        //order_id:  ,
-
                     })
                 })
+                let amount = this.detailData.map(res=>{
+                  return res.amountin
+                })
+                for(let i in orderDetail){
+                  orderDetail[i].amountin = amount[i]
+                }
                 this.form = {
                     hotel_id: this.$route.params.id,
-                    //order_id: this.form.id,
                     order_detail: orderDetail,
                 }
+            },
+            deep(name,path){
+              return _.get(name,path)
             }
         },
     }
