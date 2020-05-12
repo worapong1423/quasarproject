@@ -18,7 +18,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="(rate,index) in form ?form.order_detail:form.order_detail" :key="index">
+          <tr v-for="(rate,index) in form.order_detail" :key="index">
             <td class="text-left" style="padding:12px 12px;">
               {{rate.$rate_name}}
             </td>
@@ -48,9 +48,12 @@
           </div>
           <br>
           <div class="fit row wrap justify-center items-center content-center">
-            <q-btn style="width:100%;" color="primary" @click="save()">บันทึก</q-btn>
-            <q-btn style="width:100%;" color="primary" @click="undo" label="ยกเลิก"/>
-
+            <div  class="button-wrapper">
+              <q-btn class="button" color="primary" @click="save()">บันทึก</q-btn>
+            </div>
+            <div  class="button-wrapper">
+              <q-btn class="button" color="primary" @click="undo" label="ยกเลิก"/>
+            </div>
           </div>
         </div>
       </div>
@@ -74,9 +77,24 @@
     padding: 20px 0;
     font-size: 30px;
   }
+  #signature {
+  border: double 3px transparent;
+  border-radius: 5px;
+  background-image: linear-gradient(white, white),
+    radial-gradient(circle at top left, #4bc5e8, #9f6274);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
 
   .item1 {
     grid-column: 1 / 5;
+  }
+  .button-wrapper{
+    width: 100%;
+    padding: 2%;
+  }
+  .button{
+    width: 100%;
   }
 </style>
 <script>
@@ -92,7 +110,8 @@
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
-                form: null
+                form: null,
+                userData: null
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -109,12 +128,14 @@
             ...sync('hotel/*'),
             ...sync('order/*'),
             ...sync('rate/*'),
+            ...sync('login/*'),
         },
         /*-------------------------Methods------------------------------------------*/
         methods: {
             ...call('hotel/*'),
             ...call('order/*'),
             ...call('rate/*'),
+            ...call('login/*'),
             /******* Methods default run ******/
             async sign() {
                 this.$router.push({name: "statusonesign"})
@@ -122,6 +143,7 @@
             async submit(id2) {
                 console.log(id2);
                 // this.form.order_id = this.id2;
+                console.log()
                 let check2 = await this.createorderdetailData({orderId: id2,form: this.form });
                 },
 
@@ -130,31 +152,33 @@
             },
             async save() {
                 const {data} = this.$refs.signaturePad.saveSignature();
-                //console.log(data);
+                console.log(typeof(data))
                 this.form.receive_sign = data;
                 let idhotel = this.$route.params.id;
-                let check = false
+                console.log(this.userData.id)
+                this.form.receiver_id = this.userData.id
+                console.log("form",this.form)
                 await this.createorderData({hotelId: idhotel,form: this.form}).then(res=>{
                   console.log("response order",res)
                   this.submit(res.data.id);
-                  check = true
+                  this.$router.push({name: "statustwo",query: { id: res.data.id }});
                 })
-                console.log(check)
-                if (check) {
-                    alert('Create Success');
-                    this.$router.push({name: "statustwo"});
-                } else {
-                    alert('Create Error');
-                }
+                // if (check) {
+                //     alert('Create Success');
+                //     this.$router.push({name: "statustwo"});
+                // } else {
+                //     alert('Create Error');
+                // }
             },
 
             load: async function () {
-                let idhotel = this.$route.params.id;
+                let idhotel = await this.$route.params.id;
                 await this.readratebyID(idhotel);
                 await this.readhotelbyId(idhotel);
                 await this.readorderbyID(idhotel)
+                this.userData =  await this.getUser()
                 let orderDetail = [];
-                this.rateList.forEach((x) => {
+                await this.rateList.forEach((x) => {
                     orderDetail.push({
                         amountin: 0,
                         amountout: 0,

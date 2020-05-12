@@ -32,7 +32,15 @@ const actions = {
   //     });
   // },
 
-
+  async getorderbyID(context,{hotelId,orderID}){
+    let x = await axios.get(`/api/hotel/${hotelId}/order/${orderID}`)
+      .then(async (r) => {
+        return r.data
+      }).catch((e) => {
+        return e
+      });
+      return x
+  },
     createorderData : async function(context,{hotelId,form}){
       let x = await axios.post(`/api/hotel/${hotelId}/order`, form)
       .then((r) => {
@@ -42,14 +50,32 @@ const actions = {
        });
        return x;
      },
+     updateorderData : async function(context,{hotelId,form,orderId}){
+      let res = await axios.put(`/api/hotel/${hotelId}/order/${orderId}`, form)
+        .then((r) => {
+          return r;
+        }).catch((e) => {
+          return e;
+        });
+      return res;
+    },
   createorderdetailData : async function(context,{orderId,form}){
     let ordercheck = await axios.post(`/api/order/${orderId}/orderdetail`, form.order_detail)
       .then((r) => {
-        return true;
+        return r;
       }).catch((e) => {
-        return false;
+        return e;
       });
     return ordercheck;
+  },
+  updateorderdetailData : async function(context,{orderId,form}){
+    let res = await axios.put(`/api/order/${orderId}/orderdetail/0`, form.order_detail)
+      .then((r) => {
+        return r;
+      }).catch((e) => {
+        return e;
+      });
+    return res;
   },
 
   getOrderDetailData: async function(context,orderId) {
@@ -63,28 +89,19 @@ const actions = {
         }
     )
   },
-  async updateorderData(context, params) {
-    let load = await axios.put(`/api/order/`, params)
-      .then((r) => {
-      alert('Update Data Success');
-      return true;
-    }).catch((e) => {
-      alert('Error Update');
-      return false;
-    });
-      return load
-  },
 
-  async destroyorderData(context,id ){
+  async destroyorderData(context,{hotelId,orderId}){
     let confirms = confirm('Do you want to delete this data ?');
     if(confirms){
-        let x = await axios.delete(`/api/order/`)
+        let x = await axios.delete(`/api/hotel/${hotelId}/order/${orderId}`,)
     .then(async (r) => {
         alert('Delete Success');
-        //await actions.read();
+        return r
     }).catch((e) => {
-        alert('Delete Error');
+      alert('Delete Error');
+        return e
      });
+     return x
     }
 
 

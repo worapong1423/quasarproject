@@ -8,12 +8,12 @@
           <div>
             <div class="text-subtitle2 ">
               <div class="text-right">
-                เลขที่ 01
+              เลขที่ {{summaryData.order_code}}
               </div>
               <div class="text-left">
-                รายการที่ HT0001 <br>
-                โรงแรม อินเตอร์เนชั่นแนลเฮาล์ <br>
-                1 กุมภาพนธ์ 2560
+                รายการที่ {{summaryData.order_code}} <br>
+                โรงแรม {{hoteldetail.name}} <br>
+                {{dateFormat(summaryData.created_at)}}
               </div>
             </div>
           </div>
@@ -26,12 +26,12 @@
       </tr>
       </thead>
       <tbody >
-      <tr>
-        <td class="text-left">ผ้าปูที่นอนเล็ก</td>
-        <td class="text-right">8</td>
-        <td class="text-right">64</td>
+      <tr v-for="(rate,index) in form?form.order_detail:form.order_detail" :key="index">
+        <td class="text-left">{{rate.$rate_name}}</td>
+        <td class="text-right">{{rate.amountin}}</td>
+        <td class="text-right">{{rate.amountout}}</td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td class="text-left">ผ้าปูที่นอนใหญ่</td>
         <td class="text-right">3</td>
         <td class="text-right">24</td>
@@ -40,13 +40,13 @@
         <td class="text-left">ปลอกหมอน</td>
         <td class="text-right">14</td>
         <td class="text-right">70</td>
-      </tr>
+      </tr> -->
       </tbody>
     </q-markup-table>
     </div>
 
     <div class="item2" >
-      <q-btn icon="local_printshop white" v-on:click="typeadd=false" style="width:70%;" color="primary" >พิมพ์</q-btn>
+      <q-btn icon="local_printshop white" v-on:click="typeadd=false" style="width:100%;" color="primary" >พิมพ์</q-btn>
     </div>
   </div>
 </template>
@@ -83,6 +83,7 @@
 </style>
 <script>
     import { get,sync,call } from "vuex-pathify";
+    import moment from "moment";
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
@@ -95,8 +96,14 @@
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
+              form:null,
+              detailData:null,
+              summaryData:null,
+              hotelData:null
+            };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
+        async mounted() {
             /**** Call loading methods*/
             this.load();
         },
@@ -106,12 +113,51 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
-
+          ...sync('order/*'),
+          ...sync('rate/*'),
+          ...sync('hotel/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
+            ...call('order/*'),
+            ...call('rate/*'),
+            ...call('hotel/*'),
             /******* Methods default run ******/
+            dateFormat(date){
+              moment.locale('th');
+              return moment(date).format("Do MMMM YYYY")
+            },
             load:async function(){
+                let id = this.$route.query.hotelid;
+                let orderId = this.$route.query.id
+                await this.readhotelbyId(id);
+                await this.readratebyID(id);
+                this.summaryData = await this.getorderbyID({hotelId:id,orderID:orderId})
+                this.detailData = await this.getOrderDetailData(orderId);
+               let orderDetail = [];
+                await this.rateList.forEach((x) => {
+                    orderDetail.push({
+                        amountin: 0,
+                        amountout: 0,
+                        rate: x.price,
+                        $rate_name: x.name,
+                        product_id:x.id,
+                    })
+                })
+                let amountin = this.detailData.map(res=>{
+                  return res.amountin
+                })
+                let amountout = this.detailData.map(res=>{
+                  return res.amountin
+                })
+                for(let i in orderDetail){
+                  orderDetail[i].amountin = amountin[i]
+                  orderDetail[i].amountout = amountout[i]
+                }
+                this.form = {
+                    hotel_id: this.$route.query.hotelid,
+                    order_detail: orderDetail,
+                }
             }
         },
     }

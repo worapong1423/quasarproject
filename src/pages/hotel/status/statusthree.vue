@@ -6,7 +6,6 @@
       style="height: auto; width:auto;"
     >
     <statusthree/>
-  <statussigntwo/>
     </q-scroll-area>
   </div>
 </template>

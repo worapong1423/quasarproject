@@ -36,10 +36,10 @@ const actions = {
   async updaterateData(context, {hotelId,form}) {
     let load = await axios.put(`/api/hotel/${hotelId}/rate/0`, form)
       .then((r) => {
-        return true;
+        return r;
       }).catch((e) => {
         alert('Error Update');
-        return false;
+        return e;
       });
 
     await dispatch("rate/readratebyID",hotelId)

@@ -4,6 +4,7 @@ import { make } from 'vuex-pathify'
 
 const state = {
     user: {},
+    userDetail: null,
 }
 const getters = {
 
@@ -27,17 +28,18 @@ async login(context,params){
         //alert('loginsuccess')
         localStorage.setItem('api_token',r.data.access_token);
         await actions.axiosSetToken(context,r.data.access_token);
-        return true
+        state.userDetail = r
+        return r
     }).catch((e) => {
         //alert('loginfailed')
-        return false
+        return e
      });
      return loginform
 },
 async userLogout(context,params){
      let logoutform = await axios.get('/api/auth/logout')
      .then((r) => {
-         alert('logout success')
+         return r
 
      }).catch((e) => {
 
@@ -47,6 +49,17 @@ async userLogout(context,params){
       await localStorage.removeItem('api_token')
       await localStorage.clear()
  },
+ async getUser(context,params){
+  let res = await axios.get('/api/auth/user')
+  .then((r) => {
+      return r.data
+
+  }).catch((e) => {
+
+     return e
+   });
+   return res
+},
 
 
 async NameMethods(context,params){

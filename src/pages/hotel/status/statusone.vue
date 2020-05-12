@@ -13,12 +13,11 @@
     <script>
     import { get,sync,call } from "vuex-pathify";
     import statusone from "../../../components/page/hotel/status/statussone";
-    import statussignone from "../../../components/page/hotel/status/statussignone";
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        statusone,statussignone
+        statusone
     },
   /*-------------------------Set Component---------------------------------------*/
 props:{

@@ -20,8 +20,9 @@
           </tr>
           </tbody>
         </q-markup-table><br>
-
-        <q-btn type="submit" style="width:100%;" color="primary" label="บันทึก" @click="nexts()" />
+        <div  class="button-wrapper">
+          <q-btn type="submit" class="button" color="primary" label="บันทึก" @click="UpdateStatus()" />
+        </div>
       </div>
 
 
@@ -67,10 +68,10 @@
 
             ...call('order/*'),
             ...call('rate/*'),
-            async nexts() {
-                this.$router.push({name : "statusthree"})
+            // async nexts() {
+            //     this.$router.push({name : "statusthree"})
 
-            },
+            // },
             /******* Methods default run ******/
             load:async function(){
                 let id = this.$route.params.id;
@@ -103,7 +104,26 @@
             },
             deep(name,path){
               return _.get(name,path)
+            },
+            UpdateStatus(){
+              console.log("form",this.form)
+              let status = {
+                status_id: 2
+              }
+              this.updateorderData({hotelId:this.$route.params.id,form :status,orderId:this.$route.query.id})
+              this.updateorderdetailData({orderId: this.$route.query.id,form: this.form }).then(res => {
+                  this.$router.push({name: "statusthree",query: { id: this.$route.query.id }})
+              })
             }
         },
     }
 </script>
+<style>
+  .button{
+    width: 100%;
+  }
+  .button-wrapper{
+  width: 100%;
+  padding: 2%;
+}
+</style>
