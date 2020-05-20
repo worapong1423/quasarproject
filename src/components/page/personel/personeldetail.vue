@@ -4,7 +4,7 @@
     <div v-if="!edits">
       <!-----------ส่งค่าให้รูปเปลี่ยนสถานะเอานะ---------->
       <div class="item1">
-        <div>
+        <div v-if="$route.query.type == 2">
           <q-img
             src="../statics/car.png"
             style="height: 144px; max-width: 144px"
@@ -13,8 +13,8 @@
             สถานะ : พนักงานส่งของ
           </div>
         </div>
-        <!----------สถานะพนักงานทั่วไป
-        <div>
+        <!----------สถานะพนักงานทั่วไป------------->
+        <div v-if="$route.query.type == 3">
           <q-img
             src="../statics/washing-machine001.png"
             style="height: 144px; max-width: 144px"
@@ -22,15 +22,15 @@
           <div class="text-subtitle1">
             สถานะ : พนักงานทั่วไป
           </div>
-        </div>------------->
+        </div>
       </div><br>
 
       <div class="item2">
         <div class="text-body1">
           <div class="text-left">
-            <p>ชื่อ : นายทองดี ดีดี </p>
-            <p>ชื่อผู้ใช้ : tongde </p>
-            รหัสผ่าน : 12345678
+            <p>ชื่อ : {{dataApi.name}} </p>
+            <p>ชื่อผู้ใช้ : {{dataApi.email}} </p>
+            <!-- รหัสผ่าน : {{dataApi.password}} -->
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
 
     <div v-else-if="edits">
       <div class="item1">
-        <div>
+        <div v-if="$route.query.type == 2">
           <q-img
             src="../statics/car.png"
             style="height: 144px; max-width: 144px"
@@ -52,14 +52,23 @@
             สถานะ : พนักงานส่งของ
           </div>
         </div>
+        <div v-if="$route.query.type == 3">
+          <q-img
+            src="../statics/washing-machine001.png"
+            style="height: 144px; max-width: 144px"
+          /><br>
+          <div class="text-subtitle1">
+            สถานะ : พนักงานทั่วไป
+          </div>
+        </div>
       </div><br>
 
       <div>
-          <p><q-input bg-color="white"  required square outlined label="ชื่อ" /></p>
-          <p><q-input bg-color="white"  required square outlined label="ชื่อผู้ใช้" /></p>
-          <p><q-input bg-color="white"  required square outlined label="รหัสผ่าน" /></p>
-          <q-btn v-on:click="edits=false"  type="submit"  color="primary" label="บันทึก" />
-          <q-btn  type="submit"  color="red" label="ลบ" @click="deletes()"/>
+          <p><q-input bg-color="white"  required square outlined label="ชื่อ" v-model="form.name" /></p>
+          <p><q-input bg-color="white"  required square outlined label="ชื่อผู้ใช้" v-model="form.email"  /></p>
+          <p><q-input bg-color="white"  type="password" required square outlined label="รหัสผ่าน" v-model="form.password"/></p>
+          <q-btn  type="submit"  color="primary" label="บันทึก" @click="submit()" />
+          <q-btn  type="submit"  color="red" label="ยกเลิก" @click="deletes()"/>
       </div>
 
     </div>
@@ -104,7 +113,12 @@
         data() {
             return {
                 edits:false,
-
+                dataApi:null,
+                form:{
+                  name:null,
+                  email:null,
+                  password:null
+                }
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -118,17 +132,37 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
-
+          ...sync('login/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
-
+            ...call('login/*'),
             async deletes() {
-                this.$router.push({name : "personels" })
+                this.form.password = null
+                this.edits=false
+                // this.$router.push({name : "personels" })
             },
             /******* Methods default run ******/
             load:async function(){
-            }
+              let form = {
+                id:this.$route.query.userid
+              }
+              this.dataApi =  await this.getUserById(form).then(res => {
+                  console.log(res)
+                  this.form.name= res.name
+                  this.form.email = res.email
+                  return res
+              })
+            },
+            submit(){
+              this.form.id = this.$route.query.userid
+                this.updateUser(this.form).then(res=> {
+                  console.log(res)
+                  this.load()
+                  this.edits=false
+                  this.form.password = null
+                })
+            },
         },
     }
 </script>

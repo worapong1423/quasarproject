@@ -49,7 +49,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple v-if="dataApi.usertype == 1">
             <q-item-section avatar>
               <q-icon name="people" />
             </q-item-section>
@@ -68,7 +68,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple v-if="dataApi.usertype == 1 ">
             <q-item-section avatar>
               <q-icon name="description" />
             </q-item-section>
@@ -85,8 +85,7 @@
           <!-- <q-avatar size="56px" class="q-mb-sm">
             <img src="https://cdn.quasar.dev/img/boy-avatar.png">
           </q-avatar> -->
-          <div class="text-weight-bold">นายวรพงศ์ รัตนอุมดสวัสดิ์</div>
-          <!-- <div>@worapong</div> -->
+          <div class="text-weight-bold">{{dataApi.name}}</div>
         </div>
       </q-img>
     </q-drawer>
@@ -113,6 +112,7 @@
         data() {
             return {
                 leftDrawerOpen: false,
+                dataApi:null,
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -163,6 +163,7 @@
                 this.$router.push({name : "bill"})
             },
             load:async function(){
+              this.dataApi = await this.getUser()
             }
         },
     }

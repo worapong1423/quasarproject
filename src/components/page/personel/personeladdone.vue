@@ -5,7 +5,7 @@
       <div class="text-h5">
         เลือกสถานะพนักงาน
       </div><br><br>
-      <div @click="openadd()">
+      <div @click="openadd('driver')">
         <q-img
           src="../statics/car.png"
           style="height: 144px; max-width: 144px"
@@ -14,7 +14,7 @@
           สถานะ : พนักงานส่งของ
         </div><br><br>
       </div>
-      <div @click="openadd()">
+      <div @click="openadd('employee')">
         <q-img
           src="../statics/washing-machine001.png"
           style="height: 144px; max-width: 144px"
@@ -84,8 +84,8 @@
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
-            async openadd() {
-                this.$router.push({name : "personeladdtwo" })
+            async openadd(type) {
+                this.$router.push({name : "personeladdtwo",query: { type:type} })
             },
             /******* Methods default run ******/
             load:async function(){

@@ -10,14 +10,14 @@
               <q-item-section @click="openpage(h.id)">{{(index+1)}}. {{h.name}}</q-item-section>
               <q-item-section top side>
                 <div class="text-grey-8 q-gutter-xs">
-                  <q-btn size="12px" flat dense round icon="delete" @click="destroyhotelData(h.id)"/>
+                  <q-btn size="12px" flat dense round icon="delete" @click="destroyhotelData(h.id)" v-if="dataApi.usertype == 1"/>
                 </div>
               </q-item-section>
             </q-item>
           </q-list>
         </div>
 
-        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+        <q-page-sticky position="bottom-right" :offset="[18, 18]" v-if="dataApi.usertype == 1">
           <q-btn @click="addhotel()" fab icon="add" color="primary"/>
         </q-page-sticky>
 
@@ -37,7 +37,7 @@
         props: {},
         /*-------------------------DataVarible---------------------------------------*/
         data  : () => ({
-
+              dataApi:null,
 
         }),
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -51,11 +51,13 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed: {
-            ...sync('hotel/*')
+            ...sync('hotel/*'),
+            ...sync('login/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods: {
             ...call('hotel/*'),
+            ...call('login/*'),
             /******* Methods default run ******/
 
 
@@ -71,7 +73,7 @@
 
             load: async function () {
                 await this.readhoteldata();
-                console.log(this.hotel);
+                this.dataApi = await this.getUser()
             }
         },
     }

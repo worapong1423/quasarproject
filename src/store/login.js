@@ -29,10 +29,10 @@ async login(context,params){
         localStorage.setItem('api_token',r.data.access_token);
         await actions.axiosSetToken(context,r.data.access_token);
         state.userDetail = r
-        return r
+        return true
     }).catch((e) => {
         //alert('loginfailed')
-        return e
+        return false
      });
      return loginform
 },
@@ -56,6 +56,59 @@ async userLogout(context,params){
 
   }).catch((e) => {
 
+     return e
+   });
+   return res
+},
+async registerUser(context,params){
+  let res = await axios.post('/api/auth/signup',params)
+  .then((r) => {
+      return r
+
+  }).catch((e) => {
+
+     return e
+   });
+   return res
+},
+async getAllUser(context,params){
+  let res = await axios.get('/api/auth/getalluser')
+  .then((r) => {
+      return r.data
+
+  }).catch((e) => {
+
+     return e
+   });
+   return res
+},
+async getUserById(context,params){
+  let res = await axios.post(`/api/auth/getuserbyid`,params)
+  .then((r) => {
+      return r.data
+
+  }).catch((e) => {
+
+     return e
+   });
+   return res
+},
+async updateUser(context,params){
+  let res = await axios.put(`/api/auth/updateuser`,params)
+  .then((r) => {
+      return r
+
+  }).catch((e) => {
+
+     return e
+   });
+   return res
+},
+async deleteUser(context,params){
+  let res = await axios.post(`/api/auth/deleteuser`,params)
+  .then((r) => {
+      return r
+  }).catch((e) => {
      return e
    });
    return res

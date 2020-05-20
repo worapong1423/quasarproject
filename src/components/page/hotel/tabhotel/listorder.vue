@@ -13,17 +13,17 @@
                 <p class=p-2 v-if="order.status_id ==2">{{mapStatusToText(order.status_id)}}</p>
                 <p class=p-3 v-if="order.status_id ==3">{{mapStatusToText(order.status_id)}}</p>
                 </q-item-section>
-              <q-item-section top side>
+              <!-- <q-item-section top side>
                 <div class="text-grey-8 q-gutter-xs">
                   <q-btn size="12px" flat dense round icon="delete" @click="deleteOrder(order.id)"/>
                 </div>
-              </q-item-section>
+              </q-item-section> -->
             </q-item>
           </q-list>
 
         </div>
 
-        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+        <q-page-sticky position="bottom-right" :offset="[18, 18]" v-if="dataApi.usertype == 1|| dataApi.usertype == 2">
           <q-btn @click="addorder()" fab icon="add" color="primary"/>
         </q-page-sticky>
 
@@ -43,7 +43,9 @@
         props: {},
         /*-------------------------DataVarible---------------------------------------*/
         data() {
-            return {};
+            return {
+              dataApi:null,
+            };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
         async mounted() {
@@ -56,12 +58,14 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed: {
-            ...sync('order/*')
+            ...sync('order/*'),
+            ...sync('login/*'),
 
         },
         /*-------------------------Methods------------------------------------------*/
         methods: {
             ...call('order/*'),
+            ...call('login/*'),
             /******* Methods default run ******/
 
 
@@ -96,6 +100,7 @@
             load: async function () {
                 let id = this.$route.params.id;
                 await this.readorderbyID(id);
+                this.dataApi = await this.getUser()
                 console.log(this.orderData)
             },
             mapStatusToText(status){

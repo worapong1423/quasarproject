@@ -33,7 +33,7 @@
         </q-item>
       </q-list>
 
-      <q-page-sticky  position="bottom-right" :offset="[18, 18]">
+      <q-page-sticky  position="bottom-right" :offset="[18, 18]" v-if="dataApi.usertype == 1">
         <q-btn v-on:click="edits=true" fab icon="edit" color="primary" @click="shopedit = shopform"  />
       </q-page-sticky>
     </div>
@@ -73,6 +73,7 @@
         data() {
             return {
                 edits:false,
+                dataApi:null,
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -86,11 +87,13 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed: {
-            ...sync('shop/*')
+            ...sync('shop/*'),
+            ...sync('login/*'),
         },
         /*-------------------------Methods------------------------------------------*/
         methods: {
             ...call('shop/*'),
+            ...call('login/*'),
             /******* Methods default run ******/
             async update() {
                 let check = await this.updateshopData(this.shopedit);
@@ -102,6 +105,7 @@
             },
             load: async function () {
                 await this.readshopdatabyID('1');
+                this.dataApi = await this.getUser()
             }
         },
     }

@@ -37,7 +37,7 @@
             </q-item>
         </q-list>
 
-        <q-page-sticky  position="bottom-right" :offset="[18, 18]">
+        <q-page-sticky  position="bottom-right" :offset="[18, 18]" v-if="dataApi.usertype == 1">
             <q-btn v-on:click="ilke=true" fab icon="edit" color="primary"  @click=" hotelform = hoteldetail" />
         </q-page-sticky>
     </div>
@@ -78,6 +78,7 @@ props:{
     data() {
     return {
         ilke:false,
+        dataApi:null,
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -91,11 +92,13 @@ props:{
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed:{
-      ...sync('hotel/*')
+      ...sync('hotel/*'),
+      ...sync('login/*')
 },
     /*-------------------------Methods------------------------------------------*/
 methods:{
     ...call('hotel/*'),
+    ...call('login/*'),
     async update() {
         let id =this.$route.params.id;
         let check = await this.updatehotelData(this.hoteldetail);
@@ -111,6 +114,7 @@ methods:{
     load:async function(){
         let id =this.$route.params.id;
         await this.readhotelbyId(id);
+        this.dataApi = await this.getUser()
 
 
 }

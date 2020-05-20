@@ -16,11 +16,11 @@
       </q-markup-table>
 
       <q-page-sticky position="bottom-right" :offset="[18, 80]">
-        <q-btn v-on:click="typeadd=true" fab icon="add" color="primary"  />
+        <q-btn v-on:click="typeadd=true" fab icon="add" color="primary" v-if="dataApi.usertype == 1" />
       </q-page-sticky>
 
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
-        <q-btn v-on:click="typerate=true" fab icon="edit" color="primary"  @click=" rateedit = rateList" />
+        <q-btn v-on:click="typerate=true" fab icon="edit" color="primary"  @click=" rateedit = rateList" v-if="dataApi.usertype == 1" />
       </q-page-sticky>
 
     </div>
@@ -48,7 +48,7 @@
         </tbody>
       </q-markup-table><br>
       <div>
-        <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="save()">บันทึก</q-btn>
+        <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="save()" >บันทึก</q-btn>
         <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
       </div>
     </div>
@@ -69,7 +69,7 @@
         </tbody>
       </q-markup-table><br>
       <div>
-        <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" @click="submit()">บันทึก</q-btn>
+        <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" @click="submit()" >บันทึก</q-btn>
         <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
       </div>
     </div>
@@ -94,7 +94,7 @@
         /*-------------------------DataVarible---------------------------------------*/
         data() {
             return {
-
+              dataApi:null,
             };
         },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -108,12 +108,14 @@
         },
         /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
         computed:{
-            ...sync('rate/*')
+            ...sync('rate/*'),
+            ...sync('login/*')
         },
         /*-------------------------Methods------------------------------------------*/
         methods:{
 
             ...call('rate/*'),
+            ...call('login/*'),
             /******* Methods default run ******/
 
             async save() {
@@ -143,6 +145,7 @@
             load:async function(){
                 let id =this.$route.params.id;
                 await this.readratebyID(id);
+                this.dataApi = await this.getUser()
             }
         },
     }

@@ -8,7 +8,7 @@
           <div>
             <div class="text-subtitle2 ">
               <div class="text-right">
-              เลขที่ {{summaryData.order_code}}
+              เลขที่ {{summaryData.id}}
               </div>
               <div class="text-left">
                 รายการที่ {{summaryData.order_code}} <br>

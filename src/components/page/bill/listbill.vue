@@ -4,11 +4,11 @@
     <q-layout>
       <q-page-container>
         <div v-for="(bill,index) in BillData" :key="index" class="list-wrapper">
-          <q-list bordered separator v-if="bill.status_id == 3" >
+          <q-list bordered separator  >
             <q-item clickable v-ripple @click="orderbill(bill.id,bill.hotel_id)">
               <q-item-section >
                 <q-item-label>รายการที่ {{bill.order_code}}</q-item-label>
-                <q-item-label>{{bill.hotel.name}}</q-item-label><br>
+                <q-item-label>{{bill.hotel.name}}</q-item-label>
                 <q-item-label></q-item-label>
                 <q-item-label>{{dateFormat(bill.created_at)}}</q-item-label>
               </q-item-section>
