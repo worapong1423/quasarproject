@@ -1,6 +1,6 @@
 <template>
-  <div class="grid-container">
-    <div class="item1">
+  <div class="" >
+    <div class="item1" ref="content">
     <q-markup-table flat bordered>
       <thead >
       <tr>
@@ -8,10 +8,10 @@
           <div>
             <div class="text-subtitle2 ">
               <div class="text-right">
-              เลขที่ {{summaryData.id}}
+              NO.{{summaryData.id}}
               </div>
               <div class="text-left">
-                รายการที่ {{summaryData.order_code}} <br>
+                รายการ {{summaryData.order_code}} <br>
                 โรงแรม {{hoteldetail.name}} <br>
                 {{dateFormat(summaryData.created_at)}}
               </div>
@@ -29,7 +29,12 @@
       <tr v-for="(rate,index) in form?form.order_detail:form.order_detail" :key="index">
         <td class="text-left">{{rate.$rate_name}}</td>
         <td class="text-right">{{rate.amountin}}</td>
-        <td class="text-right">{{rate.amountout}}</td>
+        <td class="text-right">{{rate.amountout*rate.rate}}</td>
+      </tr>
+      <tr>
+        <td class="text-left">รวมทั้งหมด</td>
+        <td class="text-right"></td>
+        <td class="text-right">{{calTotalPrice()}}</td>
       </tr>
       <!-- <tr>
         <td class="text-left">ผ้าปูที่นอนใหญ่</td>
@@ -46,44 +51,50 @@
     </div>
 
     <div class="item2" >
-      <q-btn icon="local_printshop white" v-on:click="typeadd=false" style="width:100%;" color="primary" >พิมพ์</q-btn>
+      <q-btn icon="local_printshop white" @click="exportPDF()" style="width:100%;" color="primary" >พิมพ์</q-btn>
     </div>
   </div>
 </template>
 <style type="text/css">
-  .Fullscreen
+  /* .Fullscreen
   {
     position:absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    /* Optional - just for DIV)*/
     border: solid 1px #000000;
     background-color:#00B0FF;
-  }
-  .grid-container {
+  } */
+  /* .grid-container {
     display: grid;
     grid-template-columns: auto ;
     grid-gap: 10px;
     padding: 10px;
-  }
+  } */
 
-  .grid-container > div {
+  /* .grid-container > div {
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
-  }
+  } */
   .item1 {
-    grid-column: 1/1 ;
+    border: 10px;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
   }
   .item2 {
-    grid-column: 1/2 ;
+    padding: 10px;
   }
+
 </style>
 <script>
     import { get,sync,call } from "vuex-pathify";
     import moment from "moment";
+    import jsPDF from 'jspdf';
+    import html2canvas from 'html2canvas';
     export default {
         name: 'Root',
         /*-------------------------Load Component---------------------------------------*/
@@ -127,6 +138,34 @@
               moment.locale('th');
               return moment(date).format("Do MMMM YYYY")
             },
+            exportPDF(){
+              var doc = new jsPDF({
+                        //   orientation: 'landscape',
+                        unit: 'px',
+                        format: [1000, 1500]
+                        }
+                        )
+              // let source = this.$refs.content.innerHTML
+              // doc.setFont('Roboto','normal')
+              // doc.text('เลขที่', 40, 40)
+              // doc.fromHTML(source,20,20)
+              // doc.save('a4.pdf')
+              var canvasElement = document.createElement('canvas');
+              html2canvas(this.$refs.content,{scrollY: 0}).then(function (canvas) {
+                console.log('canvas',canvas)
+                const img = canvas.toDataURL();
+                doc.addImage(img,'JPEG',55,20);
+                doc.save("sample.pdf");
+              });
+            },
+            calTotalPrice(){
+              let totalprice = 0
+              for(let i of this.form.order_detail){
+                console.log(i)
+                totalprice += i.rate*i.amountout
+              }
+              return totalprice
+            },
             load:async function(){
                 let id = this.$route.query.hotelid;
                 let orderId = this.$route.query.id
@@ -148,7 +187,7 @@
                   return res.amountin
                 })
                 let amountout = this.detailData.map(res=>{
-                  return res.amountin
+                  return res.amounout
                 })
                 for(let i in orderDetail){
                   orderDetail[i].amountin = amountin[i]

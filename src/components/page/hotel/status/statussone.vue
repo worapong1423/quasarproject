@@ -63,7 +63,7 @@
 
 </template>
 <style>
-  .grid-container {
+  /* .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
     grid-gap: 10px;
@@ -76,7 +76,7 @@
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
-  }
+  } */
   #signature {
   border: double 3px transparent;
   border-radius: 5px;
@@ -86,9 +86,9 @@
   background-clip: content-box, border-box;
 }
 
-  .item1 {
+  /* .item1 {
     grid-column: 1 / 5;
-  }
+  } */
   .button-wrapper{
     width: 100%;
     padding: 2%;
@@ -118,6 +118,15 @@
         async mounted() {
             /**** Call loading methods*/
             this.load();
+            if (localStorage.getItem('reloaded')) {
+        // The page was just reloaded. Clear the value from local storage
+        // so that it will reload the next time this page is visited.
+        localStorage.removeItem('reloaded');
+    } else {
+        // Set a flag so that we know not to reload the page twice.
+        localStorage.setItem('reloaded', '1');
+        location.reload();
+    }
         },
         /*-------------------------Run Methods when Start Routed------------------------------------------*/
         async beforeRouteEnter(to, from, next) {

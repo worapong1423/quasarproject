@@ -36,10 +36,11 @@
         /*-------------------------Set Component---------------------------------------*/
         props: {},
         /*-------------------------DataVarible---------------------------------------*/
-        data  : () => ({
+        data(){
+          return{
               dataApi:null,
-
-        }),
+          }
+        },
         /*-------------------------Run Methods when Start this Page------------------------------------------*/
         async mounted() {
             /**** Call loading methods*/
@@ -72,8 +73,8 @@
             },
 
             load: async function () {
-                await this.readhoteldata();
                 this.dataApi = await this.getUser()
+                await this.readhoteldata();
             }
         },
     }
