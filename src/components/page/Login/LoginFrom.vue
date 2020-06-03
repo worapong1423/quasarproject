@@ -4,7 +4,7 @@
 <div class="Fullscreen" >
 <div style="padding:5%;"  >
 
-    <div class="grid-container">
+    <div class="wrapper">
       <div class="item1">
         <div>
           <br>
@@ -40,7 +40,7 @@
     border: solid 1px #000000;
     background-color:#00B0FF;
   }
-  .grid-container {
+  /* .grid-container {
     display: grid;
     grid-template-columns: auto ;
     grid-gap: 10px;
@@ -51,12 +51,17 @@
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
-  }
-  .item1 {
+  } */
+  /* .item1 {
     grid-column: 1 ;
   }
   .item2 {
     grid-column: 1 ;
+  } */
+  .wrapper{
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
   }
 </style>
 <script>

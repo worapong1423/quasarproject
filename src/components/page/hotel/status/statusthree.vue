@@ -116,7 +116,7 @@
                   return res.amountin
                 })
                 let amountout = this.detailData.map(res=>{
-                  return res.amountin
+                  return res.amountout
                 })
                 for(let i in orderDetail){
                   orderDetail[i].amountin = amountin[i]

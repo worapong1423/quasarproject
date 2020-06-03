@@ -132,7 +132,6 @@
                 let id =this.$route.params.id;
                 let check = await this.createrateData({hotelId : id,form: this.product});
                 if(check){
-                    alert('Create Success');
                     this.product = {};
                 }else{
                     alert('Create Error');

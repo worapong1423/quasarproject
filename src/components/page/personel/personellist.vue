@@ -86,10 +86,13 @@
                 id: userId
               }
               console.log("form===>",form)
-              this.deleteUser(form).then(res => {
-                console.log(res)
-                this.load()
-              })
+              let confirms = confirm('Do you want to delete this data ?');
+              if(confirms){
+                this.deleteUser(form).then(res => {
+                  console.log(res)
+                  this.load()
+                })
+              }
             },
         },
     }
