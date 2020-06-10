@@ -187,7 +187,7 @@
 
                 console.log('canvas',canvas)
                 const img = canvas.toDataURL();
-                doc.addImage(img,'JPEG',55,20);
+                doc.addImage(img,'JPEG',150,20);
                 // var pdfOutput = doc.output();
                 // window.open(URL.createObjectURL(blob))
                 doc.save(`${docname}.pdf`);
@@ -208,7 +208,7 @@
                 await this.readhotelbyId(id);
                 await this.readratebyID(id);
                 let adminid = {
-                  id:12
+                  id:6
                 }
                 this.adminData =  await this.getUserById(adminid).then(res => {
                   console.log(res)

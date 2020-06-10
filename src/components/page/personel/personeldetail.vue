@@ -67,8 +67,11 @@
           <p><q-input bg-color="white"  required square outlined label="ชื่อ" v-model="form.name" /></p>
           <p><q-input bg-color="white"  required square outlined label="ชื่อผู้ใช้" v-model="form.email"  /></p>
           <p><q-input bg-color="white"  type="password" required square outlined label="รหัสผ่าน" v-model="form.password"/></p>
-          <q-btn  type="submit"  color="primary" label="บันทึก" @click="submit()" />
-          <q-btn  type="submit"  color="red" label="ยกเลิก" @click="deletes()"/>
+          <p><q-input bg-color="white"  type="password" required square outlined label="ยืนยันรหัสผ่าน" v-model="form.password_confirmation"/></p>
+          <div class="button-wrapper">
+            <q-btn  class="submit-btn" type="submit"  color="primary" label="บันทึก" @click="submit()" />
+            <q-btn  type="submit"  color="red" label="ยกเลิก" @click="deletes()"/>
+          </div>
       </div>
 
     </div>
@@ -95,7 +98,15 @@
   .item2 {
     grid-column: 1 ;
   }
-
+  .submit-btn{
+    /* margin-left: 10px; */
+    margin-bottom: 0;
+    
+  }
+  .button-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+  }
 </style>
 
 <script>
@@ -117,7 +128,8 @@
                 form:{
                   name:null,
                   email:null,
-                  password:null
+                  password:null,
+                  password_confirmation:null
                 }
             };
         },
@@ -157,10 +169,16 @@
             submit(){
               this.form.id = this.$route.query.userid
                 this.updateUser(this.form).then(res=> {
-                  console.log(res)
                   this.load()
                   this.edits=false
                   this.form.password = null
+                  this.form.password_confirmation = null
+                  if(res){
+                    alert("update success")
+                  }
+                  else{
+                    alert("ไม่สามารถแก้ไขข้อมูลพนักงานได้")
+                  }
                 })
             },
         },

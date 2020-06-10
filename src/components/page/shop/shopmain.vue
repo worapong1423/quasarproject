@@ -43,13 +43,13 @@
           <q-input outlined v-model="shopedit.address"  label="ที่อยู่" />
           <q-input outlined v-model="shopedit.district"  label="อำเภอ" />
           <q-input outlined v-model="shopedit.province"  label="จังหวัด" />
-          <q-input outlined v-model="shopedit.zipcode"  label="รหัสไปรษณีย" />
-          <q-input outlined v-model="shopedit.tel"  label="เบอร์ติดต่อ" />
+          <q-input outlined v-model="shopedit.zipcode" type="number" label="รหัสไปรษณีย" />
+          <q-input outlined v-model="shopedit.tel" type="number"  label="เบอร์ติดต่อ" />
           <q-input outlined v-model="shopedit.email"  label="อีเมล" />
-          <q-input outlined v-model="shopedit.taxid"  label="เลขประจำตัวผู้เสียภาษี" />
+          <q-input outlined v-model="shopedit.taxid" type="number" label="เลขประจำตัวผู้เสียภาษี" />
         </q-list><br>
 
-        <q-btn v-on:click="edits=false" style="width:100%;" color="primary" @click="update()">บันทึก
+        <q-btn  style="width:100%;" color="primary" @click="update()">บันทึก
         </q-btn>
 
       </div>
@@ -99,9 +99,12 @@
                 let check = await this.updateshopData(this.shopedit);
                 if (check) {
                     this.shopedit = {}
+                    this.load()
                 } else {
-
+                  this.load()
+                  alert('ไม่สามารถแก้ไขข้อมูลร้านค้าได้')
                 }
+                this.edits=false
             },
             load: async function () {
                 await this.readshopdatabyID('1');

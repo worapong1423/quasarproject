@@ -100,7 +100,7 @@ async updateUser(context,params){
 
   }).catch((e) => {
 
-     return e
+     return false
    });
    return res
 },

@@ -41,7 +41,6 @@ const actions = {
         alert('Update Data Success');
         return true;
       }).catch((e) => {
-        alert('Error Update');
         return false;
       });
     return load

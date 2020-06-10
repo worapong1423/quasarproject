@@ -41,7 +41,7 @@ async updatehotelData(context, params) {
     alert('Update Data Success');
     return true;
   }).catch((e) => {
-    alert('Error Update');
+    alert('ไม่สามารถแก้ไข้ข้อมูลโรงแรมได้');
     return false;
   });
     return load

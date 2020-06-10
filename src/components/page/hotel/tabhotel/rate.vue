@@ -39,7 +39,7 @@
             <q-input outlined v-model="rateedit.name" />
           </td>
           <td >
-            <q-input outlined v-model="rateedit.price"  />
+            <q-input type="number" outlined v-model="rateedit.price"  />
           </td>
           <td class="text-right">
             <q-btn v-on:click="typerate=false" size="12px" flat dense round icon="delete" @click="destroyrateData({hotelId : $route.params.id , id : rateedit.id})" />
@@ -47,8 +47,8 @@
         </tr>
         </tbody>
       </q-markup-table><br>
-      <div>
-        <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" @click="save()" >บันทึก</q-btn>
+      <div class="btn-wrapper">
+        <q-btn class="submit-btn" v-on:click="typerate=false" style="width:100%;" color="primary" @click="save()" >บันทึก</q-btn>
         <q-btn v-on:click="typerate=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
       </div>
     </div>
@@ -64,12 +64,12 @@
           <q-input outlined v-model="product.name" />
         </td>
         <td class="text-right">
-          <q-input outlined v-model="product.price" />
+          <q-input type="number" outlined v-model="product.price" />
         </td>
         </tbody>
       </q-markup-table><br>
-      <div>
-        <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" @click="submit()" >บันทึก</q-btn>
+      <div class="btn-wrapper">
+        <q-btn class="submit-btn" v-on:click="typeadd=false" style="width:100%;" color="primary" @click="submit()" >บันทึก</q-btn>
         <q-btn v-on:click="typeadd=false" style="width:100%;" color="primary" >ยกเลิก</q-btn>
       </div>
     </div>
@@ -78,7 +78,16 @@
 
   </div>
 </template>
-
+<style type="text/css">
+  .btn-wrapper{
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+  }
+  .submit-btn{
+    margin-bottom: 20px;
+  }
+</style>
 <script>
     import { get,sync,call } from "vuex-pathify";
     export default {
