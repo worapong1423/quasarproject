@@ -86,6 +86,7 @@
             <img src="https://cdn.quasar.dev/img/boy-avatar.png">
           </q-avatar> -->
           <div class="text-weight-bold">{{dataApi.name}}</div>
+          <div class="text-weight-bold">{{usertypeTotext()}}</div>
         </div>
       </q-img>
     </q-drawer>
@@ -161,6 +162,17 @@
             },
             async billpage() {
                 this.$router.push({name : "bill"})
+            },
+            usertypeTotext(){
+              if(this.dataApi.usertype == 1){
+                return "Admin"
+              }
+              else if(this.dataApi.usertype == 2){
+                return "พนักงานขับรถ"
+              }
+              else if(this.dataApi.usertype == 3){
+                return "พนักงานทั่วไป"
+              }
             },
             load:async function(){
               this.dataApi = await this.getUser()
