@@ -16,7 +16,7 @@
     "axios": "^0.18.1",
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "quasar": "^1.0.0",
     "vue-headful": "^2.0.1",
